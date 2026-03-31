@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acesso Confirmado - Creator Shopee</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f1f0f3",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed-variant": "#00531c",
+              "secondary-container": "#fec730",
+              "primary-container": "#d63c1e",
+              "primary": "#b22204",
+              "surface-container-highest": "#e2e2e5",
+              "outline": "#8f7069",
+              "on-surface": "#1a1c1e",
+              "tertiary": "#006b26",
+              "tertiary-fixed": "#94f99c",
+              "on-error": "#ffffff",
+              "surface-variant": "#e2e2e5",
+              "on-secondary-fixed-variant": "#5a4300",
+              "on-error-container": "#93000a",
+              "on-background": "#1a1c1e",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#f3f3f6",
+              "on-secondary-fixed": "#251a00",
+              "secondary": "#775a00",
+              "surface-tint": "#b62506",
+              "on-tertiary-fixed": "#002107",
+              "tertiary-fixed-dim": "#79dc83",
+              "surface-dim": "#dadadc",
+              "inverse-surface": "#2f3133",
+              "primary-fixed": "#ffdad3",
+              "on-primary-container": "#fffbff",
+              "surface-bright": "#f9f9fc",
+              "error": "#ba1a1a",
+              "surface-container": "#eeeef0",
+              "on-surface-variant": "#5b403b",
+              "surface-container-high": "#e8e8ea",
+              "background": "#f9f9fc",
+              "surface": "#f9f9fc",
+              "tertiary-container": "#1e8638",
+              "on-primary-fixed": "#3e0500",
+              "on-primary-fixed-variant": "#8d1600",
+              "secondary-fixed": "#ffdf98",
+              "outline-variant": "#e3beb6",
+              "primary-fixed-dim": "#ffb4a4",
+              "on-secondary-container": "#6f5400",
+              "secondary-fixed-dim": "#f4bf26",
+              "on-tertiary-container": "#f7fff2",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#ffb4a4",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .orange-glow {
+        box-shadow: 0 0 50px -10px rgba(238, 77, 45, 0.3);
+    }
+    .kinetic-gradient {
+        background: linear-gradient(135deg, #b22204 0%, #d63c1e 100%);
+    }
+    .green-glow {
+        box-shadow: 0 0 60px -10px rgba(34, 197, 94, 0.25);
+    }
+    body {
+        min-height: 100dvh;
+    }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-body selection:bg-primary selection:text-white">
+
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#EE4D2D]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-xl font-extrabold text-[#EE4D2D] italic font-headline tracking-tighter">Creator Shopee</span>
+</div>
+</div>
+</nav>
+
+<!-- Hero / Confirmation -->
+<header class="relative pt-32 pb-12 px-6 overflow-hidden flex flex-col justify-center">
+<!-- Decorative Glows -->
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-green-500/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-green-500/5 rounded-full blur-[100px]"></div>
+
+<div class="max-w-2xl mx-auto text-center relative z-10">
+<!-- Green checkmark -->
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-green-500/15 border border-green-500/20 flex items-center justify-center mx-auto mb-8">
+<span class="material-symbols-outlined text-green-400 text-5xl md:text-6xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+
+<h1 class="font-headline text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+Pronto! Seu acesso est&aacute; confirmado.
+</h1>
+<p class="font-body text-base md:text-lg text-slate-400 max-w-lg mx-auto leading-relaxed">
+Voc&ecirc; tomou a melhor decis&atilde;o. Agora &eacute; hora de come&ccedil;ar.
+</p>
+</div>
+</header>
+
+<!-- Next Steps Card -->
+<section class="px-6 pb-12">
+<div class="max-w-2xl mx-auto">
+<div class="glass-card rounded-2xl p-6 md:p-10 green-glow border-green-500/10">
+<h2 class="font-headline text-lg md:text-xl font-bold text-white mb-8 text-center">Seus pr&oacute;ximos passos</h2>
+
+<div class="space-y-8">
+<!-- Step 1 -->
+<div class="flex gap-4 items-start">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-bold text-lg font-headline">1</div>
+<div>
+<h3 class="font-headline text-base font-bold text-white mb-1">Confira seu e-mail</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Enviamos o link de acesso para o e-mail cadastrado. Verifique a caixa de entrada e tamb&eacute;m a pasta de spam.</p>
+</div>
+</div>
+
+<!-- Step 2 -->
+<div class="flex gap-4 items-start">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-bold text-lg font-headline">2</div>
+<div>
+<h3 class="font-headline text-base font-bold text-white mb-1">Entre no grupo do WhatsApp</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Clique no bot&atilde;o abaixo pra entrar no grupo de suporte. L&aacute; a gente te ajuda com qualquer d&uacute;vida.</p>
+</div>
+</div>
+
+<!-- Step 3 -->
+<div class="flex gap-4 items-start">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 font-bold text-lg font-headline">3</div>
+<div>
+<h3 class="font-headline text-base font-bold text-white mb-1">Comece o Desafio</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Acesse a plataforma e assista a primeira aula hoje. Quanto antes voc&ecirc; come&ccedil;ar, antes chega o resultado.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA Buttons -->
+<section class="px-6 pb-16">
+<div class="max-w-2xl mx-auto flex flex-col items-center gap-4">
+<a class="bg-green-600 hover:bg-green-500 text-white block w-full py-5 rounded-2xl font-black text-base md:text-lg shadow-2xl shadow-green-500/20 hover:scale-[1.02] active:scale-95 transition-all duration-300 uppercase tracking-tight text-center" href="#">
+<span class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">forum</span>
+ENTRAR NO GRUPO DO WHATSAPP
+</span>
+</a>
+<a class="text-slate-400 hover:text-white text-sm font-medium transition-colors duration-300 flex items-center gap-2 py-2" href="#">
+<span class="material-symbols-outlined text-base">play_circle</span>
+Acessar a plataforma do curso
+</a>
+</div>
+</section>
+
+<!-- Support Note -->
+<section class="px-6 pb-12">
+<div class="max-w-2xl mx-auto text-center">
+<p class="text-slate-500 text-sm">D&uacute;vidas? Mande mensagem no WhatsApp de suporte.</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-950 w-full py-10 border-t border-white/5">
+<div class="flex flex-col items-center px-8 gap-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#EE4D2D] text-lg" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-base font-bold text-white font-headline">Creator Shopee</span>
+</div>
+<p class="font-body text-slate-500 text-[10px] text-center max-w-sm">Este produto n&atilde;o garante a obten&ccedil;&atilde;o de resultados. Qualquer refer&ecirc;ncia ao desempenho n&atilde;o &eacute; garantia de resultado futuro.</p>
+<p class="font-body text-slate-400 text-[10px]">&copy; 2026 Creator Shopee. Todos os direitos reservados.</p>
+</div>
+</footer>
+
+</body>
+</html>
