@@ -1,126 +1,223 @@
-# Brief do Panfleto — Desafio Renda Shopee
+# Panfleto — Desafio Creator Shopee
 
-## ESPECIFICACOES TECNICAS
+> Copy reescrita com base em pesquisa de 23 agentes sobre o público classe C/D Brasil.
+> Alinhada com a landing page creatorbrasil.com.br
 
-- **Formato:** 10 x 15 cm (1/4 de A4) — cabe dentro do pacote sem dobrar
-- **Papel:** Couche 150g ou 170g (nao pode ser fino/sulfite — vira lixo)
-- **Impressao:** 4x4 (frente e verso colorido)
-- **QR Code:** Minimo 3x3 cm, com margem de silencio ao redor
-- **URL curta fallback:** rendashopee.com.br (ou similar — registrar dominio curto)
+---
+
+## ESPECIFICAÇÕES TÉCNICAS
+
+- **Formato:** 10 x 15 cm (cabe no pacote sem dobrar)
+- **Papel:** Couchê 150g ou 170g fosco (NÃO brilhante — QR reflete e não escaneia)
+- **Impressão:** 4x4 (frente e verso colorido)
+- **QR Code:** Mínimo 3x3 cm, com margem de silêncio ao redor
+- **URL do QR:** creatorbrasil.com.br/pflto (redirect com UTMs automáticos)
+- **URL fallback (digitável):** creatorbrasil.com.br
 
 ---
 
 ## FRENTE DO PANFLETO
 
-### Layout sugerido
+### Layout
 
 ```
-[TOPO — Badge laranja Shopee]
-OPORTUNIDADE DE RENDA EXTRA
-
-[CENTRO — Headline grande, bold]
-Quer ganhar
-R$3.000+/mes
-vendendo na Shopee?
-
-[SUB — Menor]
-Sem estoque. Sem investimento.
-Do celular. Mesmo sem experiencia.
-
-[QR CODE — Grande, centralizado]
-(minimo 3x3 cm)
-
-[ABAIXO DO QR]
-Aponte a camera e descubra o metodo
-ou acesse: rendashopee.com.br
-
-[RODAPE — Faixa escura]
-+ de 500 pessoas ja faturam com esse metodo
+┌─────────────────────────────────┐
+│  [Faixa laranja #EE4D2D]       │
+│  🔥 CREATOR SHOPEE              │
+├─────────────────────────────────┤
+│                                 │
+│  Esse produto pagou             │
+│  COMISSÃO                       │
+│  pra quem indicou.              │
+│                                 │
+│  Você quer ser o próximo?       │
+│                                 │
+│  ┌───────────┐                  │
+│  │           │                  │
+│  │  QR CODE  │  3x3 cm mín.    │
+│  │           │                  │
+│  └───────────┘                  │
+│                                 │
+│  Aponte a câmera do celular     │
+│  ou acesse creatorbrasil.com.br │
+│                                 │
+├─────────────────────────────────┤
+│  [Faixa escura #0f172a]         │
+│  De zero a R$3.000/mês em 30    │
+│  dias — só com o celular        │
+└─────────────────────────────────┘
 ```
 
-### Cores
-- Fundo: Branco (destaca dentro do pacote marrom/plástico)
-- Headline: Preto bold
-- Destaque (R$3.000+): Laranja Shopee (#EE4D2D)
-- QR: Preto sobre branco (maximo contraste)
-- Rodape: Fundo escuro (#1a1a2e) com texto branco
+### Textos exatos
+
+**Badge topo (faixa laranja):**
+🔥 CREATOR SHOPEE
+
+**Headline (grande, bold, preto):**
+Esse produto pagou **COMISSÃO** pra quem indicou.
+
+**Sub-headline (menor):**
+Você quer ser o próximo?
+
+**Abaixo do QR (pequeno, cinza):**
+Aponte a câmera do celular
+ou acesse **creatorbrasil.com.br**
+
+**Rodapé (faixa escura, texto branco):**
+De zero a R$3.000/mês em 30 dias — só com o celular
+
+### Cores — Frente
+- Fundo principal: **Branco** (destaca dentro do pacote marrom)
+- Headline: **Preto** bold
+- "COMISSÃO": **Laranja Shopee (#EE4D2D)** bold
+- QR: **Preto sobre branco** (máximo contraste) ou **Laranja sobre dark**
+- Faixa topo: **#EE4D2D** com texto branco
+- Faixa rodapé: **#0f172a** com texto branco
 
 ---
 
 ## VERSO DO PANFLETO
 
-### Layout sugerido
+### Layout
 
 ```
-[TOPO]
+┌─────────────────────────────────┐
+│                                 │
+│  COMO FUNCIONA?                 │
+│                                 │
+│  ① Escolha o produto            │
+│     Lista pronta pra você.      │
+│     Sem adivinhar.              │
+│                                 │
+│  ② Compartilhe o link           │
+│     WhatsApp, Instagram,        │
+│     TikTok — do celular.        │
+│                                 │
+│  ③ Receba a comissão            │
+│     Direto no seu Pix.          │
+│     Sem estoque, sem SAC.       │
+│                                 │
+│  ─────────────────────────────  │
+│                                 │
+│  O QUE VOCÊ RECEBE:             │
+│  ✓ Desafio de 30 dias           │
+│  ✓ 12 aulas práticas            │
+│  ✓ Lista de produtos validados  │
+│  ✓ Acesso vitalício             │
+│  ✓ Garantia de 7 dias           │
+│                                 │
+│  ┌─────────────────────────┐    │
+│  │  TUDO ISSO POR APENAS   │    │
+│  │  R$ 29,90               │    │
+│  │  Pagamento único.       │    │
+│  └─────────────────────────┘    │
+│                                 │
+│  8 milhões de pessoas já usam   │
+│  o programa de afiliados Shopee │
+└─────────────────────────────────┘
+```
+
+### Textos exatos
+
+**Título:**
 COMO FUNCIONA?
 
-[3 PASSOS com icones]
+**3 passos:**
+1. **Escolha o produto** — Lista pronta pra você. Sem adivinhar.
+2. **Compartilhe o link** — WhatsApp, Instagram, TikTok — do celular.
+3. **Receba a comissão** — Direto no seu Pix. Sem estoque, sem SAC.
 
-1 — Assista a aula gratuita
-    Descubra o metodo em um video de 4 minutos
+**O que você recebe:**
+- ✓ Desafio de 30 dias estruturado
+- ✓ 12 aulas práticas (passo a passo do zero)
+- ✓ Lista de produtos validados que mais vendem
+- ✓ Acesso vitalício
+- ✓ Garantia de 7 dias
 
-2 — Siga o passo a passo
-    Desafio de 7 dias, do zero ate sua primeira venda
+**Caixa de preço (fundo laranja, texto branco):**
+TUDO ISSO POR APENAS **R$29,90**
+Pagamento único.
 
-3 — Comece a faturar
-    Ganhe comissao indicando produtos na Shopee
+**Rodapé (prova social real):**
+8 milhões de pessoas já usam o programa de afiliados da Shopee
 
-[SEPARADOR]
-
-O QUE VOCE RECEBE:
-✓ Curso completo (12 aulas praticas)
-✓ Lista de produtos que mais vendem
-✓ Suporte por WhatsApp
-✓ Garantia de 7 dias
-
-[DESTAQUE — Caixa laranja]
-TUDO ISSO POR APENAS R$29,90
-Pagamento unico. Acesso vitalicio.
-
-[RODAPE]
-Aponte o QR da frente ou acesse rendashopee.com.br
-```
+### Cores — Verso
+- Fundo: **Branco**
+- Títulos: **Preto** bold
+- Números dos passos: **Laranja (#EE4D2D)** em círculos
+- Checks: **Verde (#22c55e)**
+- Caixa de preço: **Fundo #EE4D2D**, texto branco, cantos arredondados
+- Prova social: **Cinza (#64748b)**, texto pequeno
 
 ---
 
-## NOTAS PARA PRODUCAO
+## POR QUE ESSA COPY FUNCIONA
 
-### O que FAZER:
-- QR testado antes de imprimir (testar com 3 celulares diferentes)
-- URL com UTM para rastrear: `?utm_source=panfleto&utm_medium=qr&utm_campaign=pacote`
-- Papel com acabamento fosco (nao brilhante — QR reflete e nao escaneia)
-- Cores vibrantes que contrastem com o pacote
-- Inserir o panfleto POR CIMA do produto (primeira coisa que a pessoa ve)
+Baseado na pesquisa com 23 agentes:
 
-### O que NAO FAZER:
-- QR pequeno (abaixo de 2.5cm = ninguem escaneia)
-- Papel fino/sulfite (parece lixo, pessoa descarta)
-- Muito texto (a pessoa tem 3 segundos de atencao)
-- Sem URL alternativa (muita gente nao usa QR)
-- Sem tracking (impossivel medir resultado)
+1. **"Esse produto pagou comissão pra quem indicou"** — O panfleto É a prova. A pessoa tá segurando a prova de que o método funciona. Mecanismo único que nenhum concorrente tem.
 
-### Quantidade por tiragem:
-- 60.000/mes (2.000 pacotes/dia x 30 dias)
-- Pedir orcamento para 70.000 (margem de seguranca)
-- Grafica offset para volume alto = custo unitario ~R$0,08-0,12
-- **Custo mensal estimado: R$4.800 — R$8.400**
+2. **Sem promessa de valor no headline** — A pesquisa mostrou que promessas tipo "R$3.000/mês" no primeiro contato geram ceticismo. O headline é curiosidade + prova, não promessa.
+
+3. **R$3.000/mês só no rodapé** — Valor aspiracional aparece secundário, não como claim principal.
+
+4. **"Direto no seu Pix"** — Linguagem do público. Classe C/D entende Pix, não "comissão depositada em conta".
+
+5. **"8 milhões de pessoas"** — Prova social real e verificável (dado oficial Shopee), não inventada.
+
+6. **Preço no verso, não na frente** — Frente vende a curiosidade. Verso vende a oferta. Quem vira já demonstrou interesse.
+
+7. **"Sem estoque, sem SAC"** — As 3 maiores objeções eliminadas em 6 palavras.
 
 ---
 
 ## VARIANTES PARA TESTE A/B
 
-### Variante A (atual): Foco em renda
-"Quer ganhar R$3.000+/mes vendendo na Shopee?"
+### Variante A (recomendada): Prova viva
+"Esse produto pagou comissão pra quem indicou."
+**URL:** creatorbrasil.com.br/pflto
 
-### Variante B: Foco em simplicidade
-"Ganhe dinheiro do celular indicando produtos na Shopee"
+### Variante B: Dor direta
+"Cansou de fechar o mês no vermelho?"
+**URL:** creatorbrasil.com.br/pflto-b
 
-### Variante C: Foco em urgência
-"Voce comprou na Shopee. E se voce VENDESSE tambem?"
+### Variante C: Curiosidade
+"Sabia que dá pra ganhar dinheiro só indicando produtos da Shopee?"
+**URL:** creatorbrasil.com.br/pflto-c
 
 ### Como testar:
-- Imprimir 10.000 de cada variante
-- Usar QR/URL diferentes por variante
-- Medir qual teve mais scans/cadastros em 2 semanas
+- 10.000 de cada variante (30.000 total)
+- URLs diferentes por variante (criar redirects no vercel.json)
+- Medir scans + conversão em 2 semanas
 - Escalar a vencedora
+
+---
+
+## NOTAS PARA PRODUÇÃO
+
+### ✅ FAZER:
+- QR testado com 3 celulares diferentes ANTES de imprimir
+- Papel fosco (brilhante reflete e QR não escaneia)
+- Inserir POR CIMA do produto (primeira coisa que a pessoa vê)
+- Cores vibrantes que contrastem com o pacote marrom
+
+### ❌ NÃO FAZER:
+- QR menor que 2.5cm (ninguém escaneia)
+- Papel fino/sulfite (parece lixo, pessoa descarta)
+- Mais de 30 palavras na frente (3 segundos de atenção)
+- Sem URL alternativa (muita gente não usa QR)
+
+### Quantidade:
+- 60.000/mês (2.000 pacotes/dia × 30 dias)
+- Pedir orçamento para 70.000 (margem de segurança)
+- Gráfica offset para volume alto = custo unitário ~R$0,08-0,12
+- **Custo mensal estimado: R$4.800 — R$8.400**
+
+---
+
+## ASSETS
+
+- QR Code (laranja/dark): `assets/qrcode-panfleto.png`
+- QR Code (preto/branco): `assets/qrcode-panfleto-pb.png`
+- URL do QR: `creatorbrasil.com.br/pflto`
+- Redirect configurado em: `vercel.json`
