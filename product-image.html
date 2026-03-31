@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  .card {
+    width: 800px;
+    height: 800px;
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    padding: 64px;
+  }
+  .glow {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 60%;
+    height: 60%;
+    background: rgba(238, 77, 45, 0.15);
+    border-radius: 50%;
+    filter: blur(120px);
+  }
+  .glow2 {
+    position: absolute;
+    bottom: -15%;
+    right: -15%;
+    width: 50%;
+    height: 50%;
+    background: rgba(214, 60, 30, 0.08);
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .icon {
+    font-size: 72px;
+    color: #EE4D2D;
+    font-variation-settings: 'FILL' 1;
+  }
+  .brand {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    font-style: italic;
+    color: #EE4D2D;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  h1 span {
+    background: linear-gradient(135deg, #EE4D2D, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .sub {
+    font-size: 20px;
+    color: #94a3b8;
+    line-height: 1.5;
+    max-width: 500px;
+  }
+  .tags {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    padding: 8px 16px;
+    font-size: 13px;
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+  .tag .material-symbols-outlined {
+    font-size: 18px;
+    color: #22c55e;
+    font-variation-settings: 'FILL' 1;
+  }
+  .price-box {
+    margin-top: 16px;
+    background: rgba(238, 77, 45, 0.1);
+    border: 1px solid rgba(238, 77, 45, 0.3);
+    border-radius: 16px;
+    padding: 16px 40px;
+  }
+  .old-price {
+    font-size: 16px;
+    color: #64748b;
+    text-decoration: line-through;
+  }
+  .price {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+  }
+  .price .currency { font-size: 24px; color: #cbd5e1; vertical-align: super; }
+  .price .cents { font-size: 28px; }
+  .price-label {
+    font-size: 12px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 4px;
+  }
+  .bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #EE4D2D, #ff8c00, #EE4D2D, transparent);
+  }
+</style>
+</head>
+<body style="background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;">
+<div class="card">
+  <div class="glow"></div>
+  <div class="glow2"></div>
+  <div class="content">
+    <span class="material-symbols-outlined icon">local_fire_department</span>
+    <span class="brand">Creator Shopee</span>
+    <h1>Desafio<br><span>Creator Shopee</span></h1>
+    <p class="sub">De zero a R$3.000/mês como Creator Shopee em 30 dias</p>
+    <div class="tags">
+      <span class="tag"><span class="material-symbols-outlined">check_circle</span>30 dias</span>
+      <span class="tag"><span class="material-symbols-outlined">check_circle</span>12 aulas</span>
+      <span class="tag"><span class="material-symbols-outlined">check_circle</span>Suporte</span>
+    </div>
+    <div class="price-box">
+      <div class="old-price">De R$197</div>
+      <div class="price"><span class="currency">R$</span>29<span class="cents">,90</span></div>
+      <div class="price-label">Pagamento único</div>
+    </div>
+  </div>
+  <div class="bottom-line"></div>
+</div>
+</body>
+</html>
