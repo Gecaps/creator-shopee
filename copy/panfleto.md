@@ -15,17 +15,16 @@
 │ ▓  🔥 CREATOR SHOPEE           ▓ │
 │ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ │
 │                                  │
-│  Esse produto que você           │
-│  acabou de receber?              │
 │                                  │
-│  ALGUÉM GANHOU                   │
-│  DINHEIRO                        │
-│  PRA VOCÊ COMPRAR ELE.           │
-│                                  │
-│  Faça até                        │
+│  GANHE ATÉ                       │
 │  R$ 3.000                        │
-│  em 30 dias sendo                │
+│  POR MÊS                         │
+│                                  │
+│  sendo afiliado ou               │
 │  Creator da Shopee.              │
+│                                  │
+│  Esse produto que você recebeu?  │
+│  Alguém ganhou comissão por ele. │
 │                                  │
 │      ┌───────────┐               │
 │      │  QR CODE  │               │
@@ -45,14 +44,14 @@
 **Faixa topo (fundo laranja #EE4D2D, texto branco bold):**
 🔥 CREATOR SHOPEE
 
-**Linha 1 (preto, médio):**
-Esse produto que você acabou de receber?
+**Headline principal (MAIOR texto da página, preto extra bold):**
+GANHE ATÉ **R$3.000** POR MÊS
 
-**Linha 2 (headline principal — MAIOR texto da página, preto extra bold):**
-ALGUÉM GANHOU DINHEIRO PRA VOCÊ COMPRAR ELE.
+**Linha 2 (laranja #EE4D2D, bold, grande):**
+sendo afiliado ou Creator da Shopee.
 
-**Linha 3 (laranja #EE4D2D, bold, grande):**
-Faça até **R$3.000** em 30 dias sendo Creator da Shopee.
+**Linha 3 (preto, médio, abaixo):**
+Esse produto que você recebeu? Alguém ganhou comissão por ele.
 
 **QR Code:** centralizado, 3x3cm mínimo
 
@@ -191,15 +190,15 @@ O QUE VOCÊ RECEBE:
 
 ## POR QUE ESSA COPY É AGRESSIVA E FUNCIONA
 
-1. **"Alguém ganhou dinheiro pra você comprar ele"** — Tapa na cara. A pessoa percebe que foi a compradora, não a vendedora. Inverte o papel. Gera raiva construtiva.
+1. **"GANHE ATÉ R$3.000 POR MÊS"** — Headline direto no valor. É o que para o olho. "Até" dá proteção legal sem enfraquecer a promessa.
 
-2. **"Você tem duas opções"** — Força uma escolha binária. Ninguém quer ser o que "só compra". Todo mundo quer ser o que ganha.
+2. **"Esse produto que você recebeu? Alguém ganhou comissão por ele."** — Vem como reforço, não como headline. Prova concreta que o modelo funciona.
 
-3. **"DIRETO NO SEU PIX"** — Linguagem visceral. Pix é dinheiro real, imediato, tangível. Não é "comissão depositada" — é dinheiro no Pix.
+3. **"Você tem duas opções"** — Força escolha binária. Ninguém quer ser o que "só compra".
 
-4. **"Você vai ficar de fora?"** — Fechamento com FOMO real. 8 milhões não é inventado.
+4. **"DIRETO NO SEU PIX"** — Linguagem visceral. Pix é dinheiro real, imediato, tangível.
 
-5. **"Faça até R$3.000 em 30 dias"** — Claim agressivo mas com "até" que dá proteção legal. Não é "ganhe R$3.000 garantido".
+5. **"Você vai ficar de fora?"** — Fechamento com FOMO real. 8 milhões não é inventado.
 
 6. **"Sem estoque. Sem aparecer. Sem investir em anúncio."** — 3 objeções mortas em 1 linha.
 
