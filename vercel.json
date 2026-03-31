@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/pflto",
+      "destination": "/?utm_source=panfleto&utm_medium=qr&utm_campaign=pacote",
+      "permanent": false
+    }
+  ]
+}
