@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panfleto Frente — Creator Shopee</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .panfleto {
+    width: 420px;
+    height: 618px;
+    background: linear-gradient(170deg, #1a0a12 0%, #0f172a 30%, #1a1025 60%, #0f172a 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+  }
+
+  /* Warm glow behind center */
+  .glow-center {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(238,77,45,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Top brand */
+  .brand {
+    margin-top: 28px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    font-style: italic;
+    color: #EE4D2D;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Headline block */
+  .headline {
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+  .headline .line1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #e2e8f0;
+    letter-spacing: 0.05em;
+  }
+  .headline .value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: #EE4D2D;
+    line-height: 1;
+    margin: 4px 0;
+    text-shadow: 0 0 40px rgba(238,77,45,0.4);
+  }
+  .headline .line3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #e2e8f0;
+    letter-spacing: 0.05em;
+  }
+  .headline .sub {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  /* QR area */
+  .qr-area {
+    margin-top: 18px;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+  .qr-label {
+    font-size: 11px;
+    color: #cbd5e1;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .qr-box {
+    width: 140px;
+    height: 140px;
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .qr-box::after {
+    content: 'QR';
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    opacity: 0.3;
+  }
+
+  /* Decorative coins/bags */
+  .coin {
+    position: absolute;
+    left: 30px;
+    top: 250px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 35% 35%, #ffd700, #b8860b, #8B6914);
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 800;
+    color: #8B6914;
+    text-shadow: 1px 1px 0 #ffd700;
+    box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+    z-index: 5;
+  }
+
+  .bag {
+    position: absolute;
+    width: 50px;
+    height: 56px;
+    background: #EE4D2D;
+    border-radius: 6px 6px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    z-index: 5;
+    box-shadow: 0 4px 15px rgba(238,77,45,0.4);
+  }
+  .bag::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 14px;
+    border: 3px solid #EE4D2D;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+  }
+  .bag-left {
+    left: 45px;
+    top: 340px;
+    transform: rotate(-10deg);
+  }
+  .bag-right {
+    right: 45px;
+    top: 320px;
+    transform: rotate(8deg);
+  }
+
+  /* Bottom section */
+  .bottom-text {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    padding: 0 24px;
+  }
+  .bottom-text .proof {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+  .bottom-text .proof strong {
+    color: #EE4D2D;
+    font-weight: 700;
+  }
+
+  /* Footer bar */
+  .footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 0;
+    text-align: center;
+    z-index: 10;
+    border-top: 1px solid rgba(238,77,45,0.2);
+  }
+  .footer-bar span {
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body style="background:#000;display:flex;align-items:center;justify-content:center;min-height:100vh;">
+
+<div class="panfleto">
+  <div class="glow-center"></div>
+
+  <!-- Decorative elements -->
+  <div class="coin">$</div>
+  <div class="bag bag-left">S</div>
+  <div class="bag bag-right">S</div>
+
+  <!-- Brand -->
+  <div class="brand">Creator Shopee</div>
+
+  <!-- Headline -->
+  <div class="headline">
+    <div class="line1">GANHE ATÉ</div>
+    <div class="value">R$3.000</div>
+    <div class="line3">POR MÊS</div>
+    <div class="sub">como Creator ou Afiliado Shopee.</div>
+  </div>
+
+  <!-- QR Area -->
+  <div class="qr-area">
+    <div class="qr-label">Escaneie agora ou fique de fora</div>
+    <div class="qr-box"></div>
+  </div>
+
+  <!-- Bottom text -->
+  <div class="bottom-text">
+    <p class="proof">Esse produto que você recebeu? Alguém ganhou comissão por ele.<br><strong>O próximo pode ser você.</strong></p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-bar">
+    <span>R$29,90 · Pagamento Único</span>
+  </div>
+</div>
+
+</body>
+</html>
