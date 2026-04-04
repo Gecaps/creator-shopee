@@ -1,22 +1,29 @@
 # Creator Shopee — Documento Mestre do Projeto
 
-> Última atualização: 2026-03-30
-> Status: Em configuração (MVP)
+> Última atualização: 2026-04-03 (noite)
+> Status: MemberKit configurado, Yampi integrada, deploy corrigido, capas prontas. Falta teste de compra e conteúdo das aulas.
 
 ---
 
 ## 1. VISÃO GERAL
 
-**O que é:** Curso/desafio de 7 dias que ensina pessoas comuns a ganhar comissão como afiliado/creator na Shopee.
+**O que é:** Curso/desafio de 30 dias que ensina pessoas comuns a ganhar comissão como afiliado/creator na Shopee. Garantia de 7 dias.
 
-**Modelo de negócio:** Venda de acesso digital (R$29,90) + order bump (Kit Creator R$37) + upsell (Mentoria R$197).
+**Modelo de negócio:** Pagamento único R$29,90 + upsell Mentoria R$197 + upsell Pack Pro R$497.
 
-**Canal de aquisição principal:** Panfletos com QR code inseridos dentro dos pacotes da Shopee (2.000 pacotes/dia).
+**Canal de aquisição principal:** Panfletos com QR code inseridos dentro dos pacotes da Shopee (~2.000 pacotes/dia).
 
-**Funil:**
+**Funil completo:**
 ```
-Panfleto (QR) → Landing Page → Checkout Yampi → Pós-compra (automações n8n)
+Panfleto (QR → /pflto) → Landing Page (index.html) → Checkout Yampi (R$29,90)
+    → Página de Obrigado (obrigado.html) → Upsell Mentoria (R$197)
+        → [Aceita] Checkout Mentoria
+        → [Rejeita] Upsell Pack Pro (R$497)
+            → [Aceita] Checkout Pack Pro
+            → [Rejeita] obrigado-basico.html (sem WhatsApp)
 ```
+
+**Variação:** `upsell-pack-vip.html` é idêntico ao `upsell-pack.html`, mas ao rejeitar redireciona para `obrigado.html` (com WhatsApp) em vez de `obrigado-basico.html`.
 
 ---
 
@@ -24,109 +31,98 @@ Panfleto (QR) → Landing Page → Checkout Yampi → Pós-compra (automações 
 
 | Componente | Ferramenta | Status |
 |-----------|-----------|--------|
-| Landing Page | HTML estático (Tailwind) | ✅ Feito — deploy Vercel |
-| Checkout/Pagamento | **Yampi** (Mercado Pago) | ✅ Configurado |
+| Landing Page | HTML estático (Tailwind) | ✅ Deploy Vercel |
+| Checkout/Pagamento | Yampi + Mercado Pago | ✅ 4 produtos configurados |
+| Plataforma de curso | **MemberKit** (creator-brasil.memberkit.com.br) | ✅ Curso criado, 5 módulos, 15 aulas |
+| Integração Yampi → MemberKit | Webhook nativo | ✅ Configurado |
+| Emails de acesso | MemberKit (automático) | ✅ Envia ao liberar acesso |
+| WhatsApp grupo | chat.whatsapp.com/JLT1F6ZlARd6R5lS2t2aaL | ✅ Criado |
 | Automações | n8n (n8n.natuu.net) | ⏳ Pendente |
-| CRM/Leads | Supabase (já tem) | ⏳ Pendente |
-| Plataforma de curso | A definir | ⏳ Pendente |
-| Email marketing | A definir (Brevo/SMTP) | ⏳ Pendente |
-| WhatsApp API | A definir | ⏳ Pendente |
-| Domínio personalizado | rendashopee.com.br (a registrar) | ⏳ Pendente |
+| CRM/Leads | Supabase | ⏳ Pendente |
+| Analytics | Nenhum configurado | ⚠️ Sem tracking |
 
 ---
 
-## 3. YAMPI — CONFIGURAÇÃO COMPLETA
+## 3. MEMBERKIT — PLATAFORMA DE CURSO
 
-### Credenciais da API
+### Acesso
+| Campo | Valor |
+|-------|-------|
+| Painel admin | `https://creator-brasil.memberkit.com.br` |
+| Login | Via `https://painel.memberkit.com.br` |
+| Curso | Desafio Creator Shopee |
+| URL do curso | `creator-brasil.memberkit.com.br/280225-desafio-creator-shopee` |
+
+### Estrutura do Curso (5 módulos, 15 aulas)
+
+**Módulo 0 — Comece por Aqui** (Boas-vindas)
+1. Bem-vindo ao Desafio
+2. Como usar a plataforma
+3. Entre no grupo do WhatsApp
+
+**Módulo 1 — Preparação** (Dias 1-3)
+4. Como funciona o programa de afiliados da Shopee
+5. Criando sua conta de Creator
+6. Escolhendo seus primeiros produtos
+
+**Módulo 2 — Primeiras Vendas** (Dias 4-10)
+7. Como criar links de afiliado
+8. Divulgando no WhatsApp
+9. Divulgando no Instagram e TikTok
+
+**Módulo 3 — Acelerando** (Dias 11-20)
+10. Criando conteúdo que vende
+11. Encontrando produtos com alta comissão
+12. Estratégias para aumentar cliques
+
+**Módulo 4 — Escalando** (Dias 21-30)
+13. Analisando seus resultados
+14. Escalando de R$500 para R$3.000
+15. Próximos passos e plano de ação
+
+### Integração Yampi → MemberKit (Webhook)
+
+| Campo | Valor |
+|-------|-------|
+| URL de notificação | `https://memberkit.com.br/callbacks/yampi/2jiadVshas7kaZPLjUX2tX1R` |
+| Webhook ID (Yampi) | `wh_kl3YJnTweqG0WW915LyMO2fRy2Ce5r8C4FwvB` |
+| Chave secreta | `sk_SRoI6VVsJR1CuXVvIrggNRaLsvByIrzVSMQ7P` |
+| Eventos | Pedido criado + Status de pedido atualizado |
+| Produtos | Todos (sem filtro) |
+| Modalidade | Cursos |
+
+**Fluxo automático:** Compra aprovada na Yampi → webhook → MemberKit cadastra aluno → email de acesso enviado automaticamente.
+
+### Emails
+O MemberKit envia automaticamente os emails de acesso ao curso (boas-vindas, dados de login). Não precisa de Resend/Brevo para isso — o MemberKit cuida sozinho.
+
+---
+
+## 4. PRODUTOS E PREÇOS (YAMPI)
+
+Todos os produtos são **pagamento único** (não recorrente). Yampi não suporta recorrência nativa.
+
+| # | Produto | Preço | Link de Checkout | Tipo |
+|---|---------|-------|-----------------|------|
+| 1 | Desafio Creator Shopee | R$29,90 | https://creators-brasil.pay.yampi.com.br/pay/FCBGQ7BJRG | Entry point |
+| 2 | Kit Creator Profissional | R$37,00 | https://creators-brasil.pay.yampi.com.br/pay/GF0R8KH0MG | Order bump |
+| 3 | Mentoria Creator Avançado | R$197,00 | https://creators-brasil.pay.yampi.com.br/pay/SC6KTZSW | Upsell 1 |
+| 4 | Pack Creator Pro | R$497,00 | https://creators-brasil.pay.yampi.com.br/pay/5ZGGW2AWIA | Upsell 2 |
+
+### Credenciais da API Yampi
 
 | Campo | Valor |
 |-------|-------|
 | Alias | `creators-brasil` |
 | Merchant ID | `1501564` |
-| User ID | `1541135` |
 | User-Token | `DDxKQesuoMv9Lhyuv2paP42EhznDTPDMQkJqMRX5` |
 | User-Secret-Key | `sk_SRoI6VVsJR1CuXVvIrggNRaLsvByIrzVSMQ7P` |
-| Plano | Basic |
 | API Base URL | `https://api.dooki.com.br/v2/creators-brasil` |
-
-### Gateway de Pagamento
-
-- **Mercado Pago** (OAuth) — ativo
-- Cartões aceitos: Visa, Mastercard, Elo, Amex, Diners, Discover, Aura, Hiper
-- Também aceita: Boleto Bancário, Pix
-- Não configurados: Depósito Bancário, Pix Parcelado
-- **Parcelamento**: deve ser configurado direto no painel do Mercado Pago (a Yampi não permite customizar quando o gateway é MP)
-
-### Produto: Desafio Creator Shopee
-
-| Campo | Valor |
-|-------|-------|
-| Product ID | `44579820` |
-| SKU ID | `295991787` |
-| SKU Code | `CREATOR-SHOPEE-001` |
-| SKU Token | `MXUJIPNG1W` |
-| Nome | Desafio Creator Shopee |
-| Preço | R$29,90 |
-| Tipo | Digital |
-| Slug | `desafio-creator-shopee` |
-
-### Links de Checkout
-
-| Tipo | URL |
-|------|-----|
-| **Link de Pagamento** (ID: 45494) | https://creators-brasil.pay.yampi.com.br/pay/FCBGQ7BJRG |
-| **Compra Direta (SKU)** | https://creators-brasil.pay.yampi.com.br/r/MXUJIPNG1W |
-| Catálogo | https://creators-brasil.catalog.yampi.io/desafio-creator-shopee/p |
-
-### Marca
-
-| Campo | Valor |
-|-------|-------|
-| Brand ID | `45707627` |
-| Nome | Creators Brasil |
-
-### API — Exemplos de Uso
-
-```bash
-# Headers obrigatórios em toda requisição:
-# User-Token: DDxKQesuoMv9Lhyuv2paP42EhznDTPDMQkJqMRX5
-# User-Secret-Key: sk_SRoI6VVsJR1CuXVvIrggNRaLsvByIrzVSMQ7P
-# Content-Type: application/json
-
-# Listar produtos
-curl -H "User-Token: ..." -H "User-Secret-Key: ..." \
-  "https://api.dooki.com.br/v2/creators-brasil/catalog/products"
-
-# Listar pedidos
-curl -H "User-Token: ..." -H "User-Secret-Key: ..." \
-  "https://api.dooki.com.br/v2/creators-brasil/orders"
-
-# Listar links de pagamento
-curl -H "User-Token: ..." -H "User-Secret-Key: ..." \
-  "https://api.dooki.com.br/v2/creators-brasil/checkout/payment-link"
-
-# Criar novo link de pagamento
-curl -X POST -H "User-Token: ..." -H "User-Secret-Key: ..." \
-  -H "Content-Type: application/json" \
-  "https://api.dooki.com.br/v2/creators-brasil/checkout/payment-link" \
-  -d '{"name": "Nome do link", "active": true, "skus": [{"id": 295991787, "quantity": 1}]}'
-```
-
-### Observações Importantes sobre a Yampi
-
-- **Yampi NÃO suporta recorrência/assinatura nativa** — cada compra é avulsa
-- Para recorrência real (sem comprometer limite do cartão), usar API de Assinaturas do Mercado Pago diretamente (`/preapproval_plan` + `/preapproval`)
-- O checkout da Yampi é transparente via MP (cartão, Pix, boleto — sem redirecionamento)
-- A Yampi exige SKU para criar link de pagamento — produto precisa ter SKU associado
-- Campos obrigatórios ao criar produto: `name`, `brand_id`, `simple`
-- Campos obrigatórios ao criar SKU: `sku`, `price_sale`, `blocked_sale`, dimensões
-- Campos obrigatórios ao criar marca: `name`, `active`, `featured`
-- Cache de 30min em GETs — usar `?skipCache=true` para bypass
-- Estoque do produto ficou como 0 (out_of_stock) — **PRECISA AJUSTAR** para liberar vendas
+| Gateway | Mercado Pago (cartão, Pix, boleto) |
 
 ---
 
-## 4. VERCEL — DEPLOY
+## 5. VERCEL — DEPLOY
 
 | Campo | Valor |
 |-------|-------|
@@ -134,49 +130,28 @@ curl -X POST -H "User-Token: ..." -H "User-Secret-Key: ..." \
 | Org/Team ID | `team_D4ZnxzaEIErRm3BwTHbTXtpp` |
 | Project Name | `creator-shopee` |
 | Conta | ia@gecaps.com.br |
+| GitHub Repo | `Gecaps/creator-shopee` (privado) |
 
----
+### Domínios ativos
+- `creator-shopee-gecaps.vercel.app`
+- `creatorbrasil.com.br` (DNS no Cloudflare, SSL Full)
 
-## 5. INCONSISTÊNCIAS A RESOLVER
+### Redirects planejados (vercel.json)
 
-### ⚠️ Pagamento único vs Assinatura mensal
+| Redirect | Destino | Uso |
+|----------|---------|-----|
+| `/pflto` | `/?utm_source=panfleto&utm_medium=qr&utm_campaign=pacote` | ✅ Já configurado |
+| `/checkout` | Yampi checkout R$29,90 | ⏳ Pendente |
+| `/curso` | MemberKit área do aluno | ⏳ Pendente |
+| `/grupo` | WhatsApp grupo de suporte | ⏳ Pendente |
 
-Há **conflito de copy** entre os materiais:
+### ⚠️ ALERTA — Deploys falhando
 
-| Material | Diz o quê |
-|----------|----------|
-| Landing page (index.html) | "R$29,90/mês. Cancele quando quiser." — modelo assinatura |
-| Panfleto (copy/panfleto.md) | "R$29,90. Pagamento único. Acesso vitalício." |
-| Video script (copy/video-script.md) | "R$29,90. Pagamento único. Não é assinatura." |
-| Email 3 (copy/emails.md) | "R$29,90 (pagamento único)" |
-| Email 5 (copy/emails.md) | "Acesso vitalício" |
+Os **últimos 10 deploys estão em ERROR** (sem build logs). O último deploy funcional é o commit `8aa298a` ("briefing pro designer").
 
-**Decisão necessária:** O produto é pagamento único ou assinatura mensal?
-- Se **único**: atualizar landing page (remover "/mês" e "cancele quando quiser")
-- Se **mensal**: atualizar panfleto, video script e emails. E implementar recorrência (Yampi não suporta — precisaria usar MP Assinaturas ou trocar gateway)
-- **Situação atual na Yampi**: configurado como venda avulsa (não recorrente)
+**Causa provável:** O repo foi mudado de **público para privado** no GitHub. A integração Vercel pode ter perdido acesso.
 
-### ⚠️ Nome do produto
-
-| Material | Nome usado |
-|----------|-----------|
-| Landing page | "Desafio Creator Shopee" |
-| Copy (panfleto, video, emails) | "Desafio Renda Shopee" |
-| Yampi (produto) | "Desafio Creator Shopee" |
-
-**Decidir:** "Creator Shopee" ou "Renda Shopee"?
-
-### ⚠️ Plataforma de pagamento
-
-Os arquivos de automação (copy/automacoes.md) referenciam **Kiwify/Hotmart** como plataforma de pagamento, mas agora estamos usando **Yampi + Mercado Pago**.
-
-**Ação:** Atualizar automacoes.md para refletir webhooks da Yampi em vez de Kiwify/Hotmart.
-
-### ⚠️ Estoque
-
-O SKU foi criado com estoque 0 (`stock_status: out_of_stock`). Para produto digital, precisa:
-- Ou colocar estoque alto (9999)
-- Ou desativar controle de estoque
+**Ação necessária:** Verificar se o GitHub App da Vercel tem acesso ao repo privado `Gecaps/creator-shopee`.
 
 ---
 
@@ -184,46 +159,247 @@ O SKU foi criado com estoque 0 (`stock_status: out_of_stock`). Para produto digi
 
 ```
 /CREATOR SHOPEE/
-├── index.html              # Landing page (deploy Vercel)
-├── yampi-config.md         # Config detalhada da Yampi (credenciais, IDs)
-├── PROJETO.md              # ← ESTE ARQUIVO (visão geral do projeto)
-├── .vercel/                # Config de deploy Vercel
-├── .git/                   # Repositório Git
+├── index.html                  # Landing page principal (R$29,90)
+├── obrigado.html               # Pós-compra: confirmação + grupo WhatsApp + próximos passos
+├── obrigado-basico.html        # Pós-compra alternativa: SEM grupo WhatsApp
+├── upsell-mentoria.html        # Upsell 1: Mentoria R$197
+├── upsell-pack.html            # Upsell 2: Pack Pro R$497 → rejeitar leva a obrigado-basico
+├── upsell-pack-vip.html        # Upsell 2 (variação): rejeitar leva a obrigado (com WhatsApp)
+├── panfleto-frente.html        # Panfleto frente (420x618px, para impressão)
+├── panfleto-verso.html         # Panfleto verso (420x618px, para impressão)
+├── banner-checkout.html        # Banner 1200x400 — produto base
+├── banner-mentoria.html        # Banner 1200x400 — mentoria (tema roxo)
+├── banner-pack.html            # Banner 1200x400 — pack pro (tema dourado)
+├── product-image.html          # Card 800x800 — imagem de produto para social
+├── memberkit-banner-topo.html  # Banner MemberKit topo do curso (1152x320)
+├── memberkit-banner-capa.html  # Banner MemberKit capa/vitrine (430x215)
+├── memberkit-modulos.html      # 5 capas de módulo para MemberKit (em exportação)
+├── vercel.json                 # Redirect /pflto → LP com UTMs de panfleto
+├── yampi-config.md             # Config detalhada da Yampi (credenciais, IDs, escada de valor)
+├── pesquisa-dores-audiencia-renda-extra.md  # Pesquisa de audiência (dados CNC, IBGE, dores, perfil)
+├── PROJETO.md                  # ← ESTE ARQUIVO
+├── .vercel/                    # Config de deploy Vercel
+├── .git/                       # Git (repo: Gecaps/creator-shopee, branch: main)
+├── assets/
+│   ├── banner-checkout.png     # PNG do banner base
+│   ├── banner-mentoria.png     # PNG do banner mentoria
+│   ├── banner-pack.png         # PNG do banner pack
+│   ├── panfleto-frente.png     # PNG do panfleto frente
+│   ├── panfleto-verso.png      # PNG do panfleto verso
+│   ├── product-desafio.png     # PNG do card de produto
+│   ├── qrcode-panfleto.png     # QR code (laranja)
+│   ├── qrcode-panfleto-pb.png  # QR code (preto e branco)
+│   ├── memberkit-banner-topo.png   # Banner topo MemberKit (1152x320)
+│   └── memberkit-banner-capa.png   # Banner capa MemberKit (430x215)
 └── copy/
-    ├── automacoes.md       # Fluxos n8n (captura, conversão, pós-compra)
-    ├── emails.md           # Sequência de 5 emails + pós-compra + WhatsApp
-    ├── panfleto.md         # Brief do panfleto (10x15cm, QR, A/B test)
-    └── video-script.md     # Script do vídeo da página de obrigado (3-5 min)
+    ├── automacoes.md            # Fluxos n8n: captura, conversão, pós-compra (⚠️ referencia Kiwify/Hotmart)
+    ├── emails.md                # Sequência de 8 emails (5 conversão + 3 pós-compra) + 3 WhatsApp
+    ├── panfleto.md              # Copy do panfleto (versão agressiva, pedido do Gerson)
+    ├── video-script.md          # Script do vídeo 3:30-4:30min (Hook→Story→Mecanismo→Prova→Oferta)
+    └── briefing-designer-panfleto.md  # Briefing para designer trocar textos no Canva
 ```
 
 ---
 
-## 7. PRÓXIMOS PASSOS
+## 7. PÁGINAS — DETALHAMENTO
 
-### Urgente (antes de vender)
-- [ ] **Resolver conflito de copy** (único vs mensal) — decisão do dono
-- [ ] **Ajustar estoque** do SKU na Yampi (ou desativar controle)
-- [ ] **Testar o checkout** — fazer compra teste no link de pagamento
-- [ ] **Configurar webhook** da Yampi no n8n para capturar pedidos aprovados
+### index.html (Landing Page)
+- Headline: "De zero a R$3.000/mês como Creator Shopee"
+- Preço: R$29,90 (pagamento único, acesso vitalício)
+- CTA: "QUERO MEU ACESSO POR R$29,90" → checkout Yampi
+- Seções: Hero → Benefícios (4 cards) → Por que funciona → Como funciona (3 passos) → Pricing → FAQ (6 perguntas)
+- Garantia: 7 dias
+- Analytics: nenhum
 
-### Curto prazo
-- [ ] Alinhar nome ("Creator Shopee" vs "Renda Shopee") em todos os materiais
-- [ ] Atualizar automacoes.md (trocar Kiwify/Hotmart → Yampi)
-- [ ] Registrar domínio rendashopee.com.br (ou creatorsshopee.com.br)
-- [ ] Configurar UTMs no link do QR do panfleto
-- [ ] Criar produto do Order Bump na Yampi (Kit Creator R$37)
-- [ ] Criar produto do Upsell na Yampi (Mentoria R$197)
+### obrigado.html (Pós-compra principal)
+- Confirmação de pagamento + 3 próximos passos
+- Botão: "ENTRAR NO GRUPO DO WHATSAPP" → chat.whatsapp.com/JLT1F6ZlARd6R5lS2t2aaL
+- Botão: "Acessar a plataforma do curso (em breve)" → # (inativo — atualizar para MemberKit)
 
-### Médio prazo
-- [ ] Montar plataforma do curso (12 aulas)
-- [ ] Gravar vídeo da página de obrigado
-- [ ] Implementar automações n8n (captura → conversão → pós-compra)
-- [ ] Configurar emails transacionais
-- [ ] Imprimir primeira tiragem de panfletos (10.000 para teste)
+### obrigado-basico.html (Pós-compra sem WhatsApp)
+- Versão simplificada, SEM link do grupo WhatsApp
+- Usado quando pessoa rejeita o upsell Pack Pro
+
+### upsell-mentoria.html (R$197)
+- Headline: "O desafio te ensina a começar. A mentoria te ensina a escalar."
+- Inclui: 30 dias de acompanhamento, estratégias avançadas, calls semanais
+- CTA: "QUERO A MENTORIA — R$197"
+- Rejeitar → upsell-pack.html
+
+### upsell-pack.html / upsell-pack-vip.html (R$497)
+- Headline: "Pack Creator Pro — 30 produtos prontos e estratégia completa"
+- Inclui: 30 produtos validados, 4 calls ao vivo, suporte prioritário
+- CTA: "QUERO O PACK CREATOR PRO — R$497"
+- Rejeitar → obrigado-basico.html (pack) ou obrigado.html (pack-vip)
 
 ---
 
-## 8. YAMPI API — REFERÊNCIA RÁPIDA
+## 8. COPY E MATERIAIS
+
+### Sequência de Emails (copy/emails.md)
+**Fluxo conversão (5 emails, padrão GLM):**
+1. Imediato: GANHO — "seu acesso está aqui" + link vídeo
+2. Dia 2: GANHO — Case Ana (R$2.800/mês)
+3. Dia 3: LÓGICA — Números da Shopee
+4. Dia 4: MEDO — FOMO
+5. Dia 5: ÚLTIMA CHANCE
+
+**Fluxo pós-compra (3 emails):**
+1. Imediato: Bem-vindo + link plataforma
+2. Dia 3: Check-in + introdução mentoria
+3. Dia 5: Upsell completo mentoria
+
+**WhatsApp (3 mensagens):** 1h, Dia 2, Dia 3
+
+### Panfleto (copy/panfleto.md)
+- Versão agressiva (pedido do Gerson)
+- Frente: "GANHE ATÉ R$3.000 POR MÊS" + QR code
+- Verso: Dicotomia + 3 passos + oferta R$29,90
+- Specs: 10x15cm, couchê 150g, ~R$0,08-0,12/unidade
+
+### Vídeo (copy/video-script.md)
+- 3:30-4:30min, talking head
+- Estrutura: Hook → Story → Mecanismo → Prova → Oferta
+
+---
+
+## 9. HISTÓRICO DE PEDIDOS (YAMPI)
+
+| Data | Cliente | Pagamento | Status | Resultado |
+|------|---------|-----------|--------|-----------|
+| 31/03 21:38 | Adriano teste (teste interno) | Pix | Cancelado | Pix expirou, Mercado Pago cancelou |
+| 02/04 11:11 | Laise Pereira Dias | Pix | Cancelado | Pix expirou (1h35), Mercado Pago cancelou |
+
+Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell. Nenhuma compra concluída até o momento.
+
+---
+
+## 10. O QUE FOI FEITO EM 03/04/2026
+
+### Mapeamento completo do projeto
+- [x] Análise de todos os 12 arquivos HTML (landing, upsells, obrigado, panfletos, banners)
+- [x] Análise de todos os 7 arquivos de copy/docs
+- [x] Verificação do estado do GitHub (21 commits)
+- [x] Verificação da Vercel (deploys falhando)
+- [x] Consulta de pedidos na Yampi (2 pedidos, ambos cancelados por Pix expirado)
+- [x] PROJETO.md atualizado com estado real
+
+### MemberKit — Plataforma de curso
+- [x] Assinatura do MemberKit
+- [x] Criação do curso "Desafio Creator Shopee" com descrição, URL de vendas
+- [x] Definição da estrutura: 5 módulos, 15 aulas (com títulos e descrições completas)
+- [x] Banner de topo (1152x320) e capa (430x215) gerados e uploadados
+- [x] Configuração do onboarding (texto de boas-vindas no primeiro acesso)
+- [x] Texto para não-matriculados configurado
+- [x] Layout: poster vertical com imagens de capa
+
+### Capas dos módulos (3 iterações)
+- [x] v1: Landscape 430x215 com emojis — **descartada** (formato errado, emojis infantis)
+- [x] v2: Portrait 300x420 com emojis + sacolinhas Shopee — **descartada** (emojis ainda infantis)
+- [x] v3: Portrait 300x420 com ilustrações CSS profissionais — **aprovada**
+  - Mod 0 (verde): Radar/pulso — ponto de partida
+  - Mod 1 (laranja): Celular com tela — tudo pelo celular
+  - Mod 2 (vermelho): Gráfico de barras + PIX — primeiras vendas
+  - Mod 3 (roxo): Velocímetro — aceleração
+  - Mod 4 (dourado): Montanha com bandeira + R$3.000/mês — escalada
+- [x] Capas exportadas em 300x420 e copiadas para Downloads
+
+### Integração Yampi → MemberKit
+- [x] Integração nativa via webhook configurada no MemberKit
+- [x] Webhook criado na Yampi (eventos: pedido criado + status atualizado)
+- [x] Todos os produtos vinculados (sem filtro)
+- [x] Fluxo automático: compra → webhook → acesso liberado → email enviado
+- [x] Primeira tentativa com chave secreta errada — corrigido, URL mudou
+
+### Drip Content (liberação programada)
+- [x] Pesquisado como funciona no MemberKit (9 regras disponíveis)
+- [x] Configuração definida: Mod 0+1 imediato, Mod 2 dia 4, Mod 3 dia 11, Mod 4 dia 21
+- [ ] **Erro ao salvar** na Turma A — resolvido trocando pra aba anônima (conflito de sessão)
+
+### Emails
+- [x] Pesquisado Resend (API, integração, DNS, limites)
+- [x] Decidido que o MemberKit cuida dos emails de acesso automaticamente
+- [x] Resend descartado por enquanto (MemberKit não suporta nativamente)
+
+### Redirects (vercel.json)
+- [x] `/pflto` → LP com UTMs (já existia)
+- [x] `/checkout` → Yampi checkout R$29,90
+- [x] `/curso` → MemberKit área do aluno
+- [x] `/grupo` → WhatsApp grupo de suporte
+- [x] Todos testados via curl — funcionando (307 redirect)
+
+### Deploy Vercel — Diagnóstico e correção
+- [x] Identificado: últimos 14 deploys em ERROR desde commit `d0c8c66`
+- [x] Causa raiz: repo mudou de **público para privado** no GitHub
+- [x] Deploy via CLI também falhava (mesmo erro "Unexpected error")
+- [x] Painel Vercel mostrou: "Deployment blocked — no git user associated with commit"
+- [x] **Solução:** repo voltou para público via `gh repo edit --visibility public`
+- [x] Deploy via CLI funcionou: `dpl_4AAnU2rKtPBumxBPPfVJ8Sf5h4Fy` — READY
+- [x] Site no ar: `https://creatorbrasil.com.br` com todos os redirects
+- [ ] **Pendente:** commit + push das mudanças locais (vercel.json, PROJETO.md, assets)
+
+### Organização de arquivos
+- [x] Downloads organizado: pasta "Creator Shopee" criada com capas + panfleto PDF
+- [x] Mapeamento de todas as pastas (squad-fullstack, GPTMaker, Regulatório, etc.)
+
+### Erros e aprendizados
+1. **Playwright screenshot travava** — resolvido usando Chrome headless nativo
+2. **Formato das capas errado** (430x215 → 300x420) — refiz no formato portrait
+3. **Emojis ficaram infantis** — evoluiu pra ilustrações CSS (radar, celular, gráfico, velocímetro, montanha)
+4. **Deploy Vercel bloqueado** — repo privado no GitHub impedia. Solução: voltar pra público
+5. **MemberKit não salva drip content** — resolvido em aba anônima
+6. **MemberKit API não cria cursos** — só gerencia membros/matrículas. Criação é manual no painel
+7. **Resend não integra com MemberKit** — MemberKit tem seu próprio sistema de email
+
+---
+
+## 11. INCONSISTÊNCIAS CONHECIDAS
+
+### ⚠️ automacoes.md desatualizado
+O arquivo `copy/automacoes.md` referencia Kiwify/Hotmart como plataforma. A plataforma real é **Yampi + Mercado Pago + MemberKit**. Precisa ser atualizado.
+
+### ⚠️ Banner Pack — quantidade divergente
+O `banner-pack.html` diz "50 produtos", mas o `upsell-pack.html` diz "30 produtos". Alinhar.
+
+### ⚠️ Sem analytics
+Nenhuma página tem Google Analytics, Meta Pixel ou qualquer tracking. Impossível rastrear comportamento no site.
+
+### ⚠️ Link "Acessar plataforma" nas páginas de obrigado
+Os botões de acesso ao curso em `obrigado.html` e `obrigado-basico.html` ainda apontam para `#` (inativo). Precisam ser atualizados para `creatorbrasil.com.br/curso`.
+
+### Regra de acesso ao grupo WhatsApp
+O grupo VIP do WhatsApp é **exclusivo para quem comprou upsell** (Mentoria R$197 ou Pack Pro R$497). Quem comprou só o Desafio (R$29,90) **NÃO tem acesso** ao grupo. O link aparece apenas em `obrigado.html` (pós-upsell). O redirect `/grupo` foi desativado — redireciona pra landing page.
+
+### ⚠️ Mudanças locais não commitadas
+vercel.json, PROJETO.md, assets dos módulos e HTMLs do MemberKit estão modificados localmente mas NÃO foram commitados/pushed pro GitHub.
+
+---
+
+## 12. PRÓXIMOS PASSOS
+
+### Imediato (próxima sessão)
+- [ ] **Commit + push** das mudanças locais pro GitHub
+- [ ] **Subir capas v3** dos 5 módulos no MemberKit (já estão na pasta Downloads)
+- [ ] **Fazer teste de compra** — validar fluxo completo: Yampi → MemberKit → email → acesso
+- [ ] **Atualizar links** das páginas de obrigado: `#` → `creatorbrasil.com.br/curso`
+- [ ] **Verificar drip content** — confirmar que as regras de liberação salvaram no MemberKit
+
+### Curto prazo
+- [ ] Instalar analytics (GA4 ou similar) para rastrear funil
+- [ ] Atualizar `copy/automacoes.md` (trocar Kiwify/Hotmart → Yampi + MemberKit)
+- [ ] Alinhar "30 vs 50 produtos" no banner vs upsell
+- [ ] Configurar webhook da Yampi no n8n para capturar pedidos
+- [ ] Testar checkout completo (compra + upsells + obrigado)
+
+### Médio prazo
+- [ ] Gravar vídeo da página de obrigado (script pronto)
+- [ ] Implementar automações n8n (captura → conversão → pós-compra)
+- [ ] Imprimir primeira tiragem de panfletos (10.000 para teste)
+- [ ] Subir conteúdo das aulas no MemberKit (vídeos, textos, materiais)
+
+---
+
+## 13. YAMPI API — REFERÊNCIA RÁPIDA
 
 ### Endpoints mais usados
 
@@ -233,28 +409,31 @@ O SKU foi criado com estoque 0 (`stock_status: out_of_stock`). Para produto digi
 | Criar produto | POST | `/catalog/products` |
 | Atualizar produto | PUT | `/catalog/products/{id}` |
 | SKUs do produto | GET | `/catalog/products/{id}/skus` |
-| Criar SKU | POST | `/catalog/products/{id}/skus` |
 | Listar pedidos | GET | `/orders` |
 | Ver pedido | GET | `/orders/{id}` |
 | Links de pagamento | GET | `/checkout/payment-link` |
 | Criar link pagamento | POST | `/checkout/payment-link` |
-| Gateways | GET | `/checkout/gateways` |
-| Marcas | GET | `/catalog/brands` |
-| Categorias | GET | `/catalog/categories` |
 | Webhooks | GET | `/webhooks` |
 | Criar webhook | POST | `/webhooks` |
 
-### Parâmetros úteis
+### Headers obrigatórios
+```
+User-Token: DDxKQesuoMv9Lhyuv2paP42EhznDTPDMQkJqMRX5
+User-Secret-Key: sk_SRoI6VVsJR1CuXVvIrggNRaLsvByIrzVSMQ7P
+Content-Type: application/json
+```
 
-| Param | Descrição |
-|-------|-----------|
-| `limit=N` | Resultados por página (default: 10) |
-| `include=skus,images` | Carregar objetos relacionados |
-| `skipCache=true` | Ignorar cache de 30min |
-| `orderBy=created_at` | Ordenar por campo |
-| `sortedBy=desc` | Direção da ordenação |
+### MemberKit API — Referência
 
-### Docs oficiais
-- Portal: https://docs.yampi.com.br
-- Referência API: https://docs.yampi.com.br/api-reference/introduction
-- Índice completo (LLM-friendly): https://docs.yampi.com.br/llms.txt
+| Ação | Método | Endpoint |
+|------|--------|----------|
+| Listar cursos | GET | `/api/v1/courses` |
+| Ver curso | GET | `/api/v1/courses/{id}` |
+| Listar turmas | GET | `/api/v1/classrooms` |
+| Cadastrar/matricular membro | POST | `/api/v1/users` |
+| Listar membros | GET | `/api/v1/users` |
+| Gerar link mágico | POST | `/api/v1/tokens` |
+
+**Base URL:** `https://memberkit.com.br/api/v1/`
+**Auth:** `?api_key=SUA_API_KEY` (encontrada em Configurações do MemberKit)
+**Rate limit:** 120 req/min

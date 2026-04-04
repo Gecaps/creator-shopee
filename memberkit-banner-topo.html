@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .banner {
+    width: 1152px;
+    height: 320px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 40%, #0f0f0f 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Glows */
+  .glow-1 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(238,77,45,0.25) 0%, transparent 70%);
+    top: -200px;
+    right: 100px;
+  }
+  .glow-2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+    bottom: -200px;
+    left: 50px;
+  }
+  .glow-3 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(238,77,45,0.1) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Grid sutil */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Conteudo */
+  .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0 80px;
+    width: 100%;
+  }
+
+  .text-side {
+    flex: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(238,77,45,0.15);
+    border: 1px solid rgba(238,77,45,0.3);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #f97316;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  h1 span {
+    background: linear-gradient(135deg, #f97316, #ee4d2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    max-width: 500px;
+  }
+
+  /* Tags lado direito */
+  .tags-side {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 20px;
+    min-width: 240px;
+  }
+
+  .tag-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(238,77,45,0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .tag-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+  .tag-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+  }
+
+  /* Linha decorativa */
+  .line-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ee4d2d, #f97316, #ee4d2d, transparent);
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="glow-3"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="content">
+    <div class="text-side">
+      <div class="badge">DESAFIO DE 30 DIAS</div>
+      <h1>Desafio <span>Creator Shopee</span></h1>
+      <p class="subtitle">O plano completo para fazer sua primeira comissao como Creator Shopee. Do zero, pelo celular, sem aparecer.</p>
+    </div>
+
+    <div class="tags-side">
+      <div class="tag">
+        <div class="tag-icon">&#127891;</div>
+        <div>
+          <div class="tag-text">12 aulas praticas</div>
+          <div class="tag-sub">Passo a passo do zero</div>
+        </div>
+      </div>
+      <div class="tag">
+        <div class="tag-icon">&#128640;</div>
+        <div>
+          <div class="tag-text">Desafio de 30 dias</div>
+          <div class="tag-sub">Primeira comissao em ate 7</div>
+        </div>
+      </div>
+      <div class="tag">
+        <div class="tag-icon">&#9989;</div>
+        <div>
+          <div class="tag-text">Acesso vitalicio</div>
+          <div class="tag-sub">Pagamento unico de R$29,90</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="line-accent"></div>
+</div>
+</body>
+</html>

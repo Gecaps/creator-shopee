@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #080808;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    width: 300px;
+    height: 420px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Sacola SVG decorativa */
+  .bag-deco {
+    position: absolute;
+    font-size: 120px;
+    opacity: 0.07;
+    right: -20px;
+    top: 20px;
+    transform: rotate(15deg);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .bag-deco-2 {
+    position: absolute;
+    font-size: 70px;
+    opacity: 0.05;
+    left: -10px;
+    top: 80px;
+    transform: rotate(-10deg);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* Moedas decorativas */
+  .coin-deco {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.06;
+    right: 20px;
+    bottom: 130px;
+    transform: rotate(20deg);
+    pointer-events: none;
+  }
+
+  /* === CORES POR MÓDULO === */
+  .mod0 { background: linear-gradient(160deg, #0d1a0a 0%, #071207 50%, #050f05 100%); }
+  .mod0 .glow-main { background: radial-gradient(ellipse at 70% 20%, rgba(34,197,94,0.35) 0%, transparent 60%); }
+  .mod0 .glow-sub { background: radial-gradient(ellipse at 20% 80%, rgba(34,197,94,0.15) 0%, transparent 50%); }
+  .mod0 .accent { color: #22c55e; }
+  .mod0 .badge-bg { background: rgba(34,197,94,0.15); border-color: rgba(34,197,94,0.3); }
+  .mod0 .icon-bg { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25); }
+  .mod0 .bar { background: linear-gradient(90deg, #22c55e, rgba(34,197,94,0.2)); }
+  .mod0 .tag-dot { background: #22c55e; }
+
+  .mod1 { background: linear-gradient(160deg, #1a0f00 0%, #120900 50%, #0a0500 100%); }
+  .mod1 .glow-main { background: radial-gradient(ellipse at 70% 20%, rgba(249,115,22,0.35) 0%, transparent 60%); }
+  .mod1 .glow-sub { background: radial-gradient(ellipse at 20% 80%, rgba(249,115,22,0.15) 0%, transparent 50%); }
+  .mod1 .accent { color: #f97316; }
+  .mod1 .badge-bg { background: rgba(249,115,22,0.15); border-color: rgba(249,115,22,0.3); }
+  .mod1 .icon-bg { background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.25); }
+  .mod1 .bar { background: linear-gradient(90deg, #f97316, rgba(249,115,22,0.2)); }
+  .mod1 .tag-dot { background: #f97316; }
+
+  .mod2 { background: linear-gradient(160deg, #1a0800 0%, #120500 50%, #0a0300 100%); }
+  .mod2 .glow-main { background: radial-gradient(ellipse at 70% 20%, rgba(238,77,45,0.4) 0%, transparent 60%); }
+  .mod2 .glow-sub { background: radial-gradient(ellipse at 20% 80%, rgba(238,77,45,0.15) 0%, transparent 50%); }
+  .mod2 .accent { color: #ee4d2d; }
+  .mod2 .badge-bg { background: rgba(238,77,45,0.15); border-color: rgba(238,77,45,0.3); }
+  .mod2 .icon-bg { background: rgba(238,77,45,0.12); border: 1px solid rgba(238,77,45,0.25); }
+  .mod2 .bar { background: linear-gradient(90deg, #ee4d2d, rgba(238,77,45,0.2)); }
+  .mod2 .tag-dot { background: #ee4d2d; }
+
+  .mod3 { background: linear-gradient(160deg, #12081a 0%, #0d0514 50%, #08030f 100%); }
+  .mod3 .glow-main { background: radial-gradient(ellipse at 70% 20%, rgba(168,85,247,0.35) 0%, transparent 60%); }
+  .mod3 .glow-sub { background: radial-gradient(ellipse at 20% 80%, rgba(168,85,247,0.15) 0%, transparent 50%); }
+  .mod3 .accent { color: #a855f7; }
+  .mod3 .badge-bg { background: rgba(168,85,247,0.15); border-color: rgba(168,85,247,0.3); }
+  .mod3 .icon-bg { background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.25); }
+  .mod3 .bar { background: linear-gradient(90deg, #a855f7, rgba(168,85,247,0.2)); }
+  .mod3 .tag-dot { background: #a855f7; }
+
+  .mod4 { background: linear-gradient(160deg, #1a1400 0%, #120e00 50%, #0a0900 100%); }
+  .mod4 .glow-main { background: radial-gradient(ellipse at 70% 20%, rgba(234,179,8,0.35) 0%, transparent 60%); }
+  .mod4 .glow-sub { background: radial-gradient(ellipse at 20% 80%, rgba(234,179,8,0.15) 0%, transparent 50%); }
+  .mod4 .accent { color: #eab308; }
+  .mod4 .badge-bg { background: rgba(234,179,8,0.15); border-color: rgba(234,179,8,0.3); }
+  .mod4 .icon-bg { background: rgba(234,179,8,0.12); border: 1px solid rgba(234,179,8,0.25); }
+  .mod4 .bar { background: linear-gradient(90deg, #eab308, rgba(234,179,8,0.2)); }
+  .mod4 .tag-dot { background: #eab308; }
+
+  /* === ELEMENTOS COMUNS === */
+  .glow-main, .glow-sub {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+
+  /* Conteúdo posicionado no topo */
+  .top-content {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    z-index: 2;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .icon-wrap {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .module-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .module-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.55;
+  }
+
+  /* Bottom card */
+  .bottom-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    background: rgba(0,0,0,0.3);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  .tag {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+
+  .tag-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .bar {
+    height: 3px;
+    border-radius: 2px;
+    width: 60%;
+  }
+</style>
+</head>
+<body>
+
+<!-- MODULO 0 — COMECE POR AQUI -->
+<div class="card mod0">
+  <div class="glow-main"></div>
+  <div class="glow-sub"></div>
+  <div class="grid-overlay"></div>
+  <div class="bag-deco">🛍️</div>
+  <div class="bag-deco-2">🛍️</div>
+  <div class="coin-deco">🪙</div>
+
+  <div class="top-content">
+    <div class="badge badge-bg accent">START · Módulo 0</div>
+    <div class="icon-wrap icon-bg">👋</div>
+    <div class="module-title">Comece por <span class="accent">Aqui</span></div>
+    <div class="module-desc">Antes de começar o desafio, assista essas aulas rápidas. Entenda como tudo funciona e onde pedir ajuda.</div>
+  </div>
+
+  <div class="bottom-content">
+    <div class="tags">
+      <div class="tag"><div class="tag-dot mod0"></div> 3 aulas</div>
+      <div class="tag"><div class="tag-dot mod0"></div> Boas-vindas</div>
+      <div class="tag"><div class="tag-dot mod0"></div> WhatsApp</div>
+    </div>
+    <div class="bar mod0"></div>
+  </div>
+</div>
+
+<!-- MODULO 1 — PREPARACAO -->
+<div class="card mod1">
+  <div class="glow-main"></div>
+  <div class="glow-sub"></div>
+  <div class="grid-overlay"></div>
+  <div class="bag-deco">🛍️</div>
+  <div class="bag-deco-2">🛍️</div>
+  <div class="coin-deco">🪙</div>
+
+  <div class="top-content">
+    <div class="badge badge-bg accent">Dias 1–3 · Módulo 1</div>
+    <div class="icon-wrap icon-bg">🚀</div>
+    <div class="module-title"><span class="accent">Preparação</span></div>
+    <div class="module-desc">Crie sua conta de Creator Shopee, entenda as comissões e escolha os produtos certos para começar.</div>
+  </div>
+
+  <div class="bottom-content">
+    <div class="tags">
+      <div class="tag"><div class="tag-dot mod1"></div> 3 aulas</div>
+      <div class="tag"><div class="tag-dot mod1"></div> Fundamentos</div>
+      <div class="tag"><div class="tag-dot mod1"></div> Conta Creator</div>
+    </div>
+    <div class="bar mod1"></div>
+  </div>
+</div>
+
+<!-- MODULO 2 — PRIMEIRAS VENDAS -->
+<div class="card mod2">
+  <div class="glow-main"></div>
+  <div class="glow-sub"></div>
+  <div class="grid-overlay"></div>
+  <div class="bag-deco">🛍️</div>
+  <div class="bag-deco-2">🛍️</div>
+  <div class="coin-deco">💰</div>
+
+  <div class="top-content">
+    <div class="badge badge-bg accent">Dias 4–10 · Módulo 2</div>
+    <div class="icon-wrap icon-bg">💸</div>
+    <div class="module-title">Primeiras <span class="accent">Vendas</span></div>
+    <div class="module-desc">Crie seus links de afiliado e divulgue no WhatsApp, Instagram e TikTok. Sua primeira comissão começa aqui.</div>
+  </div>
+
+  <div class="bottom-content">
+    <div class="tags">
+      <div class="tag"><div class="tag-dot mod2"></div> 3 aulas</div>
+      <div class="tag"><div class="tag-dot mod2"></div> Links Shopee</div>
+      <div class="tag"><div class="tag-dot mod2"></div> Divulgação</div>
+    </div>
+    <div class="bar mod2"></div>
+  </div>
+</div>
+
+<!-- MODULO 3 — ACELERANDO -->
+<div class="card mod3">
+  <div class="glow-main"></div>
+  <div class="glow-sub"></div>
+  <div class="grid-overlay"></div>
+  <div class="bag-deco">🛍️</div>
+  <div class="bag-deco-2">🛍️</div>
+  <div class="coin-deco">⚡</div>
+
+  <div class="top-content">
+    <div class="badge badge-bg accent">Dias 11–20 · Módulo 3</div>
+    <div class="icon-wrap icon-bg">⚡</div>
+    <div class="module-title"><span class="accent">Acelerando</span></div>
+    <div class="module-desc">Crie conteúdo que vende, descubra produtos com comissão alta e multiplique seus cliques sem aparecer.</div>
+  </div>
+
+  <div class="bottom-content">
+    <div class="tags">
+      <div class="tag"><div class="tag-dot mod3"></div> 3 aulas</div>
+      <div class="tag"><div class="tag-dot mod3"></div> Conteúdo</div>
+      <div class="tag"><div class="tag-dot mod3"></div> Alta comissão</div>
+    </div>
+    <div class="bar mod3"></div>
+  </div>
+</div>
+
+<!-- MODULO 4 — ESCALANDO -->
+<div class="card mod4">
+  <div class="glow-main"></div>
+  <div class="glow-sub"></div>
+  <div class="grid-overlay"></div>
+  <div class="bag-deco">🛍️</div>
+  <div class="bag-deco-2">🛍️</div>
+  <div class="coin-deco">👑</div>
+
+  <div class="top-content">
+    <div class="badge badge-bg accent">Dias 21–30 · Módulo 4</div>
+    <div class="icon-wrap icon-bg">👑</div>
+    <div class="module-title"><span class="accent">Escalando</span></div>
+    <div class="module-desc">Analise seus resultados, entenda o que funcionou e monte seu plano para chegar aos R$3.000/mês.</div>
+  </div>
+
+  <div class="bottom-content">
+    <div class="tags">
+      <div class="tag"><div class="tag-dot mod4"></div> 3 aulas</div>
+      <div class="tag"><div class="tag-dot mod4"></div> Resultados</div>
+      <div class="tag"><div class="tag-dot mod4"></div> R$3.000/mês</div>
+    </div>
+    <div class="bar mod4"></div>
+  </div>
+</div>
+
+</body>
+</html>

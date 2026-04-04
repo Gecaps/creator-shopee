@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .card {
+    width: 430px;
+    height: 215px;
+    background: linear-gradient(145deg, #0f0f0f 0%, #1a0800 50%, #0a0a0a 100%);
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Glows */
+  .glow-1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(238,77,45,0.3) 0%, transparent 70%);
+    top: -150px;
+    right: -50px;
+  }
+  .glow-2 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+    bottom: -100px;
+    left: -30px;
+  }
+
+  /* Grid */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 20px 28px;
+    width: 100%;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(238,77,45,0.15);
+    border: 1px solid rgba(238,77,45,0.3);
+    border-radius: 14px;
+    padding: 5px 12px;
+    font-size: 11px;
+    color: #f97316;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  h1 span {
+    background: linear-gradient(135deg, #f97316, #ee4d2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 600;
+  }
+
+  .tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ee4d2d;
+    flex-shrink: 0;
+  }
+
+  /* Borda sutil */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="content">
+    <div class="badge">DESAFIO 30 DIAS</div>
+    <h1>Desafio <span>Creator Shopee</span></h1>
+    <p class="subtitle">12 aulas praticas para sua primeira comissao como Creator Shopee</p>
+    <div class="tags">
+      <div class="tag"><div class="tag-dot"></div> 12 aulas</div>
+      <div class="tag"><div class="tag-dot"></div> 30 dias</div>
+      <div class="tag"><div class="tag-dot"></div> R$29,90</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

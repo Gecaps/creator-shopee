@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #080808;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    width: 430px;
+    height: 215px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* === MODULO 0 — COMECE POR AQUI === */
+  .mod0 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #0d1a0a 40%, #0a0f0a 100%);
+  }
+  .mod0 .glow {
+    position: absolute;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(34,197,94,0.25) 0%, transparent 70%);
+    top: -180px; right: -60px;
+  }
+  .mod0 .glow-2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(34,197,94,0.1) 0%, transparent 70%);
+    bottom: -100px; left: 20px;
+  }
+  .mod0 .accent { color: #22c55e; }
+  .mod0 .num-bg { background: rgba(34,197,94,0.12); border-color: rgba(34,197,94,0.25); }
+  .mod0 .icon-glow { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); }
+  .mod0 .bar { background: linear-gradient(90deg, transparent, #22c55e, transparent); }
+
+  /* === MODULO 1 — PREPARACAO === */
+  .mod1 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0f00 40%, #0f0a0a 100%);
+  }
+  .mod1 .glow {
+    position: absolute;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(249,115,22,0.25) 0%, transparent 70%);
+    top: -180px; right: -60px;
+  }
+  .mod1 .glow-2 {
+    position: absolute;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(249,115,22,0.1) 0%, transparent 70%);
+    bottom: -100px; left: 20px;
+  }
+  .mod1 .accent { color: #f97316; }
+  .mod1 .num-bg { background: rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.25); }
+  .mod1 .icon-glow { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.2); }
+  .mod1 .bar { background: linear-gradient(90deg, transparent, #f97316, transparent); }
+
+  /* === MODULO 2 — PRIMEIRAS VENDAS === */
+  .mod2 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0800 40%, #0f0505 100%);
+  }
+  .mod2 .glow {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(238,77,45,0.3) 0%, transparent 70%);
+    top: -200px; right: -80px;
+  }
+  .mod2 .glow-2 {
+    position: absolute;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(238,77,45,0.12) 0%, transparent 70%);
+    bottom: -120px; left: 0px;
+  }
+  .mod2 .accent { color: #ee4d2d; }
+  .mod2 .num-bg { background: rgba(238,77,45,0.12); border-color: rgba(238,77,45,0.25); }
+  .mod2 .icon-glow { background: rgba(238,77,45,0.1); border: 1px solid rgba(238,77,45,0.2); }
+  .mod2 .bar { background: linear-gradient(90deg, transparent, #ee4d2d, transparent); }
+
+  /* === MODULO 3 — ACELERANDO === */
+  .mod3 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 40%, #0f0a14 100%);
+  }
+  .mod3 .glow {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%);
+    top: -200px; right: -80px;
+  }
+  .mod3 .glow-2 {
+    position: absolute;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
+    bottom: -120px; left: 0px;
+  }
+  .mod3 .accent { color: #a855f7; }
+  .mod3 .num-bg { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.25); }
+  .mod3 .icon-glow { background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.2); }
+  .mod3 .bar { background: linear-gradient(90deg, transparent, #a855f7, transparent); }
+
+  /* === MODULO 4 — ESCALANDO === */
+  .mod4 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1400 40%, #0f0d0a 100%);
+  }
+  .mod4 .glow {
+    position: absolute;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(234,179,8,0.3) 0%, transparent 70%);
+    top: -220px; right: -100px;
+  }
+  .mod4 .glow-2 {
+    position: absolute;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(234,179,8,0.12) 0%, transparent 70%);
+    bottom: -140px; left: -20px;
+  }
+  .mod4 .accent { color: #eab308; }
+  .mod4 .num-bg { background: rgba(234,179,8,0.12); border-color: rgba(234,179,8,0.25); }
+  .mod4 .icon-glow { background: rgba(234,179,8,0.1); border: 1px solid rgba(234,179,8,0.2); }
+  .mod4 .bar { background: linear-gradient(90deg, transparent, #eab308, transparent); }
+
+  /* === ELEMENTOS COMUNS === */
+  .grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .content {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; gap: 24px;
+    padding: 0 32px;
+    width: 100%;
+  }
+
+  .icon-area {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-glow {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+  }
+
+  .num-bg {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .text-area { flex: 1; }
+
+  .module-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .module-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    max-width: 280px;
+  }
+
+  .tags {
+    display: flex; gap: 6px;
+    margin-top: 12px;
+  }
+
+  .tag {
+    display: flex; align-items: center; gap: 4px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+  }
+
+  .tag-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .mod0 .tag-dot { background: #22c55e; }
+  .mod1 .tag-dot { background: #f97316; }
+  .mod2 .tag-dot { background: #ee4d2d; }
+  .mod3 .tag-dot { background: #a855f7; }
+  .mod4 .tag-dot { background: #eab308; }
+
+  .bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  /* Label para identificar na exportacao */
+  .label {
+    color: rgba(255,255,255,0.15);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: -30px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- MODULO 0 -->
+<div class="label">modulo-0-comece-por-aqui</div>
+<div class="card mod0" id="mod0">
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+  <div class="content">
+    <div class="icon-area">
+      <div class="icon-glow">&#128075;</div>
+      <div class="num-bg accent">START</div>
+    </div>
+    <div class="text-area">
+      <div class="module-title">Comece por <span class="accent">Aqui</span></div>
+      <div class="module-sub">Entenda como tudo funciona antes de comecar o desafio</div>
+      <div class="tags">
+        <div class="tag"><div class="tag-dot"></div> 3 aulas</div>
+        <div class="tag"><div class="tag-dot"></div> Boas-vindas</div>
+        <div class="tag"><div class="tag-dot"></div> WhatsApp</div>
+      </div>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+
+<!-- MODULO 1 -->
+<div class="label">modulo-1-preparacao</div>
+<div class="card mod1" id="mod1">
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+  <div class="content">
+    <div class="icon-area">
+      <div class="icon-glow">&#128640;</div>
+      <div class="num-bg accent">MOD 01</div>
+    </div>
+    <div class="text-area">
+      <div class="module-title"><span class="accent">Preparacao</span></div>
+      <div class="module-sub">Seu ponto de partida: conta de Creator, produtos certos e estrategia</div>
+      <div class="tags">
+        <div class="tag"><div class="tag-dot"></div> Dias 1-3</div>
+        <div class="tag"><div class="tag-dot"></div> 3 aulas</div>
+        <div class="tag"><div class="tag-dot"></div> Fundamentos</div>
+      </div>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+
+<!-- MODULO 2 -->
+<div class="label">modulo-2-primeiras-vendas</div>
+<div class="card mod2" id="mod2">
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+  <div class="content">
+    <div class="icon-area">
+      <div class="icon-glow">&#128176;</div>
+      <div class="num-bg accent">MOD 02</div>
+    </div>
+    <div class="text-area">
+      <div class="module-title">Primeiras <span class="accent">Vendas</span></div>
+      <div class="module-sub">Mao na massa: crie seus links e faca sua primeira comissao</div>
+      <div class="tags">
+        <div class="tag"><div class="tag-dot"></div> Dias 4-10</div>
+        <div class="tag"><div class="tag-dot"></div> 3 aulas</div>
+        <div class="tag"><div class="tag-dot"></div> Acao</div>
+      </div>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+
+<!-- MODULO 3 -->
+<div class="label">modulo-3-acelerando</div>
+<div class="card mod3" id="mod3">
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+  <div class="content">
+    <div class="icon-area">
+      <div class="icon-glow">&#9889;</div>
+      <div class="num-bg accent">MOD 03</div>
+    </div>
+    <div class="text-area">
+      <div class="module-title"><span class="accent">Acelerando</span></div>
+      <div class="module-sub">Conteudo que converte, produtos com comissao alta e mais cliques</div>
+      <div class="tags">
+        <div class="tag"><div class="tag-dot"></div> Dias 11-20</div>
+        <div class="tag"><div class="tag-dot"></div> 3 aulas</div>
+        <div class="tag"><div class="tag-dot"></div> Crescimento</div>
+      </div>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+
+<!-- MODULO 4 -->
+<div class="label">modulo-4-escalando</div>
+<div class="card mod4" id="mod4">
+  <div class="glow"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+  <div class="content">
+    <div class="icon-area">
+      <div class="icon-glow">&#128081;</div>
+      <div class="num-bg accent">MOD 04</div>
+    </div>
+    <div class="text-area">
+      <div class="module-title"><span class="accent">Escalando</span></div>
+      <div class="module-sub">De R$500 para R$3.000/mes. Analise, otimize e escale</div>
+      <div class="tags">
+        <div class="tag"><div class="tag-dot"></div> Dias 21-30</div>
+        <div class="tag"><div class="tag-dot"></div> 3 aulas</div>
+        <div class="tag"><div class="tag-dot"></div> Resultado</div>
+      </div>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+
+</body>
+</html>
