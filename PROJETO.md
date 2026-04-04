@@ -39,7 +39,7 @@ Panfleto (QR → /pflto) → Landing Page (index.html) → Checkout Yampi (R$29,
 | WhatsApp grupo | chat.whatsapp.com/JLT1F6ZlARd6R5lS2t2aaL | ✅ Criado |
 | Automações | n8n (n8n.natuu.net) | ⏳ Pendente |
 | CRM/Leads | Supabase | ⏳ Pendente |
-| Analytics | **Google Analytics 4** (G-SZZ7X6PKFN) | ✅ Em todas as páginas do funil |
+| Analytics | **Google Analytics 4** (G-G0J2SXC40E) | ✅ Em todas as páginas do funil |
 
 ---
 
@@ -362,7 +362,7 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 
 ### Google Analytics 4
 - [x] Property GA4 criada (conta GECAPS)
-- [x] Measurement ID: `G-SZZ7X6PKFN`
+- [x] Measurement ID: `G-G0J2SXC40E`
 - [x] API Secret Key (Measurement Protocol): `IwjWiXosQPWvickK3btRaQ`
 - [x] gtag.js adicionado em 6 páginas do funil: index, obrigado, obrigado-basico, upsell-mentoria, upsell-pack, upsell-pack-vip
 - [x] Banners/panfletos/memberkit HTMLs não incluídos (são só pra exportar imagem)
@@ -383,7 +383,7 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 ~~O `banner-pack.html` diz "50 produtos", mas o `upsell-pack.html` diz "30 produtos".~~ Alinhado para 30 produtos.
 
 ### ~~⚠️ Sem analytics~~ ✅ Corrigido em 04/04
-Google Analytics 4 instalado em todas as 6 páginas do funil. Measurement ID: `G-SZZ7X6PKFN`. API Secret Key: `IwjWiXosQPWvickK3btRaQ`.
+Google Analytics 4 instalado em todas as 6 páginas do funil. Measurement ID: `G-G0J2SXC40E`. API Secret Key: `IwjWiXosQPWvickK3btRaQ`.
 
 ### ~~⚠️ Link "Acessar plataforma" nas páginas de obrigado~~ ✅ Corrigido em 04/04
 ~~Os botões apontavam para `#` (inativo).~~ Atualizados para `https://creator-brasil.memberkit.com.br`.
@@ -406,7 +406,7 @@ Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 - [ ] **Verificar drip content** — confirmar que as regras de liberação salvaram no MemberKit
 
 ### Curto prazo
-- [x] Instalar analytics (GA4 G-SZZ7X6PKFN) em todas as páginas do funil ✅ 04/04
+- [x] Instalar analytics (GA4 G-G0J2SXC40E) em todas as páginas do funil ✅ 04/04
 - [x] Atualizar `copy/automacoes.md` (trocar Kiwify/Hotmart → Yampi + MemberKit) ✅ 04/04
 - [x] Alinhar "30 vs 50 produtos" no banner vs upsell ✅ 04/04
 - [ ] Configurar webhook da Yampi no n8n para capturar pedidos
