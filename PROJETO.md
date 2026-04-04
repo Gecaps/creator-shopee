@@ -39,7 +39,7 @@ Panfleto (QR → /pflto) → Landing Page (index.html) → Checkout Yampi (R$29,
 | WhatsApp grupo | chat.whatsapp.com/JLT1F6ZlARd6R5lS2t2aaL | ✅ Criado |
 | Automações | n8n (n8n.natuu.net) | ⏳ Pendente |
 | CRM/Leads | Supabase | ⏳ Pendente |
-| Analytics | Nenhum configurado | ⚠️ Sem tracking |
+| Analytics | **Google Analytics 4** (G-SZZ7X6PKFN) | ✅ Em todas as páginas do funil |
 
 ---
 
@@ -336,7 +336,7 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 - [x] **Solução:** repo voltou para público via `gh repo edit --visibility public`
 - [x] Deploy via CLI funcionou: `dpl_4AAnU2rKtPBumxBPPfVJ8Sf5h4Fy` — READY
 - [x] Site no ar: `https://creatorbrasil.com.br` com todos os redirects
-- [ ] **Pendente:** commit + push das mudanças locais (vercel.json, PROJETO.md, assets)
+- [x] Commit + push das mudanças locais ✅ 04/04
 
 ### Organização de arquivos
 - [x] Downloads organizado: pasta "Creator Shopee" criada com capas + panfleto PDF
@@ -353,6 +353,27 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 
 ---
 
+## 10b. O QUE FOI FEITO EM 04/04/2026
+
+### Correções de inconsistências
+- [x] Links "Acessar plataforma" em obrigado.html e obrigado-basico.html: `#` → `https://creator-brasil.memberkit.com.br`
+- [x] Banner pack: "50 produtos" → "30 produtos" (alinhado com upsell-pack.html)
+- [x] copy/automacoes.md: referências a Kiwify/Hotmart → Yampi + Mercado Pago + MemberKit
+
+### Google Analytics 4
+- [x] Property GA4 criada (conta GECAPS)
+- [x] Measurement ID: `G-SZZ7X6PKFN`
+- [x] API Secret Key (Measurement Protocol): `IwjWiXosQPWvickK3btRaQ`
+- [x] gtag.js adicionado em 6 páginas do funil: index, obrigado, obrigado-basico, upsell-mentoria, upsell-pack, upsell-pack-vip
+- [x] Banners/panfletos/memberkit HTMLs não incluídos (são só pra exportar imagem)
+
+### Commits e deploys
+- [x] Commit `c3c0b9a`: fix de links, banner e docs
+- [x] Commit `fca2eb9`: GA4 em todas as páginas
+- [x] Push pro GitHub, deploy automático na Vercel
+
+---
+
 ## 11. INCONSISTÊNCIAS CONHECIDAS
 
 ### ~~⚠️ automacoes.md desatualizado~~ ✅ Corrigido em 04/04
@@ -361,8 +382,8 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 ### ~~⚠️ Banner Pack — quantidade divergente~~ ✅ Corrigido em 04/04
 ~~O `banner-pack.html` diz "50 produtos", mas o `upsell-pack.html` diz "30 produtos".~~ Alinhado para 30 produtos.
 
-### ⚠️ Sem analytics
-Nenhuma página tem Google Analytics, Meta Pixel ou qualquer tracking. Impossível rastrear comportamento no site.
+### ~~⚠️ Sem analytics~~ ✅ Corrigido em 04/04
+Google Analytics 4 instalado em todas as 6 páginas do funil. Measurement ID: `G-SZZ7X6PKFN`. API Secret Key: `IwjWiXosQPWvickK3btRaQ`.
 
 ### ~~⚠️ Link "Acessar plataforma" nas páginas de obrigado~~ ✅ Corrigido em 04/04
 ~~Os botões apontavam para `#` (inativo).~~ Atualizados para `https://creator-brasil.memberkit.com.br`.
@@ -370,22 +391,22 @@ Nenhuma página tem Google Analytics, Meta Pixel ou qualquer tracking. Impossív
 ### Regra de acesso ao grupo WhatsApp
 O grupo VIP do WhatsApp é **exclusivo para quem comprou upsell** (Mentoria R$197 ou Pack Pro R$497). Quem comprou só o Desafio (R$29,90) **NÃO tem acesso** ao grupo. O link aparece apenas em `obrigado.html` (pós-upsell). O redirect `/grupo` foi desativado — redireciona pra landing page.
 
-### ⚠️ Mudanças locais não commitadas
-Correções de 04/04 (links obrigado, banner pack, automacoes.md, PROJETO.md) pendentes de commit+push.
+### ~~⚠️ Mudanças locais não commitadas~~ ✅ Resolvido em 04/04
+Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 
 ---
 
 ## 12. PRÓXIMOS PASSOS
 
 ### Imediato (próxima sessão)
-- [ ] **Commit + push** das mudanças locais pro GitHub
+- [x] **Commit + push** das mudanças locais pro GitHub ✅ 04/04 (commits c3c0b9a, fca2eb9)
 - [x] **Subir capas v3** dos 5 módulos no MemberKit ✅ já feito
 - [ ] **Fazer teste de compra** — validar fluxo completo: Yampi → MemberKit → email → acesso
 - [x] **Atualizar links** das páginas de obrigado: `#` → `creator-brasil.memberkit.com.br` ✅ 04/04
 - [ ] **Verificar drip content** — confirmar que as regras de liberação salvaram no MemberKit
 
 ### Curto prazo
-- [ ] Instalar analytics (GA4 ou similar) para rastrear funil
+- [x] Instalar analytics (GA4 G-SZZ7X6PKFN) em todas as páginas do funil ✅ 04/04
 - [x] Atualizar `copy/automacoes.md` (trocar Kiwify/Hotmart → Yampi + MemberKit) ✅ 04/04
 - [x] Alinhar "30 vs 50 produtos" no banner vs upsell ✅ 04/04
 - [ ] Configurar webhook da Yampi no n8n para capturar pedidos
