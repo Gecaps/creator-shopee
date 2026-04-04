@@ -1,7 +1,7 @@
 # Creator Shopee — Documento Mestre do Projeto
 
-> Última atualização: 2026-04-03 (noite)
-> Status: MemberKit configurado, Yampi integrada, deploy corrigido, capas prontas. Falta teste de compra e conteúdo das aulas.
+> Última atualização: 2026-04-04
+> Status: MemberKit configurado (5 módulos, 15 aulas, capas subidas), Yampi integrada, deploy no ar. **Falta gravar os vídeos das aulas**, teste de compra e analytics.
 
 ---
 
@@ -314,7 +314,7 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 ### Drip Content (liberação programada)
 - [x] Pesquisado como funciona no MemberKit (9 regras disponíveis)
 - [x] Configuração definida: Mod 0+1 imediato, Mod 2 dia 4, Mod 3 dia 11, Mod 4 dia 21
-- [ ] **Erro ao salvar** na Turma A — resolvido trocando pra aba anônima (conflito de sessão)
+- [x] Erro ao salvar na Turma A — resolvido trocando pra aba anônima (conflito de sessão)
 
 ### Emails
 - [x] Pesquisado Resend (API, integração, DNS, limites)
@@ -355,23 +355,23 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 
 ## 11. INCONSISTÊNCIAS CONHECIDAS
 
-### ⚠️ automacoes.md desatualizado
-O arquivo `copy/automacoes.md` referencia Kiwify/Hotmart como plataforma. A plataforma real é **Yampi + Mercado Pago + MemberKit**. Precisa ser atualizado.
+### ~~⚠️ automacoes.md desatualizado~~ ✅ Corrigido em 04/04
+~~O arquivo `copy/automacoes.md` referencia Kiwify/Hotmart como plataforma.~~ Atualizado para Yampi + Mercado Pago + MemberKit.
 
-### ⚠️ Banner Pack — quantidade divergente
-O `banner-pack.html` diz "50 produtos", mas o `upsell-pack.html` diz "30 produtos". Alinhar.
+### ~~⚠️ Banner Pack — quantidade divergente~~ ✅ Corrigido em 04/04
+~~O `banner-pack.html` diz "50 produtos", mas o `upsell-pack.html` diz "30 produtos".~~ Alinhado para 30 produtos.
 
 ### ⚠️ Sem analytics
 Nenhuma página tem Google Analytics, Meta Pixel ou qualquer tracking. Impossível rastrear comportamento no site.
 
-### ⚠️ Link "Acessar plataforma" nas páginas de obrigado
-Os botões de acesso ao curso em `obrigado.html` e `obrigado-basico.html` ainda apontam para `#` (inativo). Precisam ser atualizados para `creatorbrasil.com.br/curso`.
+### ~~⚠️ Link "Acessar plataforma" nas páginas de obrigado~~ ✅ Corrigido em 04/04
+~~Os botões apontavam para `#` (inativo).~~ Atualizados para `https://creator-brasil.memberkit.com.br`.
 
 ### Regra de acesso ao grupo WhatsApp
 O grupo VIP do WhatsApp é **exclusivo para quem comprou upsell** (Mentoria R$197 ou Pack Pro R$497). Quem comprou só o Desafio (R$29,90) **NÃO tem acesso** ao grupo. O link aparece apenas em `obrigado.html` (pós-upsell). O redirect `/grupo` foi desativado — redireciona pra landing page.
 
 ### ⚠️ Mudanças locais não commitadas
-vercel.json, PROJETO.md, assets dos módulos e HTMLs do MemberKit estão modificados localmente mas NÃO foram commitados/pushed pro GitHub.
+Correções de 04/04 (links obrigado, banner pack, automacoes.md, PROJETO.md) pendentes de commit+push.
 
 ---
 
@@ -379,15 +379,15 @@ vercel.json, PROJETO.md, assets dos módulos e HTMLs do MemberKit estão modific
 
 ### Imediato (próxima sessão)
 - [ ] **Commit + push** das mudanças locais pro GitHub
-- [ ] **Subir capas v3** dos 5 módulos no MemberKit (já estão na pasta Downloads)
+- [x] **Subir capas v3** dos 5 módulos no MemberKit ✅ já feito
 - [ ] **Fazer teste de compra** — validar fluxo completo: Yampi → MemberKit → email → acesso
-- [ ] **Atualizar links** das páginas de obrigado: `#` → `creatorbrasil.com.br/curso`
+- [x] **Atualizar links** das páginas de obrigado: `#` → `creator-brasil.memberkit.com.br` ✅ 04/04
 - [ ] **Verificar drip content** — confirmar que as regras de liberação salvaram no MemberKit
 
 ### Curto prazo
 - [ ] Instalar analytics (GA4 ou similar) para rastrear funil
-- [ ] Atualizar `copy/automacoes.md` (trocar Kiwify/Hotmart → Yampi + MemberKit)
-- [ ] Alinhar "30 vs 50 produtos" no banner vs upsell
+- [x] Atualizar `copy/automacoes.md` (trocar Kiwify/Hotmart → Yampi + MemberKit) ✅ 04/04
+- [x] Alinhar "30 vs 50 produtos" no banner vs upsell ✅ 04/04
 - [ ] Configurar webhook da Yampi no n8n para capturar pedidos
 - [ ] Testar checkout completo (compra + upsells + obrigado)
 
@@ -395,7 +395,7 @@ vercel.json, PROJETO.md, assets dos módulos e HTMLs do MemberKit estão modific
 - [ ] Gravar vídeo da página de obrigado (script pronto)
 - [ ] Implementar automações n8n (captura → conversão → pós-compra)
 - [ ] Imprimir primeira tiragem de panfletos (10.000 para teste)
-- [ ] Subir conteúdo das aulas no MemberKit (vídeos, textos, materiais)
+- [ ] **Gravar vídeos das 15 aulas** e subir no MemberKit (estrutura e módulos já estão prontos)
 
 ---
 

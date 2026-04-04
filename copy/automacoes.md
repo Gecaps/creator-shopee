@@ -86,7 +86,7 @@ PAGINA OBRIGADO (video + oferta R$29,90)
 
 ## AUTOMACAO 3: POS-COMPRA
 
-**Trigger:** Webhook da plataforma de pagamento (Kiwify/Hotmart) ou tag "comprou"
+**Trigger:** Webhook da Yampi (pedido aprovado) ou tag "comprou"
 
 ### Acoes imediatas:
 1. Adicionar tag: "comprou" + "aluno-desafio"
@@ -155,9 +155,9 @@ Variante C: utm_campaign=pacote-v1c (headline voce-vendesse)
 | n8n | Automacoes e webhooks | Ja tem (n8n.natuu.net) |
 | Email (Fustec/Mailchimp/Brevo) | Disparos e sequencias | R$0-100/mes |
 | WhatsApp Business API | Mensagens automaticas | Depende do volume |
-| Kiwify ou Hotmart | Pagamento + entrega do curso | % por venda |
-| Airtable ou Supabase | CRM/banco de leads | Ja tem (Supabase) |
-| Plataforma de curso | Hospedar as 12 aulas | Hotmart Club / Kiwify |
+| Yampi + Mercado Pago | Checkout e pagamento | % por venda |
+| Supabase | CRM/banco de leads | Ja tem |
+| MemberKit | Hospedar as 15 aulas (5 modulos) | Assinatura mensal |
 | Google Analytics | Tracking de UTMs | Gratis |
 
 ---
@@ -178,7 +178,7 @@ Webhook (POST) → Set Fields → Supabase Insert → IF (has email)
 
 ### Workflow 2: Compra Aprovada
 ```
-Webhook (Kiwify/Hotmart) → Parse Payment Data → Supabase Update (tag: comprou)
+Webhook (Yampi) → Parse Payment Data → Supabase Update (tag: comprou)
     → Send Access Email
     → Send WhatsApp Welcome
     → Wait 3 days
