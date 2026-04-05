@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="pt-BR">
+<html class="dark" lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0J2SXC40E"></script>
@@ -11,21 +11,37 @@
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Creator Brasil — Ganhe Comiss&atilde;o na Shopee e TikTok Shop</title>
-<meta name="description" content="Desafio de 30 dias para ganhar comissão como creator na Shopee e TikTok Shop. Sem estoque, sem aparecer, direto do celular."/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
 tailwind.config = {
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        shopee: '#EE4D2D',
-        tt: { cyan: '#25F4EE', pink: '#FE2C55' },
+        "surface-container-low": "#131313",
+        "surface-container": "#1a1a1a",
+        "surface-container-high": "#20201f",
+        "surface-container-highest": "#262626",
+        "surface": "#0e0e0e",
+        "surface-bright": "#2c2c2c",
+        "on-surface": "#ffffff",
+        "on-surface-variant": "#adaaaa",
+        "outline-variant": "#484847",
+        "primary": "#ff8f77",
+        "primary-container": "#ff775b",
+        "on-primary-fixed": "#000000",
+        "secondary": "#29fcf3",
+        "secondary-container": "#006a66",
+        "tertiary": "#ff6f7e",
+        "tertiary-container": "#ff0651",
+        "on-error-container": "#ffb2b9",
+        "shopee": "#EE4D2D",
       },
       fontFamily: {
-        headline: ['Space Grotesk'],
-        body: ['Plus Jakarta Sans'],
+        "headline": ["Space Grotesk"],
+        "body": ["Plus Jakarta Sans"],
       },
     },
   },
@@ -35,379 +51,297 @@ tailwind.config = {
   body { font-family: 'Plus Jakarta Sans', sans-serif; }
   h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  .gradient-cta { background: linear-gradient(135deg, #EE4D2D 0%, #ff775b 100%); }
-
-  /* Reveal */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
-
-  @keyframes cta-glow {
-    0%, 100% { box-shadow: 0 8px 32px -8px rgba(238,77,45,0.35); }
-    50% { box-shadow: 0 8px 48px -4px rgba(238,77,45,0.55); }
-  }
-  .cta-glow { animation: cta-glow 2.5s ease-in-out infinite; }
-
-  /* Phone */
-  .phone-frame {
-    background: linear-gradient(145deg, #f8f8f8, #e8e8e8);
-    border: 3px solid #d4d4d4;
-    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05);
-  }
-  .phone-screen { background: linear-gradient(180deg, #0a0a0a, #111); }
-  @keyframes notif-in {
-    0% { transform: translateX(80px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-  }
-  .notif-1 { animation: notif-in 0.6s 0.8s cubic-bezier(0.16,1,0.3,1) both; }
-  .notif-2 { animation: notif-in 0.6s 1.4s cubic-bezier(0.16,1,0.3,1) both; }
-  .notif-3 { animation: notif-in 0.6s 2.0s cubic-bezier(0.16,1,0.3,1) both; }
-
-  @keyframes badge-pop {
-    0% { transform: scale(0) rotate(-10deg); opacity: 0; }
-    100% { transform: scale(1) rotate(-6deg); opacity: 1; }
-  }
-  .badge-pop { animation: badge-pop 0.5s 2.5s cubic-bezier(0.16,1,0.3,1) both; }
-
-  @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  .float-1 { animation: float-y 5s ease-in-out infinite; }
-  .float-2 { animation: float-y 6s ease-in-out 1s infinite; }
-
-  /* TikTok SVG glow */
-  .tt-glow { filter: drop-shadow(0 0 8px rgba(37,244,238,0.6)); }
+  .gradient-primary { background: linear-gradient(135deg, #ff8f77 0%, #ff775b 100%); }
+  [id] { scroll-margin-top: 80px; }
 
   /* FAQ */
   details summary { cursor: pointer; list-style: none; }
   details summary::-webkit-details-marker { display: none; }
   details[open] summary .chevron { transform: rotate(180deg); }
   .chevron { transition: transform 0.3s ease; }
-  [id] { scroll-margin-top: 80px; }
 </style>
 </head>
+<body class="bg-surface text-on-surface selection:bg-primary/30">
 
-<body class="bg-white text-zinc-900 antialiased selection:bg-shopee/20">
-
-<!-- ━━━ Nav (dark) ━━━ -->
-<nav class="fixed top-0 left-0 w-full z-50 bg-zinc-950/90 backdrop-blur-lg shadow-xl shadow-black/10">
-  <div class="flex justify-between items-center px-6 md:px-8 h-16 md:h-20 max-w-screen-2xl mx-auto">
-    <div class="text-2xl font-black tracking-tighter text-shopee font-headline">CREATOR BRASIL</div>
-    <div class="hidden md:flex items-center gap-8">
-      <a class="text-zinc-400 font-medium hover:text-shopee transition-colors text-sm" href="#vantagens">Vantagens</a>
-      <a class="text-zinc-400 font-medium hover:text-shopee transition-colors text-sm" href="#metodo">Como Funciona</a>
-      <a class="text-zinc-400 font-medium hover:text-shopee transition-colors text-sm" href="#desafio">O Desafio</a>
-      <a class="text-zinc-400 font-medium hover:text-shopee transition-colors text-sm" href="#faq">FAQ</a>
+<!-- ━━━ Nav ━━━ -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-zinc-950/60 backdrop-blur-lg shadow-xl shadow-black/40">
+  <div class="flex justify-between items-center px-8 h-20 w-full max-w-screen-2xl mx-auto">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-shopee text-2xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+      <span class="text-2xl font-black tracking-tighter text-shopee">CREATOR BRASIL</span>
     </div>
-    <a href="#oferta" class="gradient-cta text-white font-bold py-2.5 px-6 rounded-xl active:scale-95 hover:scale-105 transition-all text-sm">
+    <div class="hidden md:flex items-center gap-8">
+      <a class="text-zinc-400 font-medium hover:text-shopee hover:scale-105 transition-all duration-300 text-sm" href="#vantagens">Vantagens</a>
+      <a class="text-zinc-400 font-medium hover:text-shopee hover:scale-105 transition-all duration-300 text-sm" href="#metodo">Como Funciona</a>
+      <a class="text-zinc-400 font-medium hover:text-shopee hover:scale-105 transition-all duration-300 text-sm" href="#desafio">O Desafio</a>
+      <a class="text-zinc-400 font-medium hover:text-shopee hover:scale-105 transition-all duration-300 text-sm" href="#faq">FAQ</a>
+    </div>
+    <a href="#oferta" class="gradient-primary text-on-primary-fixed font-bold py-2.5 px-6 rounded-xl active:scale-95 duration-150 ease-in-out hover:scale-105 transition-all text-sm">
       Quero Meu Acesso
     </a>
   </div>
 </nav>
 
-<!-- ━━━ Hero (dark section) ━━━ -->
-<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-zinc-950 text-white">
+<!-- ━━━ Hero ━━━ -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <!-- Background image + overlay -->
   <div class="absolute inset-0 z-0">
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-zinc-950"></div>
-    <!-- Floating icons -->
-    <div class="absolute top-1/4 left-1/4 opacity-20 blur-sm float-1">
-      <svg fill="#25F4EE" height="100" width="100" viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z"/></svg>
+    <div class="absolute inset-0 bg-gradient-to-b from-surface via-surface/80 to-surface"></div>
+    <!-- Floating TikTok + Shopee icons -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 opacity-20 blur-sm animate-pulse">
+        <svg fill="#29fcf3" height="100" width="100" viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z"/></svg>
+      </div>
+      <div class="absolute bottom-1/3 right-1/4 opacity-20 blur-sm animate-bounce" style="animation-duration: 5s">
+        <span class="material-symbols-outlined text-[80px] text-shopee" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+      </div>
     </div>
-    <div class="absolute bottom-1/3 right-1/4 opacity-15 blur-sm float-2 hidden md:block">
-      <span class="material-symbols-outlined text-shopee text-[80px]" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
-    </div>
+    <img alt="TikTok Interface" class="w-full h-full object-cover opacity-30 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCzAdH-vkqtf9iXHxZm1yF1cJXOsAcAZRTEsqqmZu7nBeHLprI4jr1TCUV1rb0oyDiBzRNSjU7Vo2FJTv1hUFoDI05ru0o_9OWnw8ehyFE8Zh96Y5McDb3n3lohkaHaxMXzRjkiF7zJxfnow5GPd7uzEwlPbauH3VWyA9EjQmB1u4AfTmTmdjwmaOVbXmXeJ_EGn1Fcnv_oNFZ3nTg6I2zXwODrssdpzgwmI9bGk_nkW4UPM7I4NHPD8f3NebyGKnqvHqMExM-m0w"/>
   </div>
 
-  <div class="max-w-screen-2xl mx-auto px-6 md:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-16">
-    <!-- Left: Copy -->
+  <div class="container mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
     <div class="lg:col-span-7">
-      <div class="reveal inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-tt-cyan/10 border border-tt-cyan/20 mb-6">
-        <span class="w-2 h-2 rounded-full bg-tt-cyan animate-pulse"></span>
-        <span class="text-xs font-bold tracking-widest text-tt-cyan uppercase">Creator Commerce</span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary/20 mb-6">
+        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        <span class="text-xs font-bold tracking-widest text-secondary uppercase">Afiliado Shopee + TikTok Shop</span>
       </div>
 
-      <h1 class="reveal reveal-d1 text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8 font-headline">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8">
         A SHOPEE PAGA
-        <span class="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 mb-[-0.15em] mx-1">
-          <svg class="w-full h-full tt-glow" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z" fill="#25F4EE"/>
-            <path d="M19.178 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z" fill="#FE2C55" style="mix-blend-mode:screen; transform: translateX(-1px);"/>
+        <span class="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 mb-[-0.2em] mx-1">
+          <svg class="w-full h-full drop-shadow-[0_0_8px_rgba(41,252,243,0.8)]" fill="none" viewBox="0 0 24 24">
+            <path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z" fill="#29fcf3"/>
+            <path style="mix-blend-mode:screen; transform: translateX(-1px);" d="M19.178 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z" fill="#ff0050"/>
           </svg>
         </span>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-shopee via-tt-pink to-tt-cyan">AT&Eacute; 50%</span><br/>DE COMISS&Atilde;O. <span class="text-zinc-500">E VOC&Ecirc;?</span>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">AT&Eacute; 50%</span>
+        DE COMISS&Atilde;O.<br/>
+        <span class="text-zinc-600">E VOC&Ecirc; A&Iacute;, PARADO.</span>
       </h1>
 
-      <p class="reveal reveal-d2 text-lg md:text-xl text-zinc-400 max-w-xl mb-10 leading-relaxed">
-        Enquanto voc&ecirc; pensa se vale a pena, milhares de pessoas j&aacute; est&atilde;o faturando alto divulgando produtos da Shopee. Sem estoque. Sem aparecer. Tudo pelo celular. A pergunta n&atilde;o &eacute; SE funciona — &eacute; quanto tempo voc&ecirc; vai demorar pra come&ccedil;ar.
+      <p class="text-xl md:text-2xl text-on-surface-variant font-body max-w-2xl mb-10 leading-relaxed">
+        Enquanto voc&ecirc; pensa se vale a pena, milhares de pessoas j&aacute; est&atilde;o faturando alto como creators da Shopee. Sem estoque. Sem aparecer. Tudo pelo celular. A &uacute;nica diferen&ccedil;a entre elas e voc&ecirc;? <strong class="text-white">Elas come&ccedil;aram.</strong>
       </p>
 
-      <div class="reveal reveal-d3 flex flex-col sm:flex-row gap-4">
-        <a href="#oferta" class="cta-glow gradient-cta text-white text-lg font-black py-5 px-10 rounded-xl hover:scale-105 transition-transform shadow-2xl shadow-shopee/20 flex items-center gap-2">
-          Quero Come&ccedil;ar Agora — R$29,90
-          <span class="material-symbols-outlined">arrow_forward</span>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#oferta" class="gradient-primary text-on-primary-fixed text-lg font-black py-5 px-10 rounded-xl hover:scale-105 transition-transform shadow-2xl shadow-primary/20 text-center">
+          Quero Come&ccedil;ar por R$29,90
         </a>
-        <a href="#metodo" class="bg-zinc-800 border border-zinc-700/30 text-white py-5 px-10 rounded-xl font-bold hover:bg-zinc-700 transition-colors text-center">
+        <a href="#metodo" class="bg-surface-container-high border border-outline-variant/30 text-on-surface py-5 px-10 rounded-xl font-bold hover:bg-surface-bright transition-colors text-center">
           Ver Como Funciona
         </a>
       </div>
     </div>
 
-    <!-- Right: Phone -->
-    <div class="lg:col-span-5 relative hidden md:block">
-      <div class="absolute -inset-10 bg-shopee/10 blur-[100px] rounded-full"></div>
-
-      <div class="relative phone-frame rounded-[3rem] p-4 transform rotate-3 hover:rotate-0 transition-transform duration-500 max-w-[300px] mx-auto">
-        <div class="phone-screen rounded-[2.5rem] overflow-hidden aspect-[9/16] relative">
-          <div class="absolute inset-0 p-5 pt-8 flex flex-col">
-            <!-- Top -->
-            <div class="flex items-center justify-between mb-5">
-              <span class="text-white/40 text-[10px] font-bold uppercase tracking-wider">Shopee Creator</span>
-              <span class="w-7 h-7 rounded-full bg-shopee/20 flex items-center justify-center">
-                <span class="material-symbols-outlined text-shopee text-sm" style="font-variation-settings: 'FILL' 1;">person</span>
-              </span>
-            </div>
-            <!-- Balance -->
-            <div class="mb-5">
-              <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Comiss&atilde;o do m&ecirc;s</p>
-              <p class="text-white text-3xl font-black font-headline tracking-tight">R$ 2.847<span class="text-lg text-white/50">,60</span></p>
-              <div class="flex items-center gap-1 mt-1">
-                <span class="material-symbols-outlined text-emerald-400 text-xs" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-                <span class="text-emerald-400 text-[10px] font-bold">+34% este m&ecirc;s</span>
-              </div>
-            </div>
-            <!-- Chart -->
-            <div class="flex items-end gap-1.5 h-14 mb-5">
-              <div class="flex-1 bg-shopee/20 rounded-t" style="height:30%"></div>
-              <div class="flex-1 bg-shopee/25 rounded-t" style="height:45%"></div>
-              <div class="flex-1 bg-shopee/30 rounded-t" style="height:35%"></div>
-              <div class="flex-1 bg-shopee/40 rounded-t" style="height:55%"></div>
-              <div class="flex-1 bg-shopee/50 rounded-t" style="height:65%"></div>
-              <div class="flex-1 bg-shopee/60 rounded-t" style="height:50%"></div>
-              <div class="flex-1 bg-shopee/70 rounded-t" style="height:80%"></div>
-              <div class="flex-1 bg-shopee rounded-t" style="height:100%"></div>
-            </div>
-            <!-- Notifs -->
-            <div class="space-y-2 flex-1">
-              <div class="notif-1 bg-white/5 backdrop-blur rounded-xl px-3 py-2.5 border border-white/5">
-                <div class="flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-emerald-400 text-xs" style="font-variation-settings: 'FILL' 1;">paid</span>
-                  </span>
-                  <div class="min-w-0">
-                    <p class="text-white text-[10px] font-bold truncate">Comiss&atilde;o recebida!</p>
-                    <p class="text-white/30 text-[8px]">Fone Bluetooth &middot; R$ 12,40</p>
-                  </div>
-                  <span class="text-white/15 text-[8px] flex-shrink-0 ml-auto">2min</span>
-                </div>
-              </div>
-              <div class="notif-2 bg-white/5 backdrop-blur rounded-xl px-3 py-2.5 border border-white/5">
-                <div class="flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-shopee/15 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-shopee text-xs" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
-                  </span>
-                  <div class="min-w-0">
-                    <p class="text-white text-[10px] font-bold truncate">Nova venda pelo seu link</p>
-                    <p class="text-white/30 text-[8px]">Kit Skincare &middot; R$ 8,70</p>
-                  </div>
-                  <span class="text-white/15 text-[8px] flex-shrink-0 ml-auto">15min</span>
-                </div>
-              </div>
-              <div class="notif-3 bg-white/5 backdrop-blur rounded-xl px-3 py-2.5 border border-white/5">
-                <div class="flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-lg bg-tt-cyan/15 flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-tt-cyan text-xs" style="font-variation-settings: 'FILL' 1;">trending_up</span>
-                  </span>
-                  <div class="min-w-0">
-                    <p class="text-white text-[10px] font-bold truncate">Meta batida!</p>
-                    <p class="text-white/30 text-[8px]">R$ 2.500 atingido</p>
-                  </div>
-                  <span class="text-white/15 text-[8px] flex-shrink-0 ml-auto">1h</span>
-                </div>
-              </div>
-            </div>
+    <!-- Phone mockup -->
+    <div class="lg:col-span-5 relative hidden lg:block">
+      <div class="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full"></div>
+      <div class="relative bg-surface-container-high p-4 rounded-[3rem] border border-outline-variant/20 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+        <img alt="Smartphone com app de vendas" class="rounded-[2.5rem] w-full aspect-[9/16] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmeosjXNgbz781rsUThMIi97lD7zQV9h-ZhxWQfdujFe3B_q1c9Lxa1xgiAMkhtoHagc9-imfAkT1Ub8iybD_QeD64HSMupdZaODquNt_YJo9nhspSpQ44Wc1i0O1P1ytYhycvQfiJ0-q-c7YL-oEUszHpJ_hdDru3s-XYJHTe4A2m3fMv9NYxIZHV-0hxTw9pSQvwj8C54RdE4g1wtdP2WhfLwki3AeOsT20b9PntTTzsw5V8Yajs9jimqBYZgGvSJADqO2PqlnU"/>
+        <!-- Badge flutuante -->
+        <div class="absolute -bottom-6 -left-6 bg-secondary-container text-white p-6 rounded-2xl shadow-xl">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="material-symbols-outlined text-shopee text-xl" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+            <span class="text-[10px] font-black text-white/60 tracking-widest uppercase">Shopee Creator</span>
           </div>
+          <div class="text-4xl font-black">50%</div>
+          <div class="text-xs font-bold uppercase tracking-widest opacity-80">Comiss&atilde;o M&aacute;xima</div>
         </div>
-      </div>
-
-      <!-- Badge -->
-      <div class="badge-pop absolute -bottom-4 -left-6 bg-zinc-900 text-white p-5 rounded-2xl shadow-xl border border-zinc-700/30">
-        <div class="flex items-center gap-2 mb-1">
-          <span class="material-symbols-outlined text-shopee text-lg" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
-          <span class="text-[9px] font-black text-zinc-500 tracking-widest uppercase">Shopee Creator</span>
-        </div>
-        <div class="text-3xl font-black font-headline">50%</div>
-        <div class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Comiss&atilde;o M&aacute;xima</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ Vantagens (light) ━━━ -->
-<section id="vantagens" class="py-24 bg-zinc-50">
-  <div class="max-w-screen-xl mx-auto px-6 md:px-8">
-    <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<!-- ━━━ Vantagens (Bento Grid) ━━━ -->
+<section id="vantagens" class="py-24 bg-surface-container-low">
+  <div class="container mx-auto px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
       <div>
-        <span class="text-shopee font-bold tracking-widest uppercase text-sm">Por que agora</span>
-        <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-2 font-headline">QUEM ENTRA PRIMEIRO,<br/><span class="text-shopee">GANHA MAIS</span></h2>
+        <span class="text-tertiary font-bold tracking-widest uppercase text-sm">Vantagens Exclusivas</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-2">QUEM ENTRA PRIMEIRO,<br/><span class="text-primary">GANHA MAIS</span></h2>
       </div>
-      <p class="text-zinc-500 max-w-sm">A Shopee est&aacute; investindo pesado em creators. Quem se posicionar agora pega as melhores comiss&otilde;es antes da concorr&ecirc;ncia.</p>
+      <p class="text-on-surface-variant max-w-sm">
+        A Shopee est&aacute; investindo pesado em creators no Brasil. Quem se posicionar agora pega as melhores comiss&otilde;es antes de todo mundo.
+      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="reveal group bg-white p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2 shadow-sm border border-zinc-100">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-shopee/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-shopee/10 transition-colors"></div>
-        <div class="w-14 h-14 bg-shopee/10 rounded-2xl flex items-center justify-center mb-8">
-          <span class="material-symbols-outlined text-shopee text-3xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+      <!-- Card 1 -->
+      <div class="group bg-surface-container-high p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/20 transition-colors"></div>
+        <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-8">
+          <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">payments</span>
         </div>
-        <h3 class="text-2xl font-bold mb-4 font-headline">Comiss&otilde;es de at&eacute; 50%</h3>
-        <p class="text-zinc-500 leading-relaxed mb-6">Tem produto pagando 50% de comiss&atilde;o. Voc&ecirc; indica, algu&eacute;m compra, metade do valor &eacute; seu. Sem investir um centavo.</p>
-        <div class="flex items-center gap-2 text-shopee font-bold text-sm">VER COMO FUNCIONA <span class="material-symbols-outlined text-sm">arrow_forward</span></div>
+        <h3 class="text-2xl font-bold mb-4">Comiss&otilde;es absurdas</h3>
+        <p class="text-on-surface-variant leading-relaxed mb-6">Tem produto pagando <strong class="text-white">50% de comiss&atilde;o</strong>. Voc&ecirc; indica, algu&eacute;m compra, metade do valor &eacute; seu. Sem investir um centavo.</p>
+        <div class="flex items-center gap-2 text-primary font-bold text-sm">
+          VER COMO FUNCIONA <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
       </div>
-
-      <div class="reveal reveal-d1 group bg-white p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2 shadow-sm border border-zinc-100">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-tt-cyan/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-tt-cyan/10 transition-colors"></div>
-        <div class="w-14 h-14 bg-tt-cyan/10 rounded-2xl flex items-center justify-center mb-8">
-          <span class="material-symbols-outlined text-tt-cyan text-3xl" style="font-variation-settings: 'FILL' 1;">visibility_off</span>
+      <!-- Card 2 -->
+      <div class="group bg-surface-container-high p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-secondary/20 transition-colors"></div>
+        <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8">
+          <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">visibility_off</span>
         </div>
-        <h3 class="text-2xl font-bold mb-4 font-headline">Sem Aparecer</h3>
-        <p class="text-zinc-500 leading-relaxed mb-6">Esquece c&acirc;mera, edi&ccedil;&atilde;o e vergonha. Voc&ecirc; s&oacute; compartilha um link. No WhatsApp, no grupo da fam&iacute;lia, nas redes. Simples assim.</p>
-        <div class="flex items-center gap-2 text-tt-cyan font-bold text-sm">VER ESTRAT&Eacute;GIAS <span class="material-symbols-outlined text-sm">arrow_forward</span></div>
+        <h3 class="text-2xl font-bold mb-4">Sem aparecer</h3>
+        <p class="text-on-surface-variant leading-relaxed mb-6">Esquece c&acirc;mera, edi&ccedil;&atilde;o e vergonha. Voc&ecirc; s&oacute; compartilha um link — no WhatsApp, no grupo da fam&iacute;lia, nas redes. <strong class="text-white">Simples assim.</strong></p>
+        <div class="flex items-center gap-2 text-secondary font-bold text-sm">
+          VER ESTRAT&Eacute;GIAS <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
       </div>
-
-      <div class="reveal reveal-d2 group bg-white p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2 shadow-sm border border-zinc-100">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-tt-pink/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-tt-pink/10 transition-colors"></div>
-        <div class="w-14 h-14 bg-tt-pink/10 rounded-2xl flex items-center justify-center mb-8">
-          <span class="material-symbols-outlined text-tt-pink text-3xl" style="font-variation-settings: 'FILL' 1;">smartphone</span>
+      <!-- Card 3 -->
+      <div class="group bg-surface-container-high p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-tertiary/20 transition-colors"></div>
+        <div class="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-8">
+          <span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">smartphone</span>
         </div>
-        <h3 class="text-2xl font-bold mb-4 font-headline">Direto do Celular</h3>
-        <p class="text-zinc-500 leading-relaxed mb-6">Sem computador. Sem ferramenta cara. Sem desculpa. Voc&ecirc; faz do sof&aacute;, do &ocirc;nibus, de qualquer lugar. S&oacute; precisa de celular e vontade.</p>
-        <div class="flex items-center gap-2 text-tt-pink font-bold text-sm">COME&Ccedil;AR AGORA <span class="material-symbols-outlined text-sm">arrow_forward</span></div>
+        <h3 class="text-2xl font-bold mb-4">Direto do celular</h3>
+        <p class="text-on-surface-variant leading-relaxed mb-6">Sem computador. Sem ferramenta cara. <strong class="text-white">Sem desculpa.</strong> Voc&ecirc; faz do sof&aacute;, do &ocirc;nibus, de qualquer lugar. S&oacute; precisa de celular e vontade.</p>
+        <div class="flex items-center gap-2 text-tertiary font-bold text-sm">
+          COME&Ccedil;AR AGORA <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ Como Funciona ━━━ -->
-<section id="metodo" class="py-24 bg-white overflow-hidden">
-  <div class="max-w-screen-xl mx-auto px-6 md:px-8">
-    <div class="reveal text-center mb-20">
-      <h2 class="text-5xl md:text-7xl font-black tracking-tighter font-headline mb-4">COMO <span class="text-tt-cyan italic">FUNCIONA?</span></h2>
-      <p class="text-zinc-500 max-w-xl mx-auto">Enquanto voc&ecirc; l&ecirc; isso, algu&eacute;m acabou de ganhar comiss&atilde;o compartilhando um link. O processo &eacute; rid&iacute;culo de simples.</p>
+<!-- ━━━ Como Funciona (4 passos assimétricos) ━━━ -->
+<section id="metodo" class="py-24 overflow-hidden">
+  <div class="container mx-auto px-8">
+    <div class="text-center mb-20">
+      <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-4">COMO <span class="text-secondary italic">FUNCIONA?</span></h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto">Enquanto voc&ecirc; l&ecirc; isso, algu&eacute;m acabou de ganhar comiss&atilde;o compartilhando um link. O processo &eacute; rid&iacute;culo de simples.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 relative">
-      <div class="hidden lg:block absolute top-10 left-0 w-full h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent"></div>
+      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-outline-variant/30 to-transparent -translate-y-1/2"></div>
 
-      <div class="reveal relative z-10 flex flex-col items-center text-center group">
-        <div class="w-20 h-20 rounded-full bg-zinc-100 border-4 border-white flex items-center justify-center text-3xl font-black text-shopee mb-6 group-hover:scale-110 transition-transform shadow-lg">01</div>
-        <h4 class="text-xl font-bold mb-3 font-headline">Cadastre-se</h4>
-        <p class="text-sm text-zinc-500">Crie sua conta de creator na Shopee em 10 minutos. A gente mostra o passo a passo.</p>
+      <div class="relative z-10 flex flex-col items-center text-center group">
+        <div class="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center text-3xl font-black text-primary mb-6 group-hover:scale-110 transition-transform">01</div>
+        <h4 class="text-xl font-bold mb-3">Cadastre-se na Shopee</h4>
+        <p class="text-sm text-on-surface-variant">Crie sua conta de creator em 10 minutos. A gente mostra o passo a passo completo.</p>
       </div>
 
-      <div class="reveal reveal-d1 relative z-10 flex flex-col items-center text-center group lg:translate-y-12">
-        <div class="w-20 h-20 rounded-full bg-zinc-100 border-4 border-white flex items-center justify-center text-3xl font-black text-tt-cyan mb-6 group-hover:scale-110 transition-transform shadow-lg">02</div>
-        <h4 class="text-xl font-bold mb-3 font-headline">Escolha Produtos <span class="material-symbols-outlined text-shopee align-middle text-lg">shopping_cart</span></h4>
-        <p class="text-sm text-zinc-500">Selecione itens com alta comiss&atilde;o que combinam com seu p&uacute;blico.</p>
+      <div class="relative z-10 flex flex-col items-center text-center group mt-0 lg:translate-y-12">
+        <div class="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center text-3xl font-black text-secondary mb-6 group-hover:scale-110 transition-transform">02</div>
+        <h4 class="text-xl font-bold mb-3">Escolha Produtos <span class="material-symbols-outlined text-primary align-middle ml-1 text-lg" style="font-variation-settings: 'FILL' 1;">shopping_cart</span></h4>
+        <p class="text-sm text-on-surface-variant">A gente ensina a encontrar os produtos que mais pagam comiss&atilde;o. Voc&ecirc; n&atilde;o precisa adivinhar.</p>
       </div>
 
-      <div class="reveal reveal-d2 relative z-10 flex flex-col items-center text-center group">
-        <div class="w-20 h-20 rounded-full bg-zinc-100 border-4 border-white flex items-center justify-center text-3xl font-black text-tt-pink mb-6 group-hover:scale-110 transition-transform shadow-lg">03</div>
-        <h4 class="text-xl font-bold mb-3 font-headline">Divulgue <span class="material-symbols-outlined text-tt-cyan align-middle text-lg">play_circle</span></h4>
-        <p class="text-sm text-zinc-500">Compartilhe no WhatsApp, TikTok ou Instagram. Cada clique que vira compra gera comiss&atilde;o.</p>
+      <div class="relative z-10 flex flex-col items-center text-center group">
+        <div class="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center text-3xl font-black text-tertiary mb-6 group-hover:scale-110 transition-transform">03</div>
+        <h4 class="text-xl font-bold mb-3">Divulgue o Link <span class="material-symbols-outlined text-secondary align-middle ml-1 text-lg" style="font-variation-settings: 'FILL' 1;">share</span></h4>
+        <p class="text-sm text-on-surface-variant">Manda no WhatsApp, posta no TikTok ou Instagram. Cada clique que vira compra &eacute; dinheiro no seu bolso.</p>
       </div>
 
-      <div class="reveal reveal-d3 relative z-10 flex flex-col items-center text-center group lg:translate-y-12">
-        <div class="w-20 h-20 rounded-full bg-zinc-100 border-4 border-white flex items-center justify-center text-3xl font-black text-shopee mb-6 group-hover:scale-110 transition-transform shadow-lg">04</div>
-        <h4 class="text-xl font-bold mb-3 font-headline">Fature</h4>
-        <p class="text-sm text-zinc-500">Receba suas comiss&otilde;es direto na conta banc&aacute;ria. Sem complica&ccedil;&atilde;o.</p>
+      <div class="relative z-10 flex flex-col items-center text-center group mt-0 lg:translate-y-12">
+        <div class="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center text-3xl font-black text-primary mb-6 group-hover:scale-110 transition-transform">04</div>
+        <h4 class="text-xl font-bold mb-3">Receba na Conta</h4>
+        <p class="text-sm text-on-surface-variant">A comiss&atilde;o cai direto na sua conta banc&aacute;ria. Sem complica&ccedil;&atilde;o, sem intermedi&aacute;rio.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ O Desafio ━━━ -->
-<section id="desafio" class="py-24 bg-zinc-50">
-  <div class="max-w-screen-xl mx-auto px-6 md:px-8">
+<!-- ━━━ O Desafio (Módulos) ━━━ -->
+<section id="desafio" class="py-24 bg-surface-container-low">
+  <div class="container mx-auto px-8">
     <div class="grid lg:grid-cols-2 gap-16 items-start">
-      <div class="reveal">
-        <span class="text-shopee font-bold tracking-widest uppercase text-sm">O M&eacute;todo</span>
-        <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-2 mb-6 font-headline">30 DIAS PARA SUA<br/>PRIMEIRA COMISS&Atilde;O</h2>
-        <p class="text-zinc-500 text-base leading-relaxed mb-10 max-w-md">Chega de assistir aula e n&atilde;o fazer nada. Aqui &eacute; diferente: cada dia tem UMA tarefa. Voc&ecirc; faz, aplica e v&ecirc; o dinheiro entrando. Quem segue, fatura.</p>
+      <div>
+        <span class="text-primary font-bold tracking-widest uppercase text-sm">O M&eacute;todo</span>
+        <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-2 mb-6">30 DIAS.<br/>PRIMEIRA COMISS&Atilde;O.<br/><span class="text-primary">SEM ENROLA&Ccedil;&Atilde;O.</span></h2>
+        <p class="text-on-surface-variant text-lg leading-relaxed mb-10 max-w-md">
+          Chega de assistir aula e n&atilde;o fazer nada. Aqui &eacute; diferente: cada dia tem UMA tarefa. Voc&ecirc; faz, aplica e v&ecirc; o dinheiro entrando. <strong class="text-white">Quem segue, fatura.</strong>
+        </p>
         <div class="grid grid-cols-3 gap-6">
-          <div><span class="text-4xl font-black text-shopee font-headline">15</span><p class="text-zinc-400 text-xs mt-1 uppercase tracking-wider font-bold">Aulas</p></div>
-          <div><span class="text-4xl font-black text-shopee font-headline">5</span><p class="text-zinc-400 text-xs mt-1 uppercase tracking-wider font-bold">M&oacute;dulos</p></div>
-          <div><span class="text-4xl font-black text-shopee font-headline">30</span><p class="text-zinc-400 text-xs mt-1 uppercase tracking-wider font-bold">Dias</p></div>
+          <div>
+            <span class="text-5xl font-black text-primary">15</span>
+            <p class="text-on-surface-variant/60 text-xs mt-1 uppercase tracking-wider font-bold">Aulas</p>
+          </div>
+          <div>
+            <span class="text-5xl font-black text-primary">5</span>
+            <p class="text-on-surface-variant/60 text-xs mt-1 uppercase tracking-wider font-bold">M&oacute;dulos</p>
+          </div>
+          <div>
+            <span class="text-5xl font-black text-primary">30</span>
+            <p class="text-on-surface-variant/60 text-xs mt-1 uppercase tracking-wider font-bold">Dias</p>
+          </div>
         </div>
       </div>
 
-      <div class="reveal space-y-3">
-        <div class="bg-white rounded-2xl p-5 flex items-center gap-4 border border-zinc-100 shadow-sm">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-600 font-headline font-bold text-sm flex items-center justify-center">0</div>
-          <div><h4 class="font-bold text-sm">Comece por Aqui</h4><p class="text-zinc-400 text-xs mt-0.5">Boas-vindas, plataforma e grupo</p></div>
+      <div class="space-y-3">
+        <div class="bg-surface-container-high rounded-2xl p-5 flex items-center gap-4 border border-outline-variant/10 hover:border-primary/20 transition-colors">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 font-headline font-bold flex items-center justify-center">0</div>
+          <div><h4 class="font-bold">Comece por Aqui</h4><p class="text-on-surface-variant/50 text-sm mt-0.5">Boas-vindas &middot; Plataforma &middot; Grupo de suporte</p></div>
         </div>
-        <div class="bg-white rounded-2xl p-5 flex items-center gap-4 border border-zinc-100 shadow-sm">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-shopee/10 text-shopee font-headline font-bold text-sm flex items-center justify-center">1</div>
-          <div><h4 class="font-bold text-sm">Prepara&ccedil;&atilde;o</h4><p class="text-zinc-400 text-xs mt-0.5">Dias 1-3 &middot; Conta de creator &middot; Primeiros produtos</p></div>
+        <div class="bg-surface-container-high rounded-2xl p-5 flex items-center gap-4 border border-outline-variant/10 hover:border-primary/20 transition-colors">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 text-primary font-headline font-bold flex items-center justify-center">1</div>
+          <div><h4 class="font-bold">Prepara&ccedil;&atilde;o</h4><p class="text-on-surface-variant/50 text-sm mt-0.5">Dias 1-3 &middot; Conta de creator &middot; Primeiros produtos</p></div>
         </div>
-        <div class="bg-white rounded-2xl p-5 flex items-center gap-4 border border-zinc-100 shadow-sm">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-red-500/10 text-red-500 font-headline font-bold text-sm flex items-center justify-center">2</div>
-          <div><h4 class="font-bold text-sm">Primeiras Vendas</h4><p class="text-zinc-400 text-xs mt-0.5">Dias 4-10 &middot; Links de afiliado &middot; Divulga&ccedil;&atilde;o</p></div>
+        <div class="bg-surface-container-high rounded-2xl p-5 flex items-center gap-4 border border-outline-variant/10 hover:border-primary/20 transition-colors">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-500/10 text-red-400 font-headline font-bold flex items-center justify-center">2</div>
+          <div><h4 class="font-bold">Primeiras Vendas</h4><p class="text-on-surface-variant/50 text-sm mt-0.5">Dias 4-10 &middot; Links de afiliado &middot; Divulga&ccedil;&atilde;o no WhatsApp e redes</p></div>
         </div>
-        <div class="bg-white rounded-2xl p-5 flex items-center gap-4 border border-zinc-100 shadow-sm">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-purple-500/10 text-purple-500 font-headline font-bold text-sm flex items-center justify-center">3</div>
-          <div><h4 class="font-bold text-sm">Acelerando</h4><p class="text-zinc-400 text-xs mt-0.5">Dias 11-20 &middot; Conte&uacute;do que vende &middot; Alta comiss&atilde;o</p></div>
+        <div class="bg-surface-container-high rounded-2xl p-5 flex items-center gap-4 border border-outline-variant/10 hover:border-primary/20 transition-colors">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 font-headline font-bold flex items-center justify-center">3</div>
+          <div><h4 class="font-bold">Acelerando</h4><p class="text-on-surface-variant/50 text-sm mt-0.5">Dias 11-20 &middot; Conte&uacute;do que vende &middot; Alta comiss&atilde;o</p></div>
         </div>
-        <div class="bg-white rounded-2xl p-5 flex items-center gap-4 border border-zinc-100 shadow-sm">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-amber-500/10 text-amber-600 font-headline font-bold text-sm flex items-center justify-center">4</div>
-          <div><h4 class="font-bold text-sm">Escalando</h4><p class="text-zinc-400 text-xs mt-0.5">Dias 21-30 &middot; De R$500 para R$3.000/m&ecirc;s</p></div>
+        <div class="bg-surface-container-high rounded-2xl p-5 flex items-center gap-4 border border-outline-variant/10 hover:border-primary/20 transition-colors">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 font-headline font-bold flex items-center justify-center">4</div>
+          <div><h4 class="font-bold">Escalando</h4><p class="text-on-surface-variant/50 text-sm mt-0.5">Dias 21-30 &middot; De R$500 para R$3.000/m&ecirc;s</p></div>
         </div>
-        <!-- TikTok bonus -->
-        <div class="rounded-2xl p-5 flex items-center gap-4 bg-gradient-to-r from-tt-cyan/5 to-tt-pink/5 border border-tt-cyan/15">
-          <div class="flex-shrink-0 w-11 h-11 rounded-xl bg-tt-cyan/10 flex items-center justify-center">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="#25F4EE"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z"/></svg>
+        <!-- TikTok Bônus -->
+        <div class="rounded-2xl p-5 flex items-center gap-4 bg-gradient-to-r from-secondary/5 to-tertiary/5 border border-secondary/20 hover:border-secondary/40 transition-colors">
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#29fcf3"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z"/></svg>
           </div>
-          <div class="flex-1"><h4 class="font-bold text-sm">B&ocirc;nus: TikTok Shop</h4><p class="text-zinc-400 text-xs mt-0.5">A mesma estrat&eacute;gia aplicada ao TikTok Shop</p></div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-tt-cyan bg-tt-cyan/10 px-2.5 py-1 rounded-full">Novo</span>
+          <div class="flex-1"><h4 class="font-bold">B&ocirc;nus: TikTok Shop</h4><p class="text-on-surface-variant/50 text-sm mt-0.5">A mesma estrat&eacute;gia aplicada ao TikTok Shop — plataforma nova, menos concorr&ecirc;ncia</p></div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-3 py-1 rounded-full flex-shrink-0">Novo</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ━━━ Oferta (dark) ━━━ -->
-<section id="oferta" class="py-24 bg-white">
-  <div class="max-w-screen-xl mx-auto px-6 md:px-8">
-    <div class="reveal relative rounded-[2rem] md:rounded-[3rem] bg-zinc-950 text-white overflow-hidden p-8 md:p-16 lg:p-24 text-center">
-      <div class="absolute inset-0 bg-gradient-to-tr from-shopee/15 via-transparent to-tt-cyan/10"></div>
-      <div class="relative z-10 max-w-2xl mx-auto">
-        <h2 class="text-4xl md:text-6xl font-black tracking-tighter font-headline mb-6 leading-tight">VOC&Ecirc; PODE CONTINUAR<br/>SCROLLANDO. OU PODE<br/>COME&Ccedil;AR A FATURAR.</h2>
-        <p class="text-zinc-400 text-base mb-8 max-w-lg mx-auto leading-relaxed">R$29,90. Pagamento &uacute;nico. Acesso vital&iacute;cio. Garantia de 7 dias. Se n&atilde;o fizer sentido, devolvemos cada centavo. Voc&ecirc; n&atilde;o tem nada a perder — s&oacute; tempo pra recuperar.</p>
+<!-- ━━━ CTA / Oferta ━━━ -->
+<section id="oferta" class="py-24">
+  <div class="container mx-auto px-8">
+    <div class="relative rounded-[3rem] bg-surface-container overflow-hidden p-12 md:p-24">
+      <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/10"></div>
+      <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-tight">
+          VOC&Ecirc; PODE CONTINUAR<br/>SCROLLANDO.<br/>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">OU PODE COME&Ccedil;AR A FATURAR.</span>
+        </h2>
+        <p class="text-xl text-on-surface-variant mb-8 max-w-xl mx-auto">
+          R$29,90. Pagamento &uacute;nico. Acesso vital&iacute;cio. Garantia de 7 dias. Voc&ecirc; n&atilde;o tem nada a perder — s&oacute; tempo pra recuperar.
+        </p>
 
-        <!-- Price -->
+        <!-- Preço -->
         <div class="mb-8">
-          <span class="text-zinc-500 text-lg line-through">R$197</span>
+          <span class="text-on-surface-variant/40 text-lg line-through">R$197</span>
           <div class="flex items-baseline justify-center gap-1 mt-1">
-            <span class="text-zinc-400 text-2xl font-headline">R$</span>
+            <span class="text-on-surface-variant text-2xl font-headline">R$</span>
             <span class="text-7xl md:text-8xl font-black tracking-tighter font-headline">29</span>
             <span class="text-2xl font-bold font-headline">,90</span>
           </div>
-          <p class="text-zinc-500 text-sm mt-2">Pagamento &uacute;nico &middot; Acesso vital&iacute;cio</p>
         </div>
 
-        <!-- Checks -->
+        <!-- Checklist -->
         <div class="text-left max-w-sm mx-auto space-y-3 mb-10">
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-sm">5 m&oacute;dulos + 15 aulas pr&aacute;ticas (Shopee)</span></div>
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-sm">M&oacute;dulo b&ocirc;nus exclusivo: TikTok Shop</span></div>
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-sm">Desafio de 30 dias com tarefas di&aacute;rias</span></div>
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-sm">Acesso vital&iacute;cio &agrave; plataforma</span></div>
-          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span class="text-sm">Garantia incondicional de 7 dias</span></div>
+          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>5 m&oacute;dulos + 15 aulas pr&aacute;ticas (Shopee)</span></div>
+          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>M&oacute;dulo b&ocirc;nus exclusivo: TikTok Shop</span></div>
+          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>Desafio de 30 dias com tarefas di&aacute;rias</span></div>
+          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>Acesso vital&iacute;cio &agrave; plataforma</span></div>
+          <div class="flex items-center gap-3"><span class="material-symbols-outlined text-emerald-400 text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span><span>Garantia incondicional de 7 dias</span></div>
         </div>
 
-        <a href="https://creators-brasil.pay.yampi.com.br/pay/FCBGQ7BJRG" class="cta-glow gradient-cta text-white text-xl font-black py-6 px-16 rounded-2xl hover:scale-105 transition-transform shadow-2xl shadow-shopee/30 inline-block">
+        <a href="https://creators-brasil.pay.yampi.com.br/pay/FCBGQ7BJRG" class="gradient-primary text-on-primary-fixed text-xl font-black py-6 px-16 rounded-2xl hover:scale-105 transition-transform shadow-2xl shadow-primary/30 inline-block">
           QUERO MEU ACESSO — R$29,90
         </a>
 
-        <div class="flex items-center justify-center gap-5 mt-5 text-zinc-500 text-xs">
+        <div class="flex items-center justify-center gap-5 mt-5 text-on-surface-variant/30 text-xs">
           <span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">lock</span> Compra segura</span>
           <span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">credit_card</span> Pix, cart&atilde;o, boleto</span>
         </div>
@@ -417,40 +351,62 @@ tailwind.config = {
 </section>
 
 <!-- ━━━ FAQ ━━━ -->
-<section id="faq" class="py-24 bg-zinc-50">
-  <div class="max-w-2xl mx-auto px-6 md:px-8">
-    <div class="reveal text-center mb-14">
-      <h2 class="text-4xl md:text-5xl font-black tracking-tighter font-headline">D&Uacute;VIDAS FREQUENTES</h2>
+<section id="faq" class="py-24 bg-surface-container-low">
+  <div class="max-w-2xl mx-auto px-8">
+    <div class="text-center mb-14">
+      <h2 class="text-4xl md:text-5xl font-black tracking-tighter">PERGUNTAS FREQUENTES</h2>
     </div>
-    <div class="reveal space-y-3">
-      <details class="bg-white rounded-2xl border border-zinc-100 shadow-sm"><summary class="p-6 flex items-center justify-between font-bold text-sm">Preciso ter experi&ecirc;ncia com vendas?<span class="chevron material-symbols-outlined text-zinc-300 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-zinc-500 text-sm leading-relaxed -mt-1">N&atilde;o. O desafio foi feito para quem nunca vendeu nada online. Come&ccedil;amos do zero.</div></details>
-      <details class="bg-white rounded-2xl border border-zinc-100 shadow-sm"><summary class="p-6 flex items-center justify-between font-bold text-sm">Preciso aparecer ou gravar v&iacute;deo?<span class="chevron material-symbols-outlined text-zinc-300 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-zinc-500 text-sm leading-relaxed -mt-1">N&atilde;o. A maioria das estrat&eacute;gias funciona sem aparecer. Se quiser criar conte&uacute;do pro TikTok, o b&ocirc;nus ensina.</div></details>
-      <details class="bg-white rounded-2xl border border-zinc-100 shadow-sm"><summary class="p-6 flex items-center justify-between font-bold text-sm">O que &eacute; o b&ocirc;nus TikTok Shop?<span class="chevron material-symbols-outlined text-zinc-300 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-zinc-500 text-sm leading-relaxed -mt-1">M&oacute;dulo extra que ensina a mesma estrat&eacute;gia aplicada ao TikTok Shop — plataforma nova, menos concorr&ecirc;ncia.</div></details>
-      <details class="bg-white rounded-2xl border border-zinc-100 shadow-sm"><summary class="p-6 flex items-center justify-between font-bold text-sm">Em quanto tempo vejo resultado?<span class="chevron material-symbols-outlined text-zinc-300 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-zinc-500 text-sm leading-relaxed -mt-1">Quem segue o desafio di&aacute;rio costuma ver as primeiras comiss&otilde;es entre a primeira e a segunda semana.</div></details>
-      <details class="bg-white rounded-2xl border border-zinc-100 shadow-sm"><summary class="p-6 flex items-center justify-between font-bold text-sm">E se eu n&atilde;o gostar?<span class="chevron material-symbols-outlined text-zinc-300 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-zinc-500 text-sm leading-relaxed -mt-1">7 dias de garantia incondicional. Devolvemos 100% do valor, sem perguntas.</div></details>
-      <details class="bg-white rounded-2xl border border-zinc-100 shadow-sm"><summary class="p-6 flex items-center justify-between font-bold text-sm">O acesso &eacute; vital&iacute;cio?<span class="chevron material-symbols-outlined text-zinc-300 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-zinc-500 text-sm leading-relaxed -mt-1">Sim. Paga uma vez (R$29,90), acessa pra sempre. Sem mensalidade.</div></details>
+    <div class="space-y-3">
+      <details class="bg-surface-container-high rounded-2xl border border-outline-variant/10"><summary class="p-6 flex items-center justify-between font-bold">Preciso ter experi&ecirc;ncia com vendas?<span class="chevron material-symbols-outlined text-on-surface-variant/30 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant leading-relaxed -mt-1">N&atilde;o. O desafio foi feito pra quem nunca vendeu nada online. Come&ccedil;amos do absoluto zero.</div></details>
+      <details class="bg-surface-container-high rounded-2xl border border-outline-variant/10"><summary class="p-6 flex items-center justify-between font-bold">Preciso aparecer ou gravar v&iacute;deo?<span class="chevron material-symbols-outlined text-on-surface-variant/30 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant leading-relaxed -mt-1">N&atilde;o. A maioria das estrat&eacute;gias funciona sem mostrar a cara. Se quiser criar conte&uacute;do pro TikTok, o b&ocirc;nus ensina.</div></details>
+      <details class="bg-surface-container-high rounded-2xl border border-outline-variant/10"><summary class="p-6 flex items-center justify-between font-bold">O que &eacute; o b&ocirc;nus TikTok Shop?<span class="chevron material-symbols-outlined text-on-surface-variant/30 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant leading-relaxed -mt-1">M&oacute;dulo extra que ensina a mesma estrat&eacute;gia no TikTok Shop. Plataforma nova no Brasil = menos concorr&ecirc;ncia = mais oportunidade.</div></details>
+      <details class="bg-surface-container-high rounded-2xl border border-outline-variant/10"><summary class="p-6 flex items-center justify-between font-bold">Em quanto tempo vejo resultado?<span class="chevron material-symbols-outlined text-on-surface-variant/30 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant leading-relaxed -mt-1">Quem segue o desafio di&aacute;rio costuma ver as primeiras comiss&otilde;es entre a 1&ordf; e 2&ordf; semana. O m&eacute;todo &eacute; pr&aacute;tico — voc&ecirc; aplica e v&ecirc; o resultado.</div></details>
+      <details class="bg-surface-container-high rounded-2xl border border-outline-variant/10"><summary class="p-6 flex items-center justify-between font-bold">E se eu n&atilde;o gostar?<span class="chevron material-symbols-outlined text-on-surface-variant/30 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant leading-relaxed -mt-1">7 dias de garantia incondicional. Devolvemos 100% do valor. Sem perguntas. Sem burocracia. Risco zero.</div></details>
+      <details class="bg-surface-container-high rounded-2xl border border-outline-variant/10"><summary class="p-6 flex items-center justify-between font-bold">O acesso &eacute; vital&iacute;cio?<span class="chevron material-symbols-outlined text-on-surface-variant/30 text-xl flex-shrink-0 ml-4">expand_more</span></summary><div class="px-6 pb-6 text-on-surface-variant leading-relaxed -mt-1">Sim. Paga uma vez, acessa pra sempre. Sem mensalidade, sem surpresa.</div></details>
     </div>
   </div>
 </section>
 
-<!-- ━━━ Footer (dark) ━━━ -->
-<footer class="bg-zinc-950 w-full py-12 px-6 border-t border-zinc-900 text-sm">
-  <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-    <div class="text-xl font-black text-shopee font-headline tracking-tighter">CREATOR BRASIL</div>
-    <p class="text-zinc-500 text-center max-w-md text-xs">Este produto n&atilde;o garante a obten&ccedil;&atilde;o de resultados. Qualquer refer&ecirc;ncia ao desempenho n&atilde;o &eacute; garantia de resultado futuro.</p>
-    <div class="flex gap-8 text-xs font-medium">
-      <span class="text-shopee">Status: Operacional</span>
-      <span class="text-zinc-600">&copy; 2026 Creator Brasil</span>
+<!-- ━━━ Footer ━━━ -->
+<footer class="bg-zinc-950 w-full py-16 px-8 border-t border-zinc-900">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+      <div class="max-w-xs">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="material-symbols-outlined text-shopee text-xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+          <span class="text-xl font-black text-shopee">CREATOR BRASIL</span>
+        </div>
+        <p class="text-zinc-500 leading-relaxed text-sm">O m&eacute;todo mais direto para come&ccedil;ar a faturar como creator e afiliado da Shopee e TikTok Shop.</p>
+      </div>
+      <div class="flex gap-16">
+        <div>
+          <h5 class="text-zinc-100 font-bold mb-4 uppercase tracking-widest text-xs">Links</h5>
+          <ul class="space-y-3 text-sm">
+            <li><a class="text-zinc-500 hover:text-secondary transition-colors" href="#vantagens">Vantagens</a></li>
+            <li><a class="text-zinc-500 hover:text-secondary transition-colors" href="#metodo">Como Funciona</a></li>
+            <li><a class="text-zinc-500 hover:text-secondary transition-colors" href="#desafio">O Desafio</a></li>
+            <li><a class="text-zinc-500 hover:text-secondary transition-colors" href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-zinc-100 font-bold mb-4 uppercase tracking-widest text-xs">Plataformas</h5>
+          <ul class="space-y-3 text-sm">
+            <li><span class="text-zinc-500">Shopee Creators</span></li>
+            <li><span class="text-zinc-500">TikTok Shop</span></li>
+            <li><span class="text-zinc-500">MemberKit</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-zinc-600 text-[10px] max-w-md text-center md:text-left">Este produto n&atilde;o garante a obten&ccedil;&atilde;o de resultados. Qualquer refer&ecirc;ncia ao desempenho n&atilde;o &eacute; garantia de resultado futuro.</p>
+      <div class="flex gap-8 text-xs font-medium">
+        <span class="text-shopee">Status: Operacional</span>
+        <span class="text-zinc-600">&copy; 2026 Creator Brasil</span>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- Scripts -->
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
