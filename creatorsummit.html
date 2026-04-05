@@ -88,19 +88,19 @@ tailwind.config = {
     </div>
 
     <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] mb-8">
-      DE R$0 A
+      GANHE A PARTIR DE
       <span class="inline-flex items-center justify-center w-10 h-10 md:w-14 md:h-14 mb-[-0.2em] mx-1">
         <svg class="w-full h-full drop-shadow-[0_0_8px_rgba(41,252,243,0.8)]" fill="none" viewBox="0 0 24 24">
           <path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z" fill="#29fcf3"/>
           <path style="mix-blend-mode:screen;transform:translateX(-1px);" d="M19.178 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z" fill="#ff0050"/>
         </svg>
-      </span>
+      </span><br/>
       <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-secondary">R$3.000/M&Ecirc;S</span><br/>
-      <span class="text-zinc-500">EM 30 DIAS.</span>
+      <span class="text-zinc-500">COMO CREATOR.</span>
     </h1>
 
     <p class="text-xl md:text-2xl text-on-muted max-w-2xl mb-10 leading-relaxed">
-      80% das fam&iacute;lias brasileiras est&atilde;o endividadas. Voc&ecirc; n&atilde;o precisa ser mais uma estat&iacute;stica. A Shopee paga comiss&atilde;o pra quem divulga produtos — e voc&ecirc; s&oacute; precisa de um celular pra come&ccedil;ar. <strong class="text-white">Sem estoque. Sem aparecer. Sem investimento.</strong>
+        A Shopee paga voc&ecirc; pra divulgar produtos. Sem comprar nada, sem aparecer, sem sair de casa. Voc&ecirc; manda um link, algu&eacute;m compra, o dinheiro cai na sua conta. <strong class="text-white">S&oacute; precisa de um celular.</strong>
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4">
@@ -117,14 +117,105 @@ tailwind.config = {
   <div class="lg:col-span-5 relative hidden lg:block">
     <div class="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full"></div>
     <div class="relative bg-surface-high p-4 rounded-[3rem] border border-outline/20 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-      <img alt="App de vendas no celular" class="rounded-[2.5rem] w-full aspect-[9/16] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmeosjXNgbz781rsUThMIi97lD7zQV9h-ZhxWQfdujFe3B_q1c9Lxa1xgiAMkhtoHagc9-imfAkT1Ub8iybD_QeD64HSMupdZaODquNt_YJo9nhspSpQ44Wc1i0O1P1ytYhycvQfiJ0-q-c7YL-oEUszHpJ_hdDru3s-XYJHTe4A2m3fMv9NYxIZHV-0hxTw9pSQvwj8C54RdE4g1wtdP2WhfLwki3AeOsT20b9PntTTzsw5V8Yajs9jimqBYZgGvSJADqO2PqlnU"/>
-      <div class="absolute -bottom-6 -left-6 bg-secondary-dark text-white p-6 rounded-2xl shadow-xl">
-        <div class="flex items-center gap-2 mb-1">
-          <span class="material-symbols-outlined text-shopee text-xl" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
-          <span class="text-[10px] font-black text-white/60 tracking-widest uppercase">Shopee Creator</span>
+      <!-- Tela do celular com notificações -->
+      <div class="rounded-[2.5rem] w-full aspect-[9/16] bg-gradient-to-b from-zinc-900 to-black overflow-hidden relative p-5 pt-10 flex flex-col">
+        <!-- Status bar -->
+        <div class="flex justify-between items-center mb-6 text-[10px] text-white/40">
+          <span>09:41</span>
+          <div class="flex gap-1 items-center">
+            <span class="material-symbols-outlined text-xs">signal_cellular_alt</span>
+            <span class="material-symbols-outlined text-xs">wifi</span>
+            <span class="material-symbols-outlined text-xs">battery_full</span>
+          </div>
         </div>
-        <div class="text-4xl font-black">R$3K</div>
-        <div class="text-xs font-bold uppercase tracking-widest opacity-80">Meta em 30 dias</div>
+
+        <!-- Header Shopee -->
+        <div class="flex items-center gap-3 mb-5 bg-shopee/10 rounded-2xl px-4 py-3 border border-shopee/20">
+          <span class="material-symbols-outlined text-shopee text-2xl" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+          <div>
+            <p class="text-shopee text-xs font-black uppercase tracking-wider">Shopee Creator</p>
+            <p class="text-white/40 text-[10px]">Painel de Comiss&otilde;es</p>
+          </div>
+        </div>
+
+        <!-- Saldo -->
+        <div class="bg-white/5 rounded-2xl p-4 mb-4 border border-white/5">
+          <p class="text-white/30 text-[10px] uppercase tracking-wider mb-1">Comiss&atilde;o dispon&iacute;vel</p>
+          <p class="text-white text-3xl font-black font-headline">R$ 2.847<span class="text-base text-white/40">,60</span></p>
+          <div class="flex items-center gap-1 mt-1">
+            <span class="material-symbols-outlined text-emerald-400 text-xs" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+            <span class="text-emerald-400 text-[10px] font-bold">+34% vs m&ecirc;s passado</span>
+          </div>
+        </div>
+
+        <!-- Notificação Shopee -->
+        <div class="bg-shopee/10 rounded-2xl px-4 py-3 mb-3 border border-shopee/15">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-shopee/20 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-shopee text-base" style="font-variation-settings: 'FILL' 1;">paid</span>
+            </span>
+            <div class="min-w-0">
+              <p class="text-white text-[11px] font-bold">Comiss&atilde;o de R$18,50</p>
+              <p class="text-white/30 text-[9px]">Kit Maquiagem &middot; Shopee</p>
+            </div>
+            <span class="text-shopee text-[9px] font-bold flex-shrink-0">agora</span>
+          </div>
+        </div>
+
+        <!-- Notificação TikTok -->
+        <div class="bg-secondary/5 rounded-2xl px-4 py-3 mb-3 border border-secondary/15">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-secondary/15 flex items-center justify-center flex-shrink-0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#29fcf3"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.288-1.442V13.5a6.197 6.197 0 1 1-6.197-6.197c.141 0 .272.024.412.033v3.1c-.13-.01-.251-.033-.412-.033a3.098 3.098 0 1 0 3.098 3.098V0h3.097a4.716 4.716 0 0 0 4.701 4.503v2.183h-.411z"/></svg>
+            </span>
+            <div class="min-w-0">
+              <p class="text-white text-[11px] font-bold">Venda pelo TikTok Shop</p>
+              <p class="text-white/30 text-[9px]">Fone Bluetooth &middot; R$12,40</p>
+            </div>
+            <span class="text-secondary text-[9px] font-bold flex-shrink-0">5min</span>
+          </div>
+        </div>
+
+        <!-- Notificação Shopee 2 -->
+        <div class="bg-white/5 rounded-2xl px-4 py-3 mb-3 border border-white/5">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-emerald-500/15 flex items-center justify-center flex-shrink-0">
+              <span class="material-symbols-outlined text-emerald-400 text-base" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </span>
+            <div class="min-w-0">
+              <p class="text-white text-[11px] font-bold">Saque aprovado</p>
+              <p class="text-white/30 text-[9px]">R$1.200 &middot; Banco Inter</p>
+            </div>
+            <span class="text-emerald-400 text-[9px] font-bold flex-shrink-0">1h</span>
+          </div>
+        </div>
+
+        <!-- Meta -->
+        <div class="mt-auto bg-gradient-to-r from-primary/10 to-tertiary/10 rounded-2xl px-4 py-3 border border-primary/15">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-white/40 text-[9px] uppercase tracking-wider">Meta mensal</p>
+              <p class="text-white text-sm font-black">R$3.000</p>
+            </div>
+            <div class="text-right">
+              <p class="text-primary text-sm font-black">95%</p>
+              <p class="text-white/30 text-[9px]">Falta R$153</p>
+            </div>
+          </div>
+          <div class="w-full bg-white/10 rounded-full h-1.5 mt-2">
+            <div class="bg-gradient-to-r from-primary to-tertiary rounded-full h-1.5" style="width:95%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge flutuante -->
+      <div class="absolute -bottom-6 -left-6 bg-secondary-dark text-white p-5 rounded-2xl shadow-xl border border-secondary/20">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="material-symbols-outlined text-shopee text-lg" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+          <span class="text-[9px] font-black text-white/50 tracking-widest uppercase">Shopee + TikTok</span>
+        </div>
+        <div class="text-3xl font-black">R$3K</div>
+        <div class="text-[10px] font-bold uppercase tracking-widest opacity-70">/m&ecirc;s como creator</div>
       </div>
     </div>
   </div>
@@ -137,10 +228,10 @@ tailwind.config = {
   <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
     <div>
       <span class="text-tertiary font-bold tracking-widest uppercase text-sm">A Realidade</span>
-      <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-2">O SAL&Aacute;RIO N&Atilde;O D&Aacute;.<br/><span class="text-primary">VOC&Ecirc; SABE DISSO.</span></h2>
+      <h2 class="text-4xl md:text-5xl font-black tracking-tight mt-2">O SAL&Aacute;RIO ACABOU<br/><span class="text-primary">E O M&Ecirc;S N&Atilde;O.</span></h2>
     </div>
     <p class="text-on-muted max-w-md">
-      80,2% das fam&iacute;lias brasileiras est&atilde;o endividadas. 29,6% est&atilde;o inadimplentes. A conta n&atilde;o fecha — e esperar o governo resolver n&atilde;o &eacute; op&ccedil;&atilde;o.
+      8 em cada 10 fam&iacute;lias brasileiras est&atilde;o endividadas. Avon, bolo de pote, app de pesquisa — nada resolve. Falta um modelo que funcione de verdade, com o que voc&ecirc; j&aacute; tem na m&atilde;o: um celular.
     </p>
   </div>
 
@@ -150,8 +241,8 @@ tailwind.config = {
       <div class="w-14 h-14 bg-tertiary/10 rounded-2xl flex items-center justify-center mb-8">
         <span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">heart_broken</span>
       </div>
-      <h3 class="text-2xl font-bold mb-4">J&aacute; tentou de tudo</h3>
-      <p class="text-on-muted leading-relaxed">Avon, bolo de pote, app de pesquisa, revenda de roupa. Nada escalou. Nada deu liberdade de verdade. O problema nunca foi voc&ecirc; — foi o modelo.</p>
+      <h3 class="text-2xl font-bold mb-4">Chega de fazer bico</h3>
+      <p class="text-on-muted leading-relaxed">Revenda, bolo de pote, app que paga centavos. Tudo isso d&aacute; trabalho e n&atilde;o escala. Aqui &eacute; diferente: voc&ecirc; compartilha um link e a Shopee faz o resto.</p>
     </div>
 
     <div class="group bg-surface-high p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2">
@@ -159,8 +250,8 @@ tailwind.config = {
       <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-8">
         <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
       </div>
-      <h3 class="text-2xl font-bold mb-4">A Shopee paga pra voc&ecirc; indicar</h3>
-      <p class="text-on-muted leading-relaxed">Comiss&otilde;es de 3% a 30% por venda. Voc&ecirc; compartilha um link, algu&eacute;m compra, o dinheiro cai na sua conta. <strong class="text-white">Sem estoque. Sem risco.</strong></p>
+      <h3 class="text-2xl font-bold mb-4">A Shopee faz o trabalho pesado</h3>
+      <p class="text-on-muted leading-relaxed">Produto, entrega, SAC — tudo &eacute; por conta da Shopee. Voc&ecirc; s&oacute; indica. Quando algu&eacute;m compra pelo seu link, a comiss&atilde;o &eacute; sua. <strong class="text-white">Zero risco.</strong></p>
     </div>
 
     <div class="group bg-surface-high p-8 rounded-3xl relative overflow-hidden transition-all hover:-translate-y-2">
@@ -168,8 +259,8 @@ tailwind.config = {
       <div class="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mb-8">
         <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">smartphone</span>
       </div>
-      <h3 class="text-2xl font-bold mb-4">S&oacute; precisa do celular</h3>
-      <p class="text-on-muted leading-relaxed">Sem computador. Sem ferramenta cara. Sem saber de tecnologia. Se voc&ecirc; sabe mandar mensagem no WhatsApp, <strong class="text-white">voc&ecirc; sabe fazer isso.</strong></p>
+      <h3 class="text-2xl font-bold mb-4">Do sof&aacute;, do &ocirc;nibus, de qualquer lugar</h3>
+      <p class="text-on-muted leading-relaxed">Sem computador, sem ferramenta cara. Se voc&ecirc; sabe mandar um zap, <strong class="text-white">voc&ecirc; j&aacute; sabe o suficiente.</strong></p>
     </div>
   </div>
 </div>
@@ -268,11 +359,11 @@ tailwind.config = {
     <div class="absolute inset-0 bg-gradient-to-tr from-primary/15 via-transparent to-secondary/10"></div>
     <div class="relative z-10 max-w-3xl mx-auto text-center">
       <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-tight">
-        R$29,90 HOJE.<br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">R$3.000/M&Ecirc;S EM 30 DIAS.</span>
+        CUSTA MENOS QUE<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">UM LANCHE NO IFOOD.</span>
       </h2>
       <p class="text-lg text-on-muted mb-6 max-w-xl mx-auto">
-        Voc&ecirc; gasta mais do que isso num lanche. Aqui voc&ecirc; investe em aprender a ganhar dinheiro pro resto da vida. E se n&atilde;o fizer sentido, devolvemos cada centavo em at&eacute; 7 dias.
+        R$29,90. Uma vez. Pra sempre. Outros cursos cobram R$497 e ainda pedem R$2.000 em an&uacute;ncio. Aqui n&atilde;o tem custo escondido. E se n&atilde;o gostar, pede o dinheiro de volta em at&eacute; 7 dias.
       </p>
 
       <div class="mb-8">
