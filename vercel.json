@@ -1,4 +1,10 @@
 {
+  "rewrites": [
+    {
+      "source": "/creatorsummit",
+      "destination": "/creatorsummit.html"
+    }
+  ],
   "redirects": [
     {
       "source": "/pflto",
