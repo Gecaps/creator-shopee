@@ -374,6 +374,33 @@ Ambos via mobile, link direto (sem UTMs de panfleto), sem order bump, sem upsell
 
 ---
 
+## 10c. O QUE FOI FEITO EM 05/04/2026
+
+### Landing page Creator Summit (`creatorsummit.html`)
+- [x] Página criada em `creatorbrasil.com.br/creatorsummit`
+- [x] Rewrite `/creatorsummit` → `/creatorsummit.html` no vercel.json
+- [x] Design dark baseado no template PULSE (fornecido pelo Gerson)
+- [x] TikTok SVG grande (400px) no fundo do hero — funcionando
+- [x] Celular mockup com tela de notificações Shopee/TikTok (comissões, vendas, saque)
+- [x] Copy baseada na pesquisa de mercado (pesquisa-dores-audiencia-renda-extra.md)
+- [x] Headline: "Se você sabe mandar um zap, já pode ganhar R$3.000/mês"
+- [x] Seções: hero, vantagens (bento grid), como funciona (4 passos), desafio (módulos), oferta, FAQ
+- [x] FAQ com objeções reais: "É golpe?", "Já comprei curso", "Não entendo de tecnologia"
+- [x] GA4 incluído
+- [ ] **Pendente:** sacolinha Shopee não renderiza visível no fundo escuro — corrigir na próxima sessão
+
+### Evolution API
+- [x] DNS `evolution.gecaps.com.br` criado no Cloudflare → servidor Hetzner (178.104.45.62)
+- [x] Evolution API instalada no EasyPanel pelo Gerson
+- [x] API Key salva: `29683C4C977415CAAFCCE10F7D57E11`
+- [x] Credenciais salvas em `N8N GECAPS/secrets/n8n_credentials.env`
+- [ ] **Pendente:** criar instância e conectar WhatsApp do Gerson
+
+### Automações n8n
+- [ ] **Pendente:** montar workflow Yampi → n8n → WhatsApp (aguardando instância Evolution)
+
+---
+
 ## 11. INCONSISTÊNCIAS CONHECIDAS
 
 ### ~~⚠️ automacoes.md desatualizado~~ ✅ Corrigido em 04/04
@@ -413,6 +440,7 @@ Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 - [ ] Testar checkout completo (compra + upsells + obrigado)
 
 ### Médio prazo
+- [ ] **Sacolinha Shopee no fundo do hero** — SVG não renderiza visível no fundo escuro. Tentar PNG com fundo transparente ou ajustar cor/opacity
 - [ ] Gravar vídeo da página de obrigado (script pronto)
 - [ ] Implementar automações n8n (captura → conversão → pós-compra)
 - [ ] Imprimir primeira tiragem de panfletos (10.000 para teste)
