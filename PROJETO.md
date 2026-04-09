@@ -423,28 +423,67 @@ Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 
 ---
 
+## 10d. O QUE FOI FEITO EM 07-09/04/2026
+
+### WhatsApp nas páginas
+- [x] Número de WhatsApp do Creator Brasil: (11) 5304-9538
+- [x] Botão flutuante do WhatsApp adicionado em TODAS as 7 páginas do funil
+- [x] Mensagem pré-preenchida: "Quero saber mais sobre o Creator Brasil"
+- [x] Comportamento interativo: aparece em 2s, flutua suavemente, tooltip "Tem alguma dúvida?" em 8s
+- [x] Link: wa.me/551153049538
+
+### Roteiro completo das 15 aulas
+- [x] Arquivo criado: `copy/roteiro-aulas.md` (markdown completo)
+- [x] Arquivo Word gerado: `copy/Roteiro-Aulas-Creator-Shopee.docx` (formatado visual)
+- [x] Cronograma de gravação: 5 dias, ~2h25 de conteúdo final
+- [x] Cada aula com: roteiro word-by-word, tarefa prática, notas de tela
+- [x] Script gerador: `copy/gerar-roteiro-docx.py`
+
+### Primeira venda REAL
+- [x] **Rafael Silva** — R$29,90 via Pix — 09/04/2026 às 11:46
+- [x] Email: rafaelzambotti2901@gmail.com
+- [x] WhatsApp: (15) 99697-6772
+- [ ] **Pendente:** enviar mensagem de boas-vindas pro Rafael
+- [ ] **Pendente:** verificar se o webhook Yampi→MemberKit liberou o acesso dele
+
+### Evolution API
+- [ ] **API Key retornando 401** — verificar se mudou ou se o endpoint está diferente
+- [ ] **Pendente:** conectar instância do WhatsApp do Gerson
+
+### Página creatorsummit
+- [x] Várias iterações de design (dark PULSE, copy agressiva, celular com notificações)
+- [x] Headline final: "Se você sabe mandar um zap, já pode ganhar R$3.000/mês"
+- [ ] **Pendente:** sacolinha Shopee grande no fundo do hero (SVG não renderiza)
+- [ ] **Pendente:** copy pode melhorar — próxima sessão com mais calma
+
+### Estratégia de lançamento
+- [ ] **Aulas começam segunda-feira (14/04)** — mensagem de boas-vindas pra quem comprar até lá
+- [ ] Gravar as aulas (roteiro pronto, apresentadora escalada)
+- [ ] Verificar drip content no MemberKit
+
+---
+
 ## 12. PRÓXIMOS PASSOS
 
-### Imediato (próxima sessão)
-- [x] **Commit + push** das mudanças locais pro GitHub ✅ 04/04 (commits c3c0b9a, fca2eb9)
-- [x] **Subir capas v3** dos 5 módulos no MemberKit ✅ já feito
-- [ ] **Fazer teste de compra** — validar fluxo completo: Yampi → MemberKit → email → acesso
-- [x] **Atualizar links** das páginas de obrigado: `#` → `creator-brasil.memberkit.com.br` ✅ 04/04
-- [ ] **Verificar drip content** — confirmar que as regras de liberação salvaram no MemberKit
+### Imediato
+- [ ] **Enviar boas-vindas pro Rafael** via WhatsApp (primeiro aluno!)
+- [ ] **Verificar acesso do Rafael no MemberKit** — webhook Yampi liberou?
+- [ ] **Configurar mensagem de boas-vindas automática** — "aulas começam segunda 14/04"
+- [ ] **Corrigir Evolution API** — API key 401, verificar com Gerson
+- [ ] **Verificar drip content** no MemberKit
 
-### Curto prazo
-- [x] Instalar analytics (GA4 G-G0J2SXC40E) em todas as páginas do funil ✅ 04/04
-- [x] Atualizar `copy/automacoes.md` (trocar Kiwify/Hotmart → Yampi + MemberKit) ✅ 04/04
-- [x] Alinhar "30 vs 50 produtos" no banner vs upsell ✅ 04/04
-- [ ] Configurar webhook da Yampi no n8n para capturar pedidos
+### Curto prazo (até segunda 14/04)
+- [ ] **Gravar as 15 aulas** — roteiro pronto em `copy/Roteiro-Aulas-Creator-Shopee.docx`
+- [ ] **Subir vídeos no MemberKit**
+- [ ] Configurar webhook Yampi → n8n → WhatsApp (automação pós-compra)
 - [ ] Testar checkout completo (compra + upsells + obrigado)
 
 ### Médio prazo
-- [ ] **Sacolinha Shopee no fundo do hero** — SVG não renderiza visível no fundo escuro. Tentar PNG com fundo transparente ou ajustar cor/opacity
-- [ ] Gravar vídeo da página de obrigado (script pronto)
-- [ ] Implementar automações n8n (captura → conversão → pós-compra)
-- [ ] Imprimir primeira tiragem de panfletos (10.000 para teste)
-- [ ] **Gravar vídeos das 15 aulas** e subir no MemberKit (estrutura e módulos já estão prontos)
+- [ ] Sacolinha Shopee no fundo do hero da página creatorsummit
+- [ ] Gravar vídeo da página de obrigado (script em `copy/video-script.md`)
+- [ ] Automações n8n completas (captura, conversão, pós-compra)
+- [ ] Imprimir panfletos (10.000 para teste)
+- [ ] Melhorar copy da página creatorsummit
 
 ---
 
