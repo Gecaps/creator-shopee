@@ -1,7 +1,7 @@
 # Creator Shopee — Documento Mestre do Projeto
 
-> Última atualização: 2026-04-04
-> Status: MemberKit configurado (5 módulos, 15 aulas, capas subidas), Yampi integrada, deploy no ar. **Falta gravar os vídeos das aulas**, teste de compra e analytics.
+> Última atualização: 2026-04-10
+> Status: Funil completo operacional — Yampi + MemberKit + Brevo + Airtable + n8n. Primeira venda (Rafael Silva). Automação ativa: compra → Airtable + email boas-vindas. **Falta gravar os vídeos das aulas** (roteiro pronto, aulas começam 14/04).
 
 ---
 
@@ -37,8 +37,9 @@ Panfleto (QR → /pflto) → Landing Page (index.html) → Checkout Yampi (R$29,
 | Integração Yampi → MemberKit | Webhook nativo | ✅ Configurado |
 | Emails de acesso | MemberKit (automático) | ✅ Envia ao liberar acesso |
 | WhatsApp grupo | chat.whatsapp.com/JLT1F6ZlARd6R5lS2t2aaL | ✅ Criado |
-| Automações | n8n (n8n.natuu.net) | ⏳ Pendente |
-| CRM/Leads | Supabase | ⏳ Pendente |
+| Automações | n8n (n8n.gecaps.com.br) | ✅ Workflow ativo (Yampi → Airtable + Brevo) |
+| CRM/Leads | Airtable (tabela Creator Compradores) | ✅ Registrando compradores |
+| Email Marketing | Brevo (contato@creatorbrasil.com.br) | ✅ Template boas-vindas, domínio autenticado |
 | Analytics | **Google Analytics 4** (G-G0J2SXC40E) | ✅ Em todas as páginas do funil |
 
 ---
@@ -94,7 +95,18 @@ Panfleto (QR → /pflto) → Landing Page (index.html) → Checkout Yampi (R$29,
 **Fluxo automático:** Compra aprovada na Yampi → webhook → MemberKit cadastra aluno → email de acesso enviado automaticamente.
 
 ### Emails
-O MemberKit envia automaticamente os emails de acesso ao curso (boas-vindas, dados de login). Não precisa de Resend/Brevo para isso — o MemberKit cuida sozinho.
+- **MemberKit:** Envia automaticamente os emails de acesso ao curso (boas-vindas, dados de login)
+- **Brevo:** Envia email de boas-vindas customizado (template ID 1) via workflow n8n. Sender: `contato@creatorbrasil.com.br`. Domínio autenticado (SPF+DKIM+DMARC). Lista: "Creator Brasil Compradores" (ID: 2)
+
+### Credenciais Brevo
+| Campo | Valor |
+|-------|-------|
+| API Key | Ver `N8N GECAPS/secrets/n8n_credentials.env` |
+| SMTP Key | Ver painel Brevo → Settings → SMTP & API |
+| Sender | `contato@creatorbrasil.com.br` (Creator Brasil) |
+| Lista ID | 2 (Creator Brasil Compradores) |
+| Template ID | 1 (Boas-vindas — aulas começam segunda 14/04) |
+| Domínio | `creatorbrasil.com.br` — autenticado |
 
 ---
 
@@ -443,8 +455,9 @@ Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 - [x] **Rafael Silva** — R$29,90 via Pix — 09/04/2026 às 11:46
 - [x] Email: rafaelzambotti2901@gmail.com
 - [x] WhatsApp: (15) 99697-6772
-- [ ] **Pendente:** enviar mensagem de boas-vindas pro Rafael
-- [ ] **Pendente:** verificar se o webhook Yampi→MemberKit liberou o acesso dele
+- [x] Email de boas-vindas enviado via Brevo (template atualizado, sem Módulo 0)
+- [x] Cadastrado no Airtable (tabela Creator Compradores)
+- [x] Cadastrado no Brevo (lista Creator Brasil Compradores)
 
 ### Evolution API
 - [ ] **API Key retornando 401** — verificar se mudou ou se o endpoint está diferente
@@ -457,33 +470,91 @@ Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 - [ ] **Pendente:** copy pode melhorar — próxima sessão com mais calma
 
 ### Estratégia de lançamento
-- [ ] **Aulas começam segunda-feira (14/04)** — mensagem de boas-vindas pra quem comprar até lá
+- [x] **Aulas começam segunda-feira (14/04)** — email de boas-vindas configurado
 - [ ] Gravar as aulas (roteiro pronto, apresentadora escalada)
 - [ ] Verificar drip content no MemberKit
+
+---
+
+## 10e. O QUE FOI FEITO EM 10/04/2026
+
+### Email Marketing — Brevo configurado
+- [x] Conta Brevo criada (free tier: 300 emails/dia)
+- [x] API Key e SMTP Key configuradas (ver painel Brevo)
+- [x] Sender criado: `contato@creatorbrasil.com.br` (Creator Brasil)
+- [x] Domínio `creatorbrasil.com.br` autenticado (SPF + DKIM + DMARC)
+- [x] Lista "Creator Brasil Compradores" (ID: 2)
+- [x] Template "Boas-vindas Creator Brasil" (ID: 1) — aulas começam 14/04, sem referência a módulos
+- [x] Email teste enviado para ia@gecaps.com.br — chegou na inbox
+
+### DNS Cloudflare (creatorbrasil.com.br) — Registros adicionados
+- [x] SPF atualizado: `v=spf1 include:spf.umbler.com include:sendinblue.com ~all`
+- [x] DKIM 1: `brevo1._domainkey` → CNAME → `b1.creatorbrasil-com-br.dkim.brevo.com`
+- [x] DKIM 2: `brevo2._domainkey` → CNAME → `b2.creatorbrasil-com-br.dkim.brevo.com`
+- [x] Brevo verification: TXT `brevo-code:e2223ecab4729fd371a2a0f308aeebad`
+- [x] DMARC atualizado: `v=DMARC1; p=none; rua=mailto:rua@dmarc.brevo.com`
+- [x] MX continua na Umbler (receber email) — sem conflito com Brevo (enviar)
+
+### Airtable — Tabela de compradores
+- [x] Tabela "Creator Compradores" criada na base Gecaps Latam (`appC5llhfVTS0WEws`)
+- [x] Table ID: `tblSrQXsprZjnGsva`
+- [x] 12 campos: Nome, Email, Telefone, Pedido ID, Valor (R$), Produtos, Status, Data Compra, UTM Source, UTM Campaign, CPF, Notas
+- [x] Rafael Silva cadastrado manualmente (primeiro registro)
+
+### Workflow n8n — Automação pós-compra
+- [x] Workflow criado: `[CREATOR] Yampi Compra → Airtable + Brevo` (ID: `Jwe0AqWgn5Ygi8gA`)
+- [x] Webhook URL: `https://n8n.gecaps.com.br/webhook/creator-yampi-compra`
+- [x] Fluxo: Webhook Yampi → Extrair Dados → Filtro (tem email?) → Salvar no Airtable + Adicionar no Brevo → Enviar Email Boas-Vindas (template ID 1)
+- [x] Tokens hardcoded nos HTTP Request nodes (Airtable Bearer + Brevo api-key)
+- [x] Workflow **ATIVO** — testado com webhook simulado, funcionou 100%
+- [x] Backup salvo em `N8N GECAPS/workflows/creator-yampi-compra.json`
+
+### Webhook Yampi → n8n
+- [x] Webhook criado na Yampi: "n8n Creator Airtable + Brevo" (ID: 1736642)
+- [x] URL: `https://n8n.gecaps.com.br/webhook/creator-yampi-compra`
+- [x] Eventos: `order.created` + `order.status.updated`
+- [x] Coexiste com webhook do MemberKit (ID: 1735627) — ambos recebem
+
+### UTM Passthrough — Rastreamento de origem
+- [x] Script JS adicionado em `index.html` e `creatorsummit.html`
+- [x] Captura UTMs da URL (utm_source, utm_medium, utm_campaign, utm_content, utm_term)
+- [x] Injeta no link do checkout Yampi automaticamente
+- [x] Panfleto QR → `/pflto` → UTMs na LP → UTMs no checkout → Airtable registra origem
+- [x] Sem UTM = link fica igual (não quebra nada)
+
+### GA4 — Análise de tráfego
+- [x] Consultado via API (property 531286149)
+- [x] 07/04: 4 sessões do panfleto (QR), 6 diretas
+- [x] 08/04: 3 sessões do panfleto, 5 diretas
+- [x] 09/04: 3 diretas + 1 orgânica (Google) — Rafael provavelmente digitou URL direto
+- [x] Panfleto funcionando — 7 visitas confirmadas via QR
+
+### Commits e deploys
+- [x] Commit `936bf77`: UTM passthrough + roteiro docx + ga4-config
+- [x] Push pro GitHub, deploy automático na Vercel
 
 ---
 
 ## 12. PRÓXIMOS PASSOS
 
 ### Imediato
-- [ ] **Enviar boas-vindas pro Rafael** via WhatsApp (primeiro aluno!)
 - [ ] **Verificar acesso do Rafael no MemberKit** — webhook Yampi liberou?
-- [ ] **Configurar mensagem de boas-vindas automática** — "aulas começam segunda 14/04"
 - [ ] **Corrigir Evolution API** — API key 401, verificar com Gerson
 - [ ] **Verificar drip content** no MemberKit
+- [ ] **Atualizar template Brevo** na segunda — trocar "aulas começam segunda" por texto padrão com link da plataforma
 
 ### Curto prazo (até segunda 14/04)
 - [ ] **Gravar as 15 aulas** — roteiro pronto em `copy/Roteiro-Aulas-Creator-Shopee.docx`
 - [ ] **Subir vídeos no MemberKit**
-- [ ] Configurar webhook Yampi → n8n → WhatsApp (automação pós-compra)
 - [ ] Testar checkout completo (compra + upsells + obrigado)
 
 ### Médio prazo
 - [ ] Sacolinha Shopee no fundo do hero da página creatorsummit
 - [ ] Gravar vídeo da página de obrigado (script em `copy/video-script.md`)
-- [ ] Automações n8n completas (captura, conversão, pós-compra)
-- [ ] Imprimir panfletos (10.000 para teste)
+- [ ] Sequência de emails pós-compra no Brevo (check-in dia 3, upsell dia 5)
+- [ ] Mautic + SendGrid no EasyPanel (escalar email marketing)
 - [ ] Melhorar copy da página creatorsummit
+- [ ] WhatsApp de suporte separado (via Evolution API)
 
 ---
 
