@@ -479,5 +479,24 @@ tailwind.config = {
 <style>@keyframes wa-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}</style>
 <script>setTimeout(function(){var w=document.getElementById('wa-widget');w.style.opacity='1';w.style.transform='scale(1)';},2000);setTimeout(function(){var t=document.getElementById('wa-tooltip');t.style.opacity='1';t.style.transform='translateY(0) scale(1)';t.style.pointerEvents='auto';},8000);document.getElementById('wa-tooltip').addEventListener('click',function(){this.style.opacity='0';this.style.transform='translateY(8px) scale(0.95)';});</script>
 
+<script>
+// Passar UTMs da landing page para o link do checkout Yampi
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var utms = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var hasUtm = false;
+  var utmStr = '';
+  utms.forEach(function(key){
+    var val = params.get(key);
+    if(val){ utmStr += '&' + key + '=' + encodeURIComponent(val); hasUtm = true; }
+  });
+  if(hasUtm){
+    document.querySelectorAll('a[href*="yampi.com.br"]').forEach(function(link){
+      var sep = link.href.indexOf('?') > -1 ? '&' : '?';
+      link.href = link.href + sep + utmStr.substring(1);
+    });
+  }
+})();
+</script>
 </body>
 </html>

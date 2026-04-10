@@ -472,4 +472,24 @@ document.querySelectorAll('a[href="#pricing"]').forEach(link => {
     });
 });
 </script>
+
+<script>
+// Passar UTMs da landing page para o link do checkout Yampi
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var utms = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var hasUtm = false;
+  var utmStr = '';
+  utms.forEach(function(key){
+    var val = params.get(key);
+    if(val){ utmStr += '&' + key + '=' + encodeURIComponent(val); hasUtm = true; }
+  });
+  if(hasUtm){
+    document.querySelectorAll('a[href*="yampi.com.br"]').forEach(function(link){
+      var sep = link.href.indexOf('?') > -1 ? '&' : '?';
+      link.href = link.href + sep + utmStr.substring(1);
+    });
+  }
+})();
+</script>
 </body></html>
