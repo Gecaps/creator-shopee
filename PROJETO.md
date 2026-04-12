@@ -1,7 +1,7 @@
 # Creator Shopee — Documento Mestre do Projeto
 
-> Última atualização: 2026-04-10
-> Status: Funil completo operacional — Yampi + MemberKit + Brevo + Airtable + n8n. Primeira venda (Rafael Silva). Automação ativa: compra → Airtable + email boas-vindas. **Falta gravar os vídeos das aulas** (roteiro pronto, aulas começam 14/04).
+> Última atualização: 2026-04-12
+> Status: Funil completo operacional — Yampi + MemberKit + Brevo + Airtable + n8n. Primeira venda (Rafael Silva). Automação ativa: compra → Airtable + email boas-vindas. Sentry CDN configurado. **Falta gravar os vídeos das aulas** (roteiro pronto, aulas começam 14/04).
 
 ---
 
@@ -153,17 +153,9 @@ Todos os produtos são **pagamento único** (não recorrente). Yampi não suport
 | Redirect | Destino | Uso |
 |----------|---------|-----|
 | `/pflto` | `/?utm_source=panfleto&utm_medium=qr&utm_campaign=pacote` | ✅ Já configurado |
-| `/checkout` | Yampi checkout R$29,90 | ⏳ Pendente |
-| `/curso` | MemberKit área do aluno | ⏳ Pendente |
-| `/grupo` | WhatsApp grupo de suporte | ⏳ Pendente |
-
-### ⚠️ ALERTA — Deploys falhando
-
-Os **últimos 10 deploys estão em ERROR** (sem build logs). O último deploy funcional é o commit `8aa298a` ("briefing pro designer").
-
-**Causa provável:** O repo foi mudado de **público para privado** no GitHub. A integração Vercel pode ter perdido acesso.
-
-**Ação necessária:** Verificar se o GitHub App da Vercel tem acesso ao repo privado `Gecaps/creator-shopee`.
+| `/checkout` | Yampi checkout R$29,90 | ✅ Já configurado |
+| `/curso` | MemberKit área do aluno | ✅ Já configurado |
+| `/grupo` | Landing page (redirect) | ✅ Já configurado |
 
 ---
 
@@ -522,16 +514,40 @@ Todas as correções commitadas e pushadas (commits `c3c0b9a` e `fca2eb9`).
 - [x] Panfleto QR → `/pflto` → UTMs na LP → UTMs no checkout → Airtable registra origem
 - [x] Sem UTM = link fica igual (não quebra nada)
 
-### GA4 — Análise de tráfego
-- [x] Consultado via API (property 531286149)
-- [x] 07/04: 4 sessões do panfleto (QR), 6 diretas
-- [x] 08/04: 3 sessões do panfleto, 5 diretas
-- [x] 09/04: 3 diretas + 1 orgânica (Google) — Rafael provavelmente digitou URL direto
-- [x] Panfleto funcionando — 7 visitas confirmadas via QR
+### GA4 — Análise de tráfego (consultado via API, property 531286149)
+| Data | Panfleto QR | Direto | Orgânico | Total |
+|------|-------------|--------|----------|-------|
+| 07/04 | 4 sessões (4 users) | 6 sessões | — | 10 |
+| 08/04 | 3 sessões (2 users) | 5 sessões | — | 8 |
+| 09/04 | — | 3 sessões | 1 (Google) | 4 |
+| **10/04** | **4 sessões** (Carpina PE, Linhares ES, SP, Ubud) | 2 sessões (RJ, outro) | 1 | **7** |
+| **Total** | **11 do panfleto** | 16 diretas | 2 orgânicas | **29 sessões** |
+
+- Panfleto QR funcionando — todas as visitas do panfleto são mobile (escanearam)
+- Rafael (09/04) provavelmente digitou URL direto (apareceu como "direct")
+- 10/04: 4 novas visitas do panfleto de 4 cidades diferentes
 
 ### Commits e deploys
 - [x] Commit `936bf77`: UTM passthrough + roteiro docx + ga4-config
+- [x] Commit `019083d`: PROJETO.md atualizado (credenciais removidas do doc)
 - [x] Push pro GitHub, deploy automático na Vercel
+
+---
+
+## 10f. O QUE FOI FEITO EM 12/04/2026
+
+### Sentry — Monitoramento de erros (feito em 10/04, registrado agora)
+- [x] Sentry Browser SDK v10.48.0 adicionado via CDN em 7 páginas HTML
+- [x] DSN corrigido para o projeto `creator-shopee` (org latam-bs)
+- [x] Auto-detect de environment (production em creatorbrasil.com.br)
+- [x] Performance monitoring: 10% sampling
+
+### Fix — Fonte itálica na navbar
+- [x] **Bug:** nome "Creator Shopee" na navbar renderizava estranho no mobile (via QR code)
+- [x] **Causa:** Google Fonts carregava Plus Jakarta Sans apenas nos pesos normais (não-itálico), mas a navbar usava classe `italic`. O navegador mobile fabricava um falso itálico distorcido
+- [x] **Correção:** Adicionada variante itálica peso 800 (`ital,wght@...;1,800`) ao import do Google Fonts
+- [x] Corrigido em 3 arquivos: `index.html`, `obrigado.html`, `obrigado-basico.html`
+- [x] Deploy automático via push — commit `f82f67d`
 
 ---
 
