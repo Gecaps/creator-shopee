@@ -9,6 +9,14 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-G0J2SXC40E');
+
+  // Dispara purchase ao carregar a pagina de obrigado
+  gtag('event', 'purchase', {
+    transaction_id: 'YAMPI_' + Date.now(),
+    value: 29.90,
+    currency: 'BRL',
+    items: [{ item_id: 'desafio-creator', item_name: 'Desafio Creator Shopee', price: 29.90, quantity: 1 }]
+  });
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Acesso Confirmado - Creator Shopee</title>

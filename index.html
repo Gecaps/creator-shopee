@@ -9,6 +9,11 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-G0J2SXC40E');
+
+  // --- Event Tracking ---
+  function trackEvent(name, params) {
+    gtag('event', name, params || {});
+  }
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Creator Shopee - De Zero a R$3.000/mês Como Creator Shopee</title>
@@ -477,7 +482,49 @@ document.getElementById('wa-tooltip').addEventListener('click', function(){ this
 document.querySelectorAll('a[href="#pricing"]').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
+        trackEvent('select_content', { content_type: 'cta_scroll', content_id: 'pricing' });
         document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Track checkout clicks (Yampi)
+document.querySelectorAll('a[href*="yampi.com.br"]').forEach(link => {
+    link.addEventListener('click', function() {
+        trackEvent('begin_checkout', {
+            currency: 'BRL',
+            value: 29.90,
+            items: [{ item_id: 'desafio-creator', item_name: 'Desafio Creator Shopee', price: 29.90, quantity: 1 }]
+        });
+    });
+});
+
+// Track WhatsApp clicks
+document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', function() {
+        trackEvent('contact', { method: 'whatsapp', content_id: 'wa_flutuante' });
+    });
+});
+
+// Track scroll depth (25%, 50%, 75%, 90%)
+(function(){
+    var marks = [25, 50, 75, 90], fired = {};
+    window.addEventListener('scroll', function() {
+        var pct = Math.round((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100);
+        marks.forEach(function(m) {
+            if (pct >= m && !fired[m]) {
+                fired[m] = true;
+                trackEvent('scroll_depth', { percent: m });
+            }
+        });
+    });
+})();
+
+// Track FAQ opens
+document.querySelectorAll('details').forEach(function(det) {
+    det.addEventListener('toggle', function() {
+        if (det.open) {
+            trackEvent('faq_open', { question: det.querySelector('summary').textContent.trim().substring(0, 80) });
+        }
     });
 });
 </script>
