@@ -1,2 +1,24 @@
+# Secrets - NUNCA subir para o GitHub
+secrets/
+*.env
+*.env.*
+
+# Node
+node_modules/
+
+# Build
+dist/
+build/
+.next/
+
+# Vercel
 .vercel
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.bak
+*.log

@@ -10,13 +10,30 @@
   gtag('js', new Date());
   gtag('config', 'G-G0J2SXC40E');
 
-  // Dispara purchase ao carregar a pagina de obrigado
-  gtag('event', 'purchase', {
-    transaction_id: 'YAMPI_' + Date.now(),
-    value: 29.90,
-    currency: 'BRL',
-    items: [{ item_id: 'desafio-creator', item_name: 'Desafio Creator Shopee', price: 29.90, quantity: 1 }]
-  });
+  // Pega ID real do pedido da URL (Yampi passa via redirect)
+  // Aceita: ?order_id=X | ?id=X | ?pedido=X | ?token=X | ?transaction_id=X
+  (function() {
+    var p = new URLSearchParams(window.location.search);
+    var orderId = p.get('order_id') || p.get('id') || p.get('pedido') || p.get('transaction_id') || p.get('token') || '';
+    var value = parseFloat(p.get('value') || p.get('amount') || '29.90') || 29.90;
+
+    // Sem orderId real, NAO dispara purchase — evita inflar metrica e duplicar
+    if (!orderId) {
+      console.warn('[GA4] purchase nao disparado: order_id ausente na URL');
+      return;
+    }
+
+    // Dedup local — se ja disparou nesta sessao com o mesmo pedido, ignora
+    var key = 'ga4_purchase_' + orderId;
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch(e){}
+
+    gtag('event', 'purchase', {
+      transaction_id: String(orderId),
+      value: value,
+      currency: 'BRL',
+      items: [{ item_id: 'desafio-creator-shopee', item_name: 'Desafio Creator Shopee', price: value, quantity: 1 }]
+    });
+  })();
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Acesso Confirmado - Creator Shopee</title>

@@ -14,9 +14,142 @@
   function trackEvent(name, params) {
     gtag('event', name, params || {});
   }
+
+  // view_item — top of funnel (uma vez por sessao)
+  (function(){
+    try {
+      if (sessionStorage.getItem('ga4_view_item_index')) return;
+      sessionStorage.setItem('ga4_view_item_index', '1');
+    } catch(e){}
+    gtag('event', 'view_item', {
+      currency: 'BRL',
+      value: 29.90,
+      items: [{ item_id: 'desafio-creator-shopee', item_name: 'Desafio Creator Shopee', price: 29.90, quantity: 1, item_category: 'curso' }]
+    });
+  })();
 </script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Creator Shopee - De Zero a R$3.000/mês Como Creator Shopee</title>
+<title>Desafio Creator Shopee — Curso Afiliado Shopee R$29,90 | Creator Brasil</title>
+<meta name="description" content="Aprenda a ser afiliado Shopee em 30 dias pelo celular. 15 aulas práticas, acesso vitalício por R$29,90. Garantia de 7 dias. Módulos liberados agora."/>
+<meta name="keywords" content="afiliado shopee, curso shopee, creator shopee, ganhar dinheiro shopee, como ser afiliado shopee, programa de afiliados shopee, curso afiliado, renda extra shopee"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="author" content="Creator Brasil — Grupo GECAPS"/>
+<link rel="canonical" href="https://creatorbrasil.com.br/"/>
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Creator Brasil"/>
+<meta property="og:title" content="Desafio Creator Shopee — Curso Afiliado Shopee R$29,90"/>
+<meta property="og:description" content="Aprenda a ser afiliado Shopee em 30 dias pelo celular. 15 aulas, R$29,90, garantia de 7 dias. Módulos liberados agora."/>
+<meta property="og:url" content="https://creatorbrasil.com.br/"/>
+<meta property="og:image" content="https://creatorbrasil.com.br/assets/og-image.png"/>
+<meta property="og:locale" content="pt_BR"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Desafio Creator Shopee — Curso Afiliado Shopee R$29,90"/>
+<meta name="twitter:description" content="15 aulas práticas pra ganhar comissão como afiliada Shopee. R$29,90 com garantia de 7 dias."/>
+<meta name="twitter:image" content="https://creatorbrasil.com.br/assets/og-image.png"/>
+<!-- Schema.org: Course -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Desafio Creator Shopee",
+  "description": "Curso prático de 15 aulas em 5 módulos pra virar afiliado da Shopee em 30 dias, do celular, sem estoque e sem aparecer. Ideal pra quem busca renda extra e nunca vendeu online.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Creator Brasil",
+    "sameAs": "https://creatorbrasil.com.br"
+  },
+  "educationalLevel": "Beginner",
+  "inLanguage": "pt-BR",
+  "about": ["Marketing de afiliados", "Shopee", "Renda extra", "Comissões online"],
+  "teaches": ["Criar conta Creator na Shopee", "Escolher produtos com alta comissão", "Divulgar no WhatsApp, Instagram e TikTok", "Escalar vendas até R$3.000/mês"],
+  "numberOfLessons": 15,
+  "timeRequired": "PT30D",
+  "offers": {
+    "@type": "Offer",
+    "price": "29.90",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "category": "Infoproduto",
+    "url": "https://creators-brasil.pay.yampi.com.br/pay/FCBGQ7BJRG"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "courseWorkload": "PT10H",
+    "instructor": {
+      "@type": "Organization",
+      "name": "Creator Brasil"
+    }
+  }
+}
+</script>
+<!-- Schema.org: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quanto custa o Desafio Creator Shopee?",
+      "acceptedAnswer": {"@type":"Answer","text":"R$29,90 em pagamento único, com acesso vitalício e garantia de 7 dias."}
+    },
+    {
+      "@type": "Question",
+      "name": "Preciso ter estoque ou investir em produtos?",
+      "acceptedAnswer": {"@type":"Answer","text":"Não. Você só divulga produtos da Shopee como afiliado e ganha comissão. Não precisa de estoque, CNPJ ou investimento inicial além do curso."}
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto tempo leva pra começar a ganhar?",
+      "acceptedAnswer": {"@type":"Answer","text":"A maioria dos alunos faz a primeira venda entre 5 e 15 dias após começar o curso. O método leva 30 dias pra escalar até R$3.000/mês."}
+    },
+    {
+      "@type": "Question",
+      "name": "Precisa aparecer em vídeo ou ter muitos seguidores?",
+      "acceptedAnswer": {"@type":"Answer","text":"Não. Você pode trabalhar apenas no WhatsApp e grupos, sem gravar vídeos e sem precisar de seguidores. O curso ensina as 5 estratégias principais."}
+    },
+    {
+      "@type": "Question",
+      "name": "Qual a comissão que a Shopee paga pro afiliado?",
+      "acceptedAnswer": {"@type":"Answer","text":"A comissão padrão é 3%, mas categorias como beleza, saúde e skincare chegam a 8-10% por venda. O curso ensina quais produtos escolher pra maximizar."}
+    },
+    {
+      "@type": "Question",
+      "name": "Funciona para quem nunca vendeu nada online?",
+      "acceptedAnswer": {"@type":"Answer","text":"Sim. O curso é 100% para iniciantes. As aulas são em vídeo, passo a passo, e podem ser assistidas pelo celular."}
+    },
+    {
+      "@type": "Question",
+      "name": "Tem garantia se eu não gostar?",
+      "acceptedAnswer": {"@type":"Answer","text":"Sim, 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do valor."}
+    }
+  ]
+}
+</script>
+<!-- Schema.org: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Creator Brasil",
+  "url": "https://creatorbrasil.com.br",
+  "logo": "https://creatorbrasil.com.br/assets/logo.png",
+  "sameAs": ["https://www.instagram.com/creatorbrasiloficial"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-11-5304-9538",
+    "contactType": "customer support",
+    "availableLanguage": "Portuguese"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Grupo GECAPS"
+  }
+}
+</script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
