@@ -22,3 +22,10 @@ Thumbs.db
 *.tmp
 *.bak
 *.log
+
+# Assets pesados (47MB de aulas/clips, nao usados em producao)
+assets/aulas/
+
+# Backups locais e ferramentas
+yampi-product-backup-*.json
+.playwright-mcp/
