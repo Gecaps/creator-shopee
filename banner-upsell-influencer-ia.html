@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banner Upsell — Seu Influencer IA</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    width: 430px;
+    height: 215px;
+    overflow: hidden;
+  }
+
+  .card {
+    width: 430px;
+    height: 215px;
+    background: linear-gradient(145deg, #02101a 0%, #010a12 50%, #00060a 100%);
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Glow ciano superior direito */
+  .glow-1 {
+    position: absolute;
+    width: 320px; height: 320px;
+    top: -160px; right: -60px;
+    background: radial-gradient(circle, rgba(6,182,212, 0.32) 0%, transparent 65%);
+  }
+
+  .glow-2 {
+    position: absolute;
+    width: 180px; height: 180px;
+    bottom: -90px; left: -40px;
+    background: radial-gradient(circle, rgba(6,182,212, 0.12) 0%, transparent 70%);
+  }
+
+  /* Grid */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Wireframe head decorativo no canto direito */
+  .head-decor {
+    position: absolute;
+    top: 50%; right: 32px;
+    transform: translateY(-50%);
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(6,182,212, 0.45);
+    background: rgba(6,182,212, 0.05);
+    box-shadow: 0 0 25px rgba(6,182,212, 0.15);
+  }
+  .head-decor::before {
+    content: '';
+    position: absolute;
+    top: 12%; bottom: 12%;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(6,182,212, 0.2), transparent);
+  }
+  .eye {
+    position: absolute;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #06b6d4;
+    top: 36%;
+    box-shadow: 0 0 6px rgba(6,182,212, 0.7);
+  }
+  .eye.left { left: 28%; }
+  .eye.right { right: 28%; }
+  .mouth {
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px; height: 5px;
+    border-bottom: 1.5px solid rgba(6,182,212, 0.55);
+    border-radius: 0 0 22px 22px;
+  }
+
+  /* Aura dashed ao redor da head */
+  .head-aura {
+    position: absolute;
+    width: 130px; height: 130px;
+    top: 50%; right: 11px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: 1px dashed rgba(6,182,212, 0.18);
+    pointer-events: none;
+  }
+
+  /* 2 nodes pequenos a esquerda da cabeca */
+  .node {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(6,182,212, 0.18);
+    border: 1.5px solid rgba(6,182,212, 0.55);
+    box-shadow: 0 0 8px rgba(6,182,212, 0.35);
+  }
+  .node-1 { top: 28%; right: 130px; }
+  .node-2 { bottom: 30%; right: 138px; }
+
+  /* Conteudo */
+  .content {
+    position: relative;
+    z-index: 2;
+    padding: 22px 28px;
+    width: 60%;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(6,182,212,0.12);
+    border: 1px solid rgba(6,182,212,0.35);
+    border-radius: 14px;
+    padding: 4px 11px;
+    font-size: 10px;
+    color: #06b6d4;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: #06b6d4;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(6,182,212, 0.7);
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.12;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  h1 span {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 6px;
+    padding: 4px 9px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .tag-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #06b6d4;
+    flex-shrink: 0;
+    box-shadow: 0 0 4px rgba(6,182,212, 0.6);
+  }
+
+  .tag.price {
+    background: rgba(6,182,212, 0.14);
+    border-color: rgba(6,182,212, 0.4);
+    color: #67e8f9;
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  /* Borda interna sutil */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255,255,255,0.05);
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="head-aura"></div>
+  <div class="head-decor">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="mouth"></div>
+  </div>
+  <div class="node node-1"></div>
+  <div class="node node-2"></div>
+
+  <div class="content">
+    <div class="badge"><span class="badge-dot"></span> IA · 01 · BÔNUS EXCLUSIVO</div>
+    <h1>Seu <span>Influencer IA</span></h1>
+    <p class="subtitle">38 aulas · Crie avatar fotorrealista e venda Shopee sem aparecer</p>
+    <div class="tags">
+      <div class="tag"><div class="tag-dot"></div> Avatar IA</div>
+      <div class="tag"><div class="tag-dot"></div> 38 aulas</div>
+      <div class="tag price"><div class="tag-dot"></div> R$ 97</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
